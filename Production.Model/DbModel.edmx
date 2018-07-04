@@ -14,8 +14,27 @@
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="DbModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="User" EntityType="DbModel.User" />
+          <EntitySet Name="Department" EntityType="DbModel.Department" />
+          <EntitySet Name="Role" EntityType="DbModel.Role" />
+          <EntitySet Name="Menu" EntityType="DbModel.Menu" />
+          <EntitySet Name="UserProperty" EntityType="DbModel.UserProperty" />
+          <EntitySet Name="DepartmentProperty" EntityType="DbModel.DepartmentProperty" />
+          <EntitySet Name="RoleProperty" EntityType="DbModel.RoleProperty" />
+          <EntitySet Name="UserLog" EntityType="DbModel.UserLog" />
+          <EntitySet Name="SystemLog" EntityType="DbModel.SystemLog" />
+          <EntitySet Name="Order" EntityType="DbModel.Order" />
+          <EntitySet Name="Material" EntityType="DbModel.Material" />
+          <EntitySet Name="Product" EntityType="DbModel.Product" />
+          <EntitySet Name="MaterialForm" EntityType="DbModel.MaterialForm" />
+          <EntitySet Name="ProductForm" EntityType="DbModel.ProductForm" />
+          <EntitySet Name="PurchaseForm" EntityType="DbModel.PurchaseForm" />
+          <EntitySet Name="MaterialRequisition" EntityType="DbModel.MaterialRequisition" />
+          <EntitySet Name="ProductionPlan" EntityType="DbModel.ProductionPlan" />
         </EntityContainer>
         <EntityType Name="User">
+          <Documentation>
+            <Summary>用户</Summary>
+          </Documentation>
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -25,21 +44,188 @@
               <Summary>登陆用户名</Summary>
             </Documentation>
           </Property>
-          <Property Name="Password" Type="String" Nullable="false" >
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" >
             <Documentation>
               <Summary>密码</Summary>
             </Documentation>
           </Property>
-          <Property Name="Name" Type="String" Nullable="false" >
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" >
             <Documentation>
               <Summary>姓名</Summary>
             </Documentation>
           </Property>
-          <Property Name="JobNumber" Type="String" Nullable="false" >
+          <Property Name="JobNumber" Type="String" Nullable="false" MaxLength="30" >
             <Documentation>
               <Summary>工号</Summary>
             </Documentation>
           </Property>
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>手机号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="LoginTime" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>最后登陆时间</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Department">
+          <Documentation>
+            <Summary>部门</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Documentation>
+            <Summary>角色</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Documentation>
+            <Summary>菜单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Url" Type="String" Nullable="false" />
+          <Property Name="Ico" Type="String" Nullable="false" />
+          <Property Name="Module" Type="String" Nullable="false" />
+          <Property Name="Sort" Type="String" Nullable="false" />
+          <Property Name="ParentId" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProperty">
+          <Documentation>
+            <Summary>用户权限</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="DepartmentProperty">
+          <Documentation>
+            <Summary>部门权限</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="RoleProperty">
+          <Documentation>
+            <Summary>角色权限</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="UserLog">
+          <Documentation>
+            <Summary>用户日志</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="SystemLog">
+          <Documentation>
+            <Summary>系统日志</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Documentation>
+            <Summary>订单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Documentation>
+            <Summary>原料</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Documentation>
+            <Summary>产品</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="MaterialForm">
+          <Documentation>
+            <Summary>原料出入库</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="ProductForm">
+          <Documentation>
+            <Summary>产品出入口</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="PurchaseForm">
+          <Documentation>
+            <Summary>采购单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="MaterialRequisition">
+          <Documentation>
+            <Summary>领料单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+        </EntityType>
+        <EntityType Name="ProductionPlan">
+          <Documentation>
+            <Summary>生产计划</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

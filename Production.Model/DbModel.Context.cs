@@ -26,5 +26,21 @@ namespace Production.Model
         }
     
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+        public virtual DbSet<UserProperty> UserProperty { get; set; }
+        public virtual DbSet<DepartmentProperty> DepartmentProperty { get; set; }
+        public virtual DbSet<RoleProperty> RoleProperty { get; set; }
+        public virtual DbSet<UserLog> UserLog { get; set; }
+        public virtual DbSet<SystemLog> SystemLog { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Material> Material { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<MaterialForm> MaterialForm { get; set; }
+        public virtual DbSet<ProductForm> ProductForm { get; set; }
+        public virtual DbSet<PurchaseForm> PurchaseForm { get; set; }
+        public virtual DbSet<MaterialRequisition> MaterialRequisition { get; set; }
+        public virtual DbSet<ProductionPlan> ProductionPlan { get; set; }
     }
 }

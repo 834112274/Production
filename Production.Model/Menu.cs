@@ -14,9 +14,9 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// 用户
+    /// 菜单
     /// </summary>
-    public partial class User
+    public partial class Menu
     {
     	/// <summary>
         /// 
@@ -24,39 +24,34 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 登陆用户名
+        /// 
         /// </summary>
-    	[DisplayName( "登陆用户名" )]
-        public string LoginName { get; set; }
-    	/// <summary>
-        /// 密码
-        /// </summary>
-    	[DisplayName( "密码" )]
-        public string Password { get; set; }
-    	/// <summary>
-        /// 姓名
-        /// </summary>
-    	[DisplayName( "姓名" )]
+    	[DisplayName( "" )]
         public string Name { get; set; }
     	/// <summary>
-        /// 工号
+        /// 
         /// </summary>
-    	[DisplayName( "工号" )]
-        public string JobNumber { get; set; }
+    	[DisplayName( "" )]
+        public string Url { get; set; }
     	/// <summary>
-        /// 手机号
+        /// 
         /// </summary>
-    	[DisplayName( "手机号" )]
-        public string Phone { get; set; }
+    	[DisplayName( "" )]
+        public string Ico { get; set; }
     	/// <summary>
-        /// 创建时间
+        /// 
         /// </summary>
-    	[DisplayName( "创建时间" )]
-        public System.DateTime CreateTime { get; set; }
+    	[DisplayName( "" )]
+        public string Module { get; set; }
     	/// <summary>
-        /// 最后登陆时间
+        /// 
         /// </summary>
-    	[DisplayName( "最后登陆时间" )]
-        public string LoginTime { get; set; }
+    	[DisplayName( "" )]
+        public string Sort { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string ParentId { get; set; }
     }
 }
