@@ -23,6 +23,13 @@ namespace Production.View
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/Script/easyui/js").Include(
+                      "~/Scripts/jquery-easyui-1.5.5.4/jquery.easyui.js",
+                      "~/Scripts/jquery-easyui-1.5.5.4/locale/easyui-lang-zh_CN.js"));
+
+            bundles.Add(new StyleBundle("~/Script/easyui/css").Include(
+                      "~/Scripts/jquery-easyui-1.5.5.4/themes/bootstrap/easyui.css",
+                      "~/Scripts/jquery-easyui-1.5.5.4/themes/icon.css"));
         }
     }
 }

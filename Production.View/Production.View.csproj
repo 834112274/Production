@@ -628,7 +628,7 @@
     <Content Include="Scripts\jquery-easyui-1.5.5.4\demo\window\modalwindow.html" />
     <Content Include="Scripts\jquery-easyui-1.5.5.4\demo\window\windowlayout.html" />
     <Content Include="Scripts\jquery-easyui-1.5.5.4\easyloader.js" />
-    <Content Include="Scripts\jquery-easyui-1.5.5.4\jquery.easyui.min.js" />
+    <Content Include="Scripts\jquery-easyui-1.5.5.4\jquery.easyui.js" />
     <Content Include="Scripts\jquery-easyui-1.5.5.4\jquery.easyui.mobile.js" />
     <Content Include="Scripts\jquery-easyui-1.5.5.4\jquery.min.js" />
     <Content Include="Scripts\jquery-easyui-1.5.5.4\license_freeware.txt" />
