@@ -103,12 +103,17 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Url" Type="String" Nullable="false" />
-          <Property Name="Ico" Type="String" Nullable="false" />
-          <Property Name="Module" Type="String" Nullable="false" />
-          <Property Name="Sort" Type="String" Nullable="false" />
-          <Property Name="ParentId" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>菜单名</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="120" />
+          <Property Name="Ico" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="Module" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Sort" Type="Int16" Nullable="false" />
+          <Property Name="ParentId" Type="String" MaxLength="40" />
+          <Property Name="IsVail" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="UserProperty">
           <Documentation>
@@ -144,7 +149,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
         </EntityType>
         <EntityType Name="SystemLog">
           <Documentation>

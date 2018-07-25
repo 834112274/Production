@@ -24,9 +24,9 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 
+        /// 菜单名
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "菜单名" )]
         public string Name { get; set; }
     	/// <summary>
         /// 
@@ -47,11 +47,16 @@ namespace Production.Model
         /// 
         /// </summary>
     	[DisplayName( "" )]
-        public string Sort { get; set; }
+        public short Sort { get; set; }
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
         public string ParentId { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public bool IsVail { get; set; }
     }
 }

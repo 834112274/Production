@@ -6,12 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="262754fbad3a4582bb6469e245bc9a2f" Name="Diagram1" >
         <EntityTypeShape EntityType="DbModel.User" Width="1.5" PointX="0.75" PointY="1.875" />
-        <EntityTypeShape EntityType="DbModel.Department" Width="1.5" PointX="5.875" PointY="3.625" />
+        <EntityTypeShape EntityType="DbModel.Department" Width="1.5" PointX="7.5" PointY="3.625" />
         <EntityTypeShape EntityType="DbModel.Role" Width="1.5" PointX="6.75" PointY="1.75" />
         <EntityTypeShape EntityType="DbModel.Menu" Width="1.5" PointX="3.875" PointY="3.5" />
-        <EntityTypeShape EntityType="DbModel.UserProperty" Width="1.5" PointX="3" PointY="2" />
-        <EntityTypeShape EntityType="DbModel.DepartmentProperty" Width="1.5" PointX="7.875" PointY="3.625" />
-        <EntityTypeShape EntityType="DbModel.RoleProperty" Width="1.5" PointX="9.875" PointY="3.625" />
+        <EntityTypeShape EntityType="DbModel.UserProperty" Width="1.5" PointX="5.5" PointY="3.5" />
+        <EntityTypeShape EntityType="DbModel.DepartmentProperty" Width="1.5" PointX="9.375" PointY="3.625" />
+        <EntityTypeShape EntityType="DbModel.RoleProperty" Width="1.5" PointX="8.625" PointY="1.75" />
         <EntityTypeShape EntityType="DbModel.UserLog" Width="1.5" PointX="0.875" PointY="8.25" />
         <EntityTypeShape EntityType="DbModel.SystemLog" Width="1.5" PointX="0.625" PointY="6.625" />
         <EntityTypeShape EntityType="DbModel.Order" Width="1.5" PointX="3.75" PointY="7.25" />
