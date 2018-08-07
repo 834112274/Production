@@ -23,5 +23,30 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public string Id { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string Type { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string Content { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string UserId { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string UserName { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string CreateTime { get; set; }
     }
 }

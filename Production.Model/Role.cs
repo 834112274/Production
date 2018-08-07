@@ -18,6 +18,12 @@ namespace Production.Model
     /// </summary>
     public partial class Role
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Role()
+        {
+            this.RoleProperty = new HashSet<RoleProperty>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
@@ -28,5 +34,18 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public string Name { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string Code { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string CreateTime { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoleProperty> RoleProperty { get; set; }
     }
 }

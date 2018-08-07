@@ -18,6 +18,14 @@ namespace Production.Model
     /// </summary>
     public partial class Menu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Menu()
+        {
+            this.UserProperty = new HashSet<UserProperty>();
+            this.RoleProperty = new HashSet<RoleProperty>();
+            this.DepartmentProperty = new HashSet<DepartmentProperty>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
@@ -58,5 +66,12 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public bool IsVail { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserProperty> UserProperty { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoleProperty> RoleProperty { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DepartmentProperty> DepartmentProperty { get; set; }
     }
 }

@@ -18,15 +18,39 @@ namespace Production.Model
     /// </summary>
     public partial class Department
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Department()
+        {
+            this.DepartmentProperty = new HashSet<DepartmentProperty>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 
+        /// 部门名称
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "部门名称" )]
         public string Name { get; set; }
+    	/// <summary>
+        /// 部门代码
+        /// </summary>
+    	[DisplayName( "部门代码" )]
+        public string Code { get; set; }
+    	/// <summary>
+        /// 创建时间
+        /// </summary>
+    	[DisplayName( "创建时间" )]
+        public System.DateTime CreateTime { get; set; }
+    	/// <summary>
+        /// 部门状态
+        /// </summary>
+    	[DisplayName( "部门状态" )]
+        public short Status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DepartmentProperty> DepartmentProperty { get; set; }
     }
 }

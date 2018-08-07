@@ -30,6 +30,30 @@
           <EntitySet Name="PurchaseForm" EntityType="DbModel.PurchaseForm" />
           <EntitySet Name="MaterialRequisition" EntityType="DbModel.MaterialRequisition" />
           <EntitySet Name="ProductionPlan" EntityType="DbModel.ProductionPlan" />
+          <AssociationSet Name="UserUserProperty" Association="DbModel.UserUserProperty">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProperty" EntitySet="UserProperty" />
+          </AssociationSet>
+          <AssociationSet Name="MenuUserProperty" Association="DbModel.MenuUserProperty">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="UserProperty" EntitySet="UserProperty" />
+          </AssociationSet>
+          <AssociationSet Name="RoleRoleProperty" Association="DbModel.RoleRoleProperty">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleProperty" EntitySet="RoleProperty" />
+          </AssociationSet>
+          <AssociationSet Name="MenuRoleProperty" Association="DbModel.MenuRoleProperty">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="RoleProperty" EntitySet="RoleProperty" />
+          </AssociationSet>
+          <AssociationSet Name="MenuDepartmentProperty" Association="DbModel.MenuDepartmentProperty">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="DepartmentProperty" EntitySet="DepartmentProperty" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentDepartmentProperty" Association="DbModel.DepartmentDepartmentProperty">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="DepartmentProperty" EntitySet="DepartmentProperty" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Documentation>
@@ -59,7 +83,7 @@
               <Summary>工号</Summary>
             </Documentation>
           </Property>
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" >
+          <Property Name="Phone" Type="String" MaxLength="20" >
             <Documentation>
               <Summary>手机号</Summary>
             </Documentation>
@@ -74,6 +98,22 @@
               <Summary>最后登陆时间</Summary>
             </Documentation>
           </Property>
+          <Property Name="Email" Type="String" MaxLength="120" >
+            <Documentation>
+              <Summary>邮箱</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>用户类型</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="UserProperty" Relationship="DbModel.UserUserProperty" FromRole="User" ToRole="UserProperty" />
+          <Property Name="Status" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>用户状态</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
         <EntityType Name="Department">
           <Documentation>
@@ -83,7 +123,27 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="60" >
+            <Documentation>
+              <Summary>部门名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Code" Type="String" MaxLength="20" >
+            <Documentation>
+              <Summary>部门代码</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Status" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>部门状态</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="DepartmentProperty" Relationship="DbModel.DepartmentDepartmentProperty" FromRole="Department" ToRole="DepartmentProperty" />
         </EntityType>
         <EntityType Name="Role">
           <Documentation>
@@ -94,6 +154,9 @@
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
           <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" />
+          <Property Name="CreateTime" Type="String" Nullable="false" />
+          <NavigationProperty Name="RoleProperty" Relationship="DbModel.RoleRoleProperty" FromRole="Role" ToRole="RoleProperty" />
         </EntityType>
         <EntityType Name="Menu">
           <Documentation>
@@ -114,6 +177,9 @@
           <Property Name="Sort" Type="Int16" Nullable="false" />
           <Property Name="ParentId" Type="String" MaxLength="40" />
           <Property Name="IsVail" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserProperty" Relationship="DbModel.MenuUserProperty" FromRole="Menu" ToRole="UserProperty" />
+          <NavigationProperty Name="RoleProperty" Relationship="DbModel.MenuRoleProperty" FromRole="Menu" ToRole="RoleProperty" />
+          <NavigationProperty Name="DepartmentProperty" Relationship="DbModel.MenuDepartmentProperty" FromRole="Menu" ToRole="DepartmentProperty" />
         </EntityType>
         <EntityType Name="UserProperty">
           <Documentation>
@@ -123,6 +189,16 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="User" Relationship="DbModel.UserUserProperty" FromRole="UserProperty" ToRole="User" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Menu" Relationship="DbModel.MenuUserProperty" FromRole="UserProperty" ToRole="Menu" />
+          <Property Name="MenuId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="30" />
         </EntityType>
         <EntityType Name="DepartmentProperty">
           <Documentation>
@@ -132,6 +208,20 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="Menu" Relationship="DbModel.MenuDepartmentProperty" FromRole="DepartmentProperty" ToRole="Menu" />
+          <Property Name="MenuId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Department" Relationship="DbModel.DepartmentDepartmentProperty" FromRole="DepartmentProperty" ToRole="Department" />
+          <Property Name="DepartmentId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateUser" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>创建人</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
         <EntityType Name="RoleProperty">
           <Documentation>
@@ -141,6 +231,20 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="Role" Relationship="DbModel.RoleRoleProperty" FromRole="RoleProperty" ToRole="Role" />
+          <Property Name="RoleId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Menu" Relationship="DbModel.MenuRoleProperty" FromRole="RoleProperty" ToRole="Menu" />
+          <Property Name="MenuId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="30" >
+            <Documentation>
+              <Summary>创建人</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
         <EntityType Name="UserLog">
           <Documentation>
@@ -150,6 +254,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" />
+          <Property Name="CreateTime" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="SystemLog">
           <Documentation>
@@ -159,6 +268,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Level" Type="String" Nullable="false" />
+          <Property Name="Method" Type="String" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" />
+          <Property Name="CreateTime" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Order">
           <Documentation>
@@ -177,6 +290,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Specifications" Type="String" Nullable="false" />
+          <Property Name="CreateTime" Type="String" Nullable="false" />
+          <Property Name="CreateUser" Type="String" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Unit" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Documentation>
@@ -232,6 +351,78 @@
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
         </EntityType>
+        <Association Name="UserUserProperty">
+          <End Type="DbModel.User" Role="User" Multiplicity="1" />
+          <End Type="DbModel.UserProperty" Role="UserProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProperty">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MenuUserProperty">
+          <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="DbModel.UserProperty" Role="UserProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProperty">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoleRoleProperty">
+          <End Type="DbModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="DbModel.RoleProperty" Role="RoleProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleProperty">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MenuRoleProperty">
+          <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="DbModel.RoleProperty" Role="RoleProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleProperty">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MenuDepartmentProperty">
+          <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="DbModel.DepartmentProperty" Role="DepartmentProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DepartmentProperty">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepartmentDepartmentProperty">
+          <End Type="DbModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="DbModel.DepartmentProperty" Role="DepartmentProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DepartmentProperty">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

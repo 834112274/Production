@@ -23,5 +23,28 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public string Id { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string MenuId { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string DepartmentId { get; set; }
+    	/// <summary>
+        /// 创建时间
+        /// </summary>
+    	[DisplayName( "创建时间" )]
+        public System.DateTime CreateTime { get; set; }
+    	/// <summary>
+        /// 创建人
+        /// </summary>
+    	[DisplayName( "创建人" )]
+        public string CreateUser { get; set; }
+    
+        public virtual Menu Menu { get; set; }
+        public virtual Department Department { get; set; }
     }
 }

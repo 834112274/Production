@@ -18,6 +18,12 @@ namespace Production.Model
     /// </summary>
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.UserProperty = new HashSet<UserProperty>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
@@ -58,5 +64,23 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "最后登陆时间" )]
         public string LoginTime { get; set; }
+    	/// <summary>
+        /// 邮箱
+        /// </summary>
+    	[DisplayName( "邮箱" )]
+        public string Email { get; set; }
+    	/// <summary>
+        /// 用户类型
+        /// </summary>
+    	[DisplayName( "用户类型" )]
+        public short Type { get; set; }
+    	/// <summary>
+        /// 用户状态
+        /// </summary>
+    	[DisplayName( "用户状态" )]
+        public short Status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserProperty> UserProperty { get; set; }
     }
 }
