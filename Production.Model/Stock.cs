@@ -14,14 +14,24 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// 采购单
+    /// 库存
     /// </summary>
-    public partial class PurchaseForm
+    public partial class Stock
     {
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
         public string Id { get; set; }
+    	/// <summary>
+        /// 批号
+        /// </summary>
+    	[DisplayName( "批号" )]
+        public string BatchNumber { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public decimal Count { get; set; }
     }
 }

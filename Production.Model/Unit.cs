@@ -14,37 +14,33 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// 部门权限
+    /// 单位
     /// </summary>
-    public partial class DepartmentProperty
+    public partial class Unit
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Unit()
+        {
+            this.MixMaterial = new HashSet<MixMaterial>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 
+        /// 单位名称
         /// </summary>
-    	[DisplayName( "" )]
-        public string MenuId { get; set; }
+    	[DisplayName( "单位名称" )]
+        public string Name { get; set; }
     	/// <summary>
-        /// 
+        /// 排序
         /// </summary>
-    	[DisplayName( "" )]
-        public string DepartmentId { get; set; }
-    	/// <summary>
-        /// 创建时间
-        /// </summary>
-    	[DisplayName( "创建时间" )]
-        public System.DateTime CreateTime { get; set; }
-    	/// <summary>
-        /// 创建人
-        /// </summary>
-    	[DisplayName( "创建人" )]
-        public string CreateUser { get; set; }
+    	[DisplayName( "排序" )]
+        public short Sort { get; set; }
     
-        public virtual Menu Menu { get; set; }
-        public virtual Department Department { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MixMaterial> MixMaterial { get; set; }
     }
 }

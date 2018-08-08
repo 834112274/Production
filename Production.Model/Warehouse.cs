@@ -14,44 +14,49 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// User
+    /// 仓库
     /// </summary>
-    public partial class User
+    public partial class Warehouse
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.UserProperty = new HashSet<UserProperty>();
-        }
-    
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 登陆用户名
+        /// 
         /// </summary>
-    	[DisplayName( "登陆用户名" )]
-        public string Name { get; set; }
+    	[DisplayName( "" )]
+        public string Address { get; set; }
     	/// <summary>
-        /// 密码
+        /// 
         /// </summary>
-    	[DisplayName( "密码" )]
-        public string Password { get; set; }
+    	[DisplayName( "" )]
+        public string Area { get; set; }
+    	/// <summary>
+        /// 默认
+        /// </summary>
+    	[DisplayName( "默认" )]
+        public bool Default { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string Code { get; set; }
     	/// <summary>
         /// 创建时间
         /// </summary>
     	[DisplayName( "创建时间" )]
         public System.DateTime CreateTime { get; set; }
     	/// <summary>
-        /// 备注
+        /// 修改时间
         /// </summary>
-    	[DisplayName( "备注" )]
-        public string Remarks { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProperty> UserProperty { get; set; }
-        public virtual Employee Employee { get; set; }
+    	[DisplayName( "修改时间" )]
+        public System.DateTime UpdateTime { get; set; }
+    	/// <summary>
+        /// 是否参与计算
+        /// </summary>
+    	[DisplayName( "是否参与计算" )]
+        public bool InCalculation { get; set; }
     }
 }

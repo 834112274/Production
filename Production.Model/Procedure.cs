@@ -14,14 +14,14 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// User
+    /// 工序
     /// </summary>
-    public partial class User
+    public partial class Procedure
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Procedure()
         {
-            this.UserProperty = new HashSet<UserProperty>();
+            this.ProcedureList = new HashSet<ProcedureList>();
         }
     
     	/// <summary>
@@ -30,28 +30,37 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 登陆用户名
+        /// 工序名称
         /// </summary>
-    	[DisplayName( "登陆用户名" )]
+    	[DisplayName( "工序名称" )]
         public string Name { get; set; }
     	/// <summary>
-        /// 密码
+        /// 工序编号
         /// </summary>
-    	[DisplayName( "密码" )]
-        public string Password { get; set; }
+    	[DisplayName( "工序编号" )]
+        public string StepCode { get; set; }
     	/// <summary>
-        /// 创建时间
+        /// 工序单价
         /// </summary>
-    	[DisplayName( "创建时间" )]
-        public System.DateTime CreateTime { get; set; }
+    	[DisplayName( "工序单价" )]
+        public decimal Price { get; set; }
     	/// <summary>
-        /// 备注
+        /// 工序内容
         /// </summary>
-    	[DisplayName( "备注" )]
-        public string Remarks { get; set; }
+    	[DisplayName( "工序内容" )]
+        public string Content { get; set; }
+    	/// <summary>
+        /// 修改时间
+        /// </summary>
+    	[DisplayName( "修改时间" )]
+        public System.DateTime UpdateTime { get; set; }
+    	/// <summary>
+        /// 修改人
+        /// </summary>
+    	[DisplayName( "修改人" )]
+        public string UpdateUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProperty> UserProperty { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual ICollection<ProcedureList> ProcedureList { get; set; }
     }
 }

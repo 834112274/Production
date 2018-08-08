@@ -21,7 +21,7 @@ namespace Production.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Department()
         {
-            this.DepartmentProperty = new HashSet<DepartmentProperty>();
+            this.User = new HashSet<Employee>();
         }
     
     	/// <summary>
@@ -49,8 +49,28 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "部门状态" )]
         public short Status { get; set; }
+    	/// <summary>
+        /// 父级ID
+        /// </summary>
+    	[DisplayName( "父级ID" )]
+        public string ParentId { get; set; }
+    	/// <summary>
+        /// 部门地址
+        /// </summary>
+    	[DisplayName( "部门地址" )]
+        public string Address { get; set; }
+    	/// <summary>
+        /// 部门电话
+        /// </summary>
+    	[DisplayName( "部门电话" )]
+        public string Tel { get; set; }
+    	/// <summary>
+        /// 备注
+        /// </summary>
+    	[DisplayName( "备注" )]
+        public string Remarks { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DepartmentProperty> DepartmentProperty { get; set; }
+        public virtual ICollection<Employee> User { get; set; }
     }
 }

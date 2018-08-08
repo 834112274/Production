@@ -14,14 +14,24 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// 原料出入库
+    /// 产品类型
     /// </summary>
-    public partial class MaterialForm
+    public partial class MaterialType
     {
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
         public string Id { get; set; }
+    	/// <summary>
+        /// 类型名称
+        /// </summary>
+    	[DisplayName( "类型名称" )]
+        public string Name { get; set; }
+    	/// <summary>
+        /// 父级ID
+        /// </summary>
+    	[DisplayName( "父级ID" )]
+        public string ParentId { get; set; }
     }
 }

@@ -27,11 +27,6 @@ namespace Production.Model
         /// 
         /// </summary>
     	[DisplayName( "" )]
-        public string UserId { get; set; }
-    	/// <summary>
-        /// 
-        /// </summary>
-    	[DisplayName( "" )]
         public string MenuId { get; set; }
     	/// <summary>
         /// 创建时间
@@ -43,8 +38,13 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public string CreateUser { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string UserId { get; set; }
     
-        public virtual User User { get; set; }
         public virtual Menu Menu { get; set; }
+        public virtual User User { get; set; }
     }
 }

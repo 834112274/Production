@@ -14,9 +14,9 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// 角色权限
+    /// ProcedureList
     /// </summary>
-    public partial class RoleProperty
+    public partial class ProcedureList
     {
     	/// <summary>
         /// 
@@ -27,24 +27,14 @@ namespace Production.Model
         /// 
         /// </summary>
     	[DisplayName( "" )]
-        public string RoleId { get; set; }
+        public string ProductMixId { get; set; }
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
-        public string MenuId { get; set; }
-    	/// <summary>
-        /// 创建时间
-        /// </summary>
-    	[DisplayName( "创建时间" )]
-        public System.DateTime CreateTime { get; set; }
-    	/// <summary>
-        /// 创建人
-        /// </summary>
-    	[DisplayName( "创建人" )]
-        public string CreateUser { get; set; }
+        public string ProcedureId { get; set; }
     
-        public virtual Role Role { get; set; }
-        public virtual Menu Menu { get; set; }
+        public virtual ProductMix ProductMix { get; set; }
+        public virtual Procedure Procedure { get; set; }
     }
 }

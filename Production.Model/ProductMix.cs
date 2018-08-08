@@ -14,14 +14,15 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// User
+    /// 产品结构
     /// </summary>
-    public partial class User
+    public partial class ProductMix
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public ProductMix()
         {
-            this.UserProperty = new HashSet<UserProperty>();
+            this.MixMaterial = new HashSet<MixMaterial>();
+            this.ProcedureList = new HashSet<ProcedureList>();
         }
     
     	/// <summary>
@@ -30,20 +31,15 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 登陆用户名
+        /// 修改时间
         /// </summary>
-    	[DisplayName( "登陆用户名" )]
-        public string Name { get; set; }
+    	[DisplayName( "修改时间" )]
+        public System.DateTime UpdateTime { get; set; }
     	/// <summary>
-        /// 密码
+        /// 修改人
         /// </summary>
-    	[DisplayName( "密码" )]
-        public string Password { get; set; }
-    	/// <summary>
-        /// 创建时间
-        /// </summary>
-    	[DisplayName( "创建时间" )]
-        public System.DateTime CreateTime { get; set; }
+    	[DisplayName( "修改人" )]
+        public string UpdateUser { get; set; }
     	/// <summary>
         /// 备注
         /// </summary>
@@ -51,7 +47,9 @@ namespace Production.Model
         public string Remarks { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProperty> UserProperty { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual ICollection<MixMaterial> MixMaterial { get; set; }
+        public virtual Material Material { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProcedureList> ProcedureList { get; set; }
     }
 }

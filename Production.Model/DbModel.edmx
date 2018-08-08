@@ -13,49 +13,111 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="DbModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="User" EntityType="DbModel.User" />
+          <EntitySet Name="Employee" EntityType="DbModel.Employee" />
           <EntitySet Name="Department" EntityType="DbModel.Department" />
           <EntitySet Name="Role" EntityType="DbModel.Role" />
           <EntitySet Name="Menu" EntityType="DbModel.Menu" />
           <EntitySet Name="UserProperty" EntityType="DbModel.UserProperty" />
-          <EntitySet Name="DepartmentProperty" EntityType="DbModel.DepartmentProperty" />
-          <EntitySet Name="RoleProperty" EntityType="DbModel.RoleProperty" />
           <EntitySet Name="UserLog" EntityType="DbModel.UserLog" />
           <EntitySet Name="SystemLog" EntityType="DbModel.SystemLog" />
-          <EntitySet Name="Order" EntityType="DbModel.Order" />
           <EntitySet Name="Material" EntityType="DbModel.Material" />
-          <EntitySet Name="Product" EntityType="DbModel.Product" />
-          <EntitySet Name="MaterialForm" EntityType="DbModel.MaterialForm" />
-          <EntitySet Name="ProductForm" EntityType="DbModel.ProductForm" />
-          <EntitySet Name="PurchaseForm" EntityType="DbModel.PurchaseForm" />
-          <EntitySet Name="MaterialRequisition" EntityType="DbModel.MaterialRequisition" />
-          <EntitySet Name="ProductionPlan" EntityType="DbModel.ProductionPlan" />
-          <AssociationSet Name="UserUserProperty" Association="DbModel.UserUserProperty">
-            <End Role="User" EntitySet="User" />
-            <End Role="UserProperty" EntitySet="UserProperty" />
-          </AssociationSet>
           <AssociationSet Name="MenuUserProperty" Association="DbModel.MenuUserProperty">
             <End Role="Menu" EntitySet="Menu" />
             <End Role="UserProperty" EntitySet="UserProperty" />
           </AssociationSet>
-          <AssociationSet Name="RoleRoleProperty" Association="DbModel.RoleRoleProperty">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="RoleProperty" EntitySet="RoleProperty" />
-          </AssociationSet>
-          <AssociationSet Name="MenuRoleProperty" Association="DbModel.MenuRoleProperty">
-            <End Role="Menu" EntitySet="Menu" />
-            <End Role="RoleProperty" EntitySet="RoleProperty" />
-          </AssociationSet>
-          <AssociationSet Name="MenuDepartmentProperty" Association="DbModel.MenuDepartmentProperty">
-            <End Role="Menu" EntitySet="Menu" />
-            <End Role="DepartmentProperty" EntitySet="DepartmentProperty" />
-          </AssociationSet>
-          <AssociationSet Name="DepartmentDepartmentProperty" Association="DbModel.DepartmentDepartmentProperty">
+          <AssociationSet Name="DepartmentEmployee" Association="DbModel.DepartmentEmployee">
             <End Role="Department" EntitySet="Department" />
-            <End Role="DepartmentProperty" EntitySet="DepartmentProperty" />
+            <End Role="User" EntitySet="Employee" />
           </AssociationSet>
+          <AssociationSet Name="RoleEmployee" Association="DbModel.RoleEmployee">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="Employee" />
+          </AssociationSet>
+          <EntitySet Name="MaterialType" EntityType="DbModel.MaterialType" />
+          <EntitySet Name="Unit" EntityType="DbModel.Unit" />
+          <EntitySet Name="ProductMix" EntityType="DbModel.ProductMix" />
+          <EntitySet Name="MixMaterial" EntityType="DbModel.MixMaterial" />
+          <EntitySet Name="Procedure" EntityType="DbModel.Procedure" />
+          <EntitySet Name="Company" EntityType="DbModel.Company" />
+          <EntitySet Name="CompanyType" EntityType="DbModel.CompanyType" />
+          <AssociationSet Name="CompanyTypeCompanyLevel" Association="DbModel.CompanyTypeCompanyLevel">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyTypeCompanySource" Association="DbModel.CompanyTypeCompanySource">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyTypeCompanyIndustry" Association="DbModel.CompanyTypeCompanyIndustry">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeCompany" Association="DbModel.EmployeeCompany">
+            <End Role="User" EntitySet="Employee" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyTypeCompanyStatus" Association="DbModel.CompanyTypeCompanyStatus">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyTypeCompanyType" Association="DbModel.CompanyTypeCompanyType">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyTypeCompanyproperty" Association="DbModel.CompanyTypeCompanyproperty">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyTypeCompanyStage" Association="DbModel.CompanyTypeCompanyStage">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <EntitySet Name="User" EntityType="DbModel.User" />
+          <AssociationSet Name="UserUserProperty" Association="DbModel.UserUserProperty">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProperty" EntitySet="UserProperty" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialTypeMaterial" Association="DbModel.MaterialTypeMaterial">
+            <End Role="MaterialType" EntitySet="MaterialType" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="UnitMaterial" Association="DbModel.UnitMaterial">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="ProductMixMixMaterial" Association="DbModel.ProductMixMixMaterial">
+            <End Role="ProductMix" EntitySet="ProductMix" />
+            <End Role="MixMaterial" EntitySet="MixMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="MixMaterialMaterial" Association="DbModel.MixMaterialMaterial">
+            <End Role="MixMaterial" EntitySet="MixMaterial" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="UnitMixMaterial" Association="DbModel.UnitMixMaterial">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="MixMaterial" EntitySet="MixMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="ProductMixMaterial" Association="DbModel.ProductMixMaterial">
+            <End Role="ProductMix" EntitySet="ProductMix" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <EntitySet Name="ProcedureList" EntityType="DbModel.ProcedureList" />
+          <AssociationSet Name="ProductMixProcedureList" Association="DbModel.ProductMixProcedureList">
+            <End Role="ProductMix" EntitySet="ProductMix" />
+            <End Role="ProcedureList" EntitySet="ProcedureList" />
+          </AssociationSet>
+          <AssociationSet Name="ProcedureProcedureList" Association="DbModel.ProcedureProcedureList">
+            <End Role="Procedure" EntitySet="Procedure" />
+            <End Role="ProcedureList" EntitySet="ProcedureList" />
+          </AssociationSet>
+          <EntitySet Name="Warehouse" EntityType="DbModel.Warehouse" />
+          <AssociationSet Name="UserEmployee" Association="DbModel.UserEmployee">
+            <End Role="User" EntitySet="User" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <EntitySet Name="Stock" EntityType="DbModel.Stock" />
         </EntityContainer>
-        <EntityType Name="User">
+        <EntityType Name="Employee">
           <Documentation>
             <Summary>用户</Summary>
           </Documentation>
@@ -63,26 +125,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <Property Name="LoginName" Type="String" Nullable="false" MaxLength="30" >
-            <Documentation>
-              <Summary>登陆用户名</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" >
-            <Documentation>
-              <Summary>密码</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" >
-            <Documentation>
-              <Summary>姓名</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="JobNumber" Type="String" Nullable="false" MaxLength="30" >
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="30" >
             <Documentation>
               <Summary>工号</Summary>
             </Documentation>
           </Property>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" />
           <Property Name="Phone" Type="String" MaxLength="20" >
             <Documentation>
               <Summary>手机号</Summary>
@@ -91,11 +139,6 @@
           <Property Name="CreateTime" Type="DateTime" Nullable="false" >
             <Documentation>
               <Summary>创建时间</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="LoginTime" Type="String" Nullable="false" >
-            <Documentation>
-              <Summary>最后登陆时间</Summary>
             </Documentation>
           </Property>
           <Property Name="Email" Type="String" MaxLength="120" >
@@ -108,12 +151,122 @@
               <Summary>用户类型</Summary>
             </Documentation>
           </Property>
-          <NavigationProperty Name="UserProperty" Relationship="DbModel.UserUserProperty" FromRole="User" ToRole="UserProperty" />
           <Property Name="Status" Type="Int16" Nullable="false" >
             <Documentation>
               <Summary>用户状态</Summary>
             </Documentation>
           </Property>
+          <Property Name="PINCodes" Type="String" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="DbModel.DepartmentEmployee" FromRole="User" ToRole="Department" />
+          <Property Name="DepartmentId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Role" Relationship="DbModel.RoleEmployee" FromRole="User" ToRole="Role" />
+          <Property Name="RoleId" Type="String" Nullable="true" MaxLength="40" />
+          <Property Name="NativePlace" Type="String" MaxLength="20" >
+            <Documentation>
+              <Summary>籍贯</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="HomeAddress" Type="String" MaxLength="120" >
+            <Documentation>
+              <Summary>家庭地址</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="HomeTel" Type="String" MaxLength="16" >
+            <Documentation>
+              <Summary>家庭电话</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Address" Type="String" MaxLength="120" >
+            <Documentation>
+              <Summary>住址</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>出生日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Sex" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>性别</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>入职日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TrialDays" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>试用天数</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="QuitDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>离职日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Nation" Type="String" MaxLength="20" >
+            <Documentation>
+              <Summary>民族</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="MarriageStatus" Type="String" >
+            <Documentation>
+              <Summary>婚姻状态</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="PoliticalStatus" Type="String" MaxLength="20" >
+            <Documentation>
+              <Summary>政治状态</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="GraduateSchool" Type="String" MaxLength="60" >
+            <Documentation>
+              <Summary>毕业学校</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Major" Type="String" >
+            <Documentation>
+              <Summary>专业</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ContractEndDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>合同到期日</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BankAccount" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>工资银行卡号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="MedicalInsuranceAccount" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>医疗保险号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="PensionInsuranceAccount" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>养老保险号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OtherInformation" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>其他信息</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Education" Type="String" MaxLength="20" >
+            <Documentation>
+              <Summary>学历</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="User" Relationship="DbModel.UserEmployee" FromRole="Employee" ToRole="User" />
         </EntityType>
         <EntityType Name="Department">
           <Documentation>
@@ -143,20 +296,57 @@
               <Summary>部门状态</Summary>
             </Documentation>
           </Property>
-          <NavigationProperty Name="DepartmentProperty" Relationship="DbModel.DepartmentDepartmentProperty" FromRole="Department" ToRole="DepartmentProperty" />
+          <NavigationProperty Name="User" Relationship="DbModel.DepartmentEmployee" FromRole="Department" ToRole="User" />
+          <Property Name="ParentId" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>父级ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Address" Type="String" MaxLength="120" >
+            <Documentation>
+              <Summary>部门地址</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Tel" Type="String" MaxLength="16" >
+            <Documentation>
+              <Summary>部门电话</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
         <EntityType Name="Role">
           <Documentation>
-            <Summary>角色</Summary>
+            <Summary>职位</Summary>
           </Documentation>
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Code" Type="String" Nullable="false" />
-          <Property Name="CreateTime" Type="String" Nullable="false" />
-          <NavigationProperty Name="RoleProperty" Relationship="DbModel.RoleRoleProperty" FromRole="Role" ToRole="RoleProperty" />
+          <Property Name="Name" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>职位名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Code" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>职位编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="User" Relationship="DbModel.RoleEmployee" FromRole="Role" ToRole="User" />
+          <Property Name="ParentId" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>父级ID</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
         <EntityType Name="Menu">
           <Documentation>
@@ -178,8 +368,6 @@
           <Property Name="ParentId" Type="String" MaxLength="40" />
           <Property Name="IsVail" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="UserProperty" Relationship="DbModel.MenuUserProperty" FromRole="Menu" ToRole="UserProperty" />
-          <NavigationProperty Name="RoleProperty" Relationship="DbModel.MenuRoleProperty" FromRole="Menu" ToRole="RoleProperty" />
-          <NavigationProperty Name="DepartmentProperty" Relationship="DbModel.MenuDepartmentProperty" FromRole="Menu" ToRole="DepartmentProperty" />
         </EntityType>
         <EntityType Name="UserProperty">
           <Documentation>
@@ -189,8 +377,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <NavigationProperty Name="User" Relationship="DbModel.UserUserProperty" FromRole="UserProperty" ToRole="User" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="40" />
           <NavigationProperty Name="Menu" Relationship="DbModel.MenuUserProperty" FromRole="UserProperty" ToRole="Menu" />
           <Property Name="MenuId" Type="String" Nullable="false" MaxLength="40" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" >
@@ -199,52 +385,8 @@
             </Documentation>
           </Property>
           <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="DepartmentProperty">
-          <Documentation>
-            <Summary>部门权限</Summary>
-          </Documentation>
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <NavigationProperty Name="Menu" Relationship="DbModel.MenuDepartmentProperty" FromRole="DepartmentProperty" ToRole="Menu" />
-          <Property Name="MenuId" Type="String" Nullable="false" MaxLength="40" />
-          <NavigationProperty Name="Department" Relationship="DbModel.DepartmentDepartmentProperty" FromRole="DepartmentProperty" ToRole="Department" />
-          <Property Name="DepartmentId" Type="String" Nullable="false" MaxLength="40" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
-            <Documentation>
-              <Summary>创建时间</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="CreateUser" Type="String" Nullable="false" >
-            <Documentation>
-              <Summary>创建人</Summary>
-            </Documentation>
-          </Property>
-        </EntityType>
-        <EntityType Name="RoleProperty">
-          <Documentation>
-            <Summary>角色权限</Summary>
-          </Documentation>
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <NavigationProperty Name="Role" Relationship="DbModel.RoleRoleProperty" FromRole="RoleProperty" ToRole="Role" />
-          <Property Name="RoleId" Type="String" Nullable="false" MaxLength="40" />
-          <NavigationProperty Name="Menu" Relationship="DbModel.MenuRoleProperty" FromRole="RoleProperty" ToRole="Menu" />
-          <Property Name="MenuId" Type="String" Nullable="false" MaxLength="40" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
-            <Documentation>
-              <Summary>创建时间</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="30" >
-            <Documentation>
-              <Summary>创建人</Summary>
-            </Documentation>
-          </Property>
+          <NavigationProperty Name="User" Relationship="DbModel.UserUserProperty" FromRole="UserProperty" ToRole="User" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="40" />
         </EntityType>
         <EntityType Name="UserLog">
           <Documentation>
@@ -273,83 +415,622 @@
           <Property Name="Content" Type="String" Nullable="false" />
           <Property Name="CreateTime" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="Order">
-          <Documentation>
-            <Summary>订单</Summary>
-          </Documentation>
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
-        </EntityType>
         <EntityType Name="Material">
-          <Documentation>
-            <Summary>原料</Summary>
-          </Documentation>
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Specifications" Type="String" Nullable="false" />
-          <Property Name="CreateTime" Type="String" Nullable="false" />
-          <Property Name="CreateUser" Type="String" Nullable="false" />
-          <Property Name="Type" Type="String" Nullable="false" />
-          <Property Name="Unit" Type="String" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Product">
           <Documentation>
             <Summary>产品</Summary>
           </Documentation>
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="80" >
+            <Documentation>
+              <Summary>名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Specifications" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>规格</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateUser" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>创建人</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>产品编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Brand" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>品牌</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Producer" Type="String" MaxLength="90" >
+            <Documentation>
+              <Summary>产地</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>采购单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="SellingPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>销售单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="SalesCommission" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>销售提成</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Purpose" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>用途</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="MemoryCode" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>助记编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Source" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>来源</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Color" Type="String" MaxLength="15" >
+            <Documentation>
+              <Summary>颜色</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Img" Type="String" MaxLength="150" >
+            <Documentation>
+              <Summary>图片</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="GraphNumber" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>图号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FirstSellingPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>一级销售单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="SecondSellingPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>二级销售单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ThreeSellingPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>三级销售单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FourSellingPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>四级销售单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FiveSellingPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>五级销售单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FirstPurchasePrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>一级采购单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="SecondPurchasePrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>二级采购单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ThreePurchasePrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>三级采购单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FourPurchasePrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>四级采购单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="FivePurchasePrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>五级采购单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpdateUser" Type="String" MaxLength="20" Nullable="false" >
+            <Documentation>
+              <Summary>修改人</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Type" Relationship="DbModel.MaterialTypeMaterial" FromRole="Material" ToRole="MaterialType" >
+            <Documentation>
+              <Summary>产品类型</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="TypeId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Unit" Relationship="DbModel.UnitMaterial" FromRole="Material" ToRole="Unit" >
+            <Documentation>
+              <Summary>单位</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="UnitId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="MixMaterial" Relationship="DbModel.MixMaterialMaterial" FromRole="Material" ToRole="MixMaterial" />
+          <NavigationProperty Name="ProductMix" Relationship="DbModel.ProductMixMaterial" FromRole="Material" ToRole="ProductMix" />
         </EntityType>
-        <EntityType Name="MaterialForm">
+        <Association Name="MenuUserProperty">
+          <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="DbModel.UserProperty" Role="UserProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProperty">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepartmentEmployee">
+          <End Type="DbModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="DbModel.Employee" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoleEmployee">
+          <End Type="DbModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="DbModel.Employee" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MaterialType">
           <Documentation>
-            <Summary>原料出入库</Summary>
+            <Summary>产品类型</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>类型名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ParentId" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>父级ID</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Unit">
+          <Documentation>
+            <Summary>单位</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" >
+            <Documentation>
+              <Summary>单位名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Sort" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>排序</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="MixMaterial" Relationship="DbModel.UnitMixMaterial" FromRole="Unit" ToRole="MixMaterial" />
+        </EntityType>
+        <EntityType Name="ProductMix">
+          <Documentation>
+            <Summary>产品结构</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpdateUser" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>修改人</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="MixMaterial" Relationship="DbModel.ProductMixMixMaterial" FromRole="ProductMix" ToRole="MixMaterial" />
+          <Property Name="Remarks" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Material" Relationship="DbModel.ProductMixMaterial" FromRole="ProductMix" ToRole="Material" />
+          <NavigationProperty Name="ProcedureList" Relationship="DbModel.ProductMixProcedureList" FromRole="ProductMix" ToRole="ProcedureList" />
+        </EntityType>
+        <EntityType Name="MixMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="80" >
+            <Documentation>
+              <Summary>产品名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Specifications" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>规格</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>数量</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Loss" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>损耗</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Source" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>来源</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="ProductMix" Relationship="DbModel.ProductMixMixMaterial" FromRole="MixMaterial" ToRole="ProductMix" />
+          <Property Name="ProductMixId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Material" Relationship="DbModel.MixMaterialMaterial" FromRole="MixMaterial" ToRole="Material" />
+          <NavigationProperty Name="Unit" Relationship="DbModel.UnitMixMaterial" FromRole="MixMaterial" ToRole="Unit" />
+          <Property Name="UnitId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>总价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="MaterialRemarks" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>产品备注</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Code" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>编号</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="Procedure">
+          <Documentation>
+            <Summary>工序</Summary>
           </Documentation>
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>工序名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="StepCode" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>工序编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>工序单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Content" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>工序内容</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpdateUser" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>修改人</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="ProcedureList" Relationship="DbModel.ProcedureProcedureList" FromRole="Procedure" ToRole="ProcedureList" />
         </EntityType>
-        <EntityType Name="ProductForm">
-          <Documentation>
-            <Summary>产品出入口</Summary>
-          </Documentation>
+        <EntityType Name="Company">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="120" >
+            <Documentation>
+              <Summary>客户名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" >
+            <Documentation>
+              <Summary>客户编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Contacts" Type="String" MaxLength="16" >
+            <Documentation>
+              <Summary>联系人</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ContactNumber" Type="String" MaxLength="16" >
+            <Documentation>
+              <Summary>联系电话</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Tel" Type="String" MaxLength="16" >
+            <Documentation>
+              <Summary>公司电话</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Email" Type="String" >
+            <Documentation>
+              <Summary>邮箱</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Address" Type="String" >
+            <Documentation>
+              <Summary>地址</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Fax" Type="String" >
+            <Documentation>
+              <Summary>传真</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Website" Type="String" >
+            <Documentation>
+              <Summary>网站</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="PreDeposit" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>预存款</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Level" Relationship="DbModel.CompanyTypeCompanyLevel" FromRole="Company" ToRole="CompanyType" >
+            <Documentation>
+              <Summary>客户级别</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="LevelId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Source" Relationship="DbModel.CompanyTypeCompanySource" FromRole="Company" ToRole="CompanyType" >
+            <Documentation>
+              <Summary>客户来源</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="SourceId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Industry" Relationship="DbModel.CompanyTypeCompanyIndustry" FromRole="Company" ToRole="CompanyType" >
+            <Documentation>
+              <Summary>行业类别</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="IndustryId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Salesman" Relationship="DbModel.EmployeeCompany" FromRole="Company" ToRole="User" >
+            <Documentation>
+              <Summary>业务员</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="SalesmanId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Status" Relationship="DbModel.CompanyTypeCompanyStatus" FromRole="Company" ToRole="CompanyType" >
+            <Documentation>
+              <Summary>客户状态</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="StatusId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Type" Relationship="DbModel.CompanyTypeCompanyType" FromRole="Company" ToRole="CompanyType" >
+            <Documentation>
+              <Summary>客户类型</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="TypeId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Property" Relationship="DbModel.CompanyTypeCompanyproperty" FromRole="Company" ToRole="CompanyType" >
+            <Documentation>
+              <Summary>客户性质</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="PropertyId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Stage" Relationship="DbModel.CompanyTypeCompanyStage" FromRole="Company" ToRole="CompanyType" />
+          <Property Name="StageId" Type="String" Nullable="true" MaxLength="40" />
         </EntityType>
-        <EntityType Name="PurchaseForm">
-          <Documentation>
-            <Summary>采购单</Summary>
-          </Documentation>
+        <EntityType Name="CompanyType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" >
+            <Documentation>
+              <Summary>类型名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ParentId" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>父级ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Default" Type="Boolean" Nullable="false" />
+          <Property Name="Level" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>层级</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
-        <EntityType Name="MaterialRequisition">
-          <Documentation>
-            <Summary>领料单</Summary>
-          </Documentation>
+        <Association Name="CompanyTypeCompanyLevel">
+          <End Type="DbModel.CompanyType" Role="CompanyType" Multiplicity="0..1" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="LevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyTypeCompanySource">
+          <End Type="DbModel.CompanyType" Role="CompanyType" Multiplicity="0..1" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="SourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyTypeCompanyIndustry">
+          <End Type="DbModel.CompanyType" Role="CompanyType" Multiplicity="0..1" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="IndustryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeCompany">
+          <End Type="DbModel.Employee" Role="User" Multiplicity="0..1" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="SalesmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyTypeCompanyStatus">
+          <End Type="DbModel.CompanyType" Role="CompanyType" Multiplicity="0..1" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyTypeCompanyType">
+          <End Type="DbModel.CompanyType" Role="CompanyType" Multiplicity="0..1" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyTypeCompanyproperty">
+          <End Type="DbModel.CompanyType" Role="CompanyType" Multiplicity="0..1" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyTypeCompanyStage">
+          <End Type="DbModel.CompanyType" Role="CompanyType" Multiplicity="0..1" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="StageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
-        </EntityType>
-        <EntityType Name="ProductionPlan">
-          <Documentation>
-            <Summary>生产计划</Summary>
-          </Documentation>
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>登陆用户名</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" >
+            <Documentation>
+              <Summary>密码</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="UserProperty" Relationship="DbModel.UserUserProperty" FromRole="User" ToRole="UserProperty" />
+          <NavigationProperty Name="Employee" Relationship="DbModel.UserEmployee" FromRole="User" ToRole="Employee" />
         </EntityType>
         <Association Name="UserUserProperty">
           <End Type="DbModel.User" Role="User" Multiplicity="1" />
@@ -363,66 +1044,147 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="MenuUserProperty">
-          <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
-          <End Type="DbModel.UserProperty" Role="UserProperty" Multiplicity="*" />
+        <Association Name="MaterialTypeMaterial">
+          <End Type="DbModel.MaterialType" Role="MaterialType" Multiplicity="1" />
+          <End Type="DbModel.Material" Role="Material" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Menu">
+            <Principal Role="MaterialType">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="UserProperty">
-              <PropertyRef Name="MenuId" />
+            <Dependent Role="Material">
+              <PropertyRef Name="TypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="RoleRoleProperty">
-          <End Type="DbModel.Role" Role="Role" Multiplicity="1" />
-          <End Type="DbModel.RoleProperty" Role="RoleProperty" Multiplicity="*" />
+        <Association Name="UnitMaterial">
+          <End Type="DbModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="DbModel.Material" Role="Material" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Role">
+            <Principal Role="Unit">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="RoleProperty">
-              <PropertyRef Name="RoleId" />
+            <Dependent Role="Material">
+              <PropertyRef Name="UnitId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="MenuRoleProperty">
-          <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
-          <End Type="DbModel.RoleProperty" Role="RoleProperty" Multiplicity="*" />
+        <Association Name="ProductMixMixMaterial">
+          <End Type="DbModel.ProductMix" Role="ProductMix" Multiplicity="1" />
+          <End Type="DbModel.MixMaterial" Role="MixMaterial" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Menu">
+            <Principal Role="ProductMix">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="RoleProperty">
-              <PropertyRef Name="MenuId" />
+            <Dependent Role="MixMaterial">
+              <PropertyRef Name="ProductMixId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="MenuDepartmentProperty">
-          <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
-          <End Type="DbModel.DepartmentProperty" Role="DepartmentProperty" Multiplicity="*" />
+        <Association Name="MixMaterialMaterial">
+          <End Type="DbModel.MixMaterial" Role="MixMaterial" Multiplicity="1" />
+          <End Type="DbModel.Material" Role="Material" Multiplicity="1" />
+        </Association>
+        <Association Name="UnitMixMaterial">
+          <End Type="DbModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="DbModel.MixMaterial" Role="MixMaterial" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Menu">
+            <Principal Role="Unit">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="DepartmentProperty">
-              <PropertyRef Name="MenuId" />
+            <Dependent Role="MixMaterial">
+              <PropertyRef Name="UnitId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="DepartmentDepartmentProperty">
-          <End Type="DbModel.Department" Role="Department" Multiplicity="1" />
-          <End Type="DbModel.DepartmentProperty" Role="DepartmentProperty" Multiplicity="*" />
+        <Association Name="ProductMixMaterial">
+          <End Type="DbModel.ProductMix" Role="ProductMix" Multiplicity="1" />
+          <End Type="DbModel.Material" Role="Material" Multiplicity="1" />
+        </Association>
+        <EntityType Name="ProcedureList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="ProductMix" Relationship="DbModel.ProductMixProcedureList" FromRole="ProcedureList" ToRole="ProductMix" />
+          <Property Name="ProductMixId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Procedure" Relationship="DbModel.ProcedureProcedureList" FromRole="ProcedureList" ToRole="Procedure" />
+          <Property Name="ProcedureId" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="ProductMixProcedureList">
+          <End Type="DbModel.ProductMix" Role="ProductMix" Multiplicity="0..1" />
+          <End Type="DbModel.ProcedureList" Role="ProcedureList" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Department">
+            <Principal Role="ProductMix">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="DepartmentProperty">
-              <PropertyRef Name="DepartmentId" />
+            <Dependent Role="ProcedureList">
+              <PropertyRef Name="ProductMixId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="ProcedureProcedureList">
+          <End Type="DbModel.Procedure" Role="Procedure" Multiplicity="1" />
+          <End Type="DbModel.ProcedureList" Role="ProcedureList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcedureList">
+              <PropertyRef Name="ProcedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Warehouse">
+          <Documentation>
+            <Summary>仓库</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Area" Type="String" Nullable="false" />
+          <Property Name="Default" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>默认</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="InCalculation" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否参与计算</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <Association Name="UserEmployee">
+          <End Type="DbModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Stock">
+          <Documentation>
+            <Summary>库存</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="BatchNumber" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>批号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

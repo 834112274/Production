@@ -14,14 +14,14 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// 角色
+    /// 职位
     /// </summary>
     public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
         {
-            this.RoleProperty = new HashSet<RoleProperty>();
+            this.User = new HashSet<Employee>();
         }
     
     	/// <summary>
@@ -30,22 +30,27 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 
+        /// 职位名称
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "职位名称" )]
         public string Name { get; set; }
     	/// <summary>
-        /// 
+        /// 职位编号
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "职位编号" )]
         public string Code { get; set; }
     	/// <summary>
-        /// 
+        /// 创建时间
         /// </summary>
-    	[DisplayName( "" )]
-        public string CreateTime { get; set; }
+    	[DisplayName( "创建时间" )]
+        public System.DateTime CreateTime { get; set; }
+    	/// <summary>
+        /// 父级ID
+        /// </summary>
+    	[DisplayName( "父级ID" )]
+        public string ParentId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RoleProperty> RoleProperty { get; set; }
+        public virtual ICollection<Employee> User { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// 原料
+    /// 产品
     /// </summary>
     public partial class Material
     {
@@ -24,34 +24,164 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 
+        /// 名称
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "名称" )]
         public string Name { get; set; }
     	/// <summary>
-        /// 
+        /// 规格
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "规格" )]
         public string Specifications { get; set; }
     	/// <summary>
-        /// 
+        /// 创建时间
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "创建时间" )]
         public string CreateTime { get; set; }
     	/// <summary>
-        /// 
+        /// 创建人
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "创建人" )]
         public string CreateUser { get; set; }
     	/// <summary>
-        /// 
+        /// 产品编号
         /// </summary>
-    	[DisplayName( "" )]
-        public string Type { get; set; }
+    	[DisplayName( "产品编号" )]
+        public string Code { get; set; }
+    	/// <summary>
+        /// 品牌
+        /// </summary>
+    	[DisplayName( "品牌" )]
+        public string Brand { get; set; }
+    	/// <summary>
+        /// 产地
+        /// </summary>
+    	[DisplayName( "产地" )]
+        public string Producer { get; set; }
+    	/// <summary>
+        /// 采购单价
+        /// </summary>
+    	[DisplayName( "采购单价" )]
+        public decimal PurchasePrice { get; set; }
+    	/// <summary>
+        /// 销售单价
+        /// </summary>
+    	[DisplayName( "销售单价" )]
+        public decimal SellingPrice { get; set; }
+    	/// <summary>
+        /// 销售提成
+        /// </summary>
+    	[DisplayName( "销售提成" )]
+        public decimal SalesCommission { get; set; }
+    	/// <summary>
+        /// 用途
+        /// </summary>
+    	[DisplayName( "用途" )]
+        public string Purpose { get; set; }
+    	/// <summary>
+        /// 助记编号
+        /// </summary>
+    	[DisplayName( "助记编号" )]
+        public string MemoryCode { get; set; }
+    	/// <summary>
+        /// 来源
+        /// </summary>
+    	[DisplayName( "来源" )]
+        public short Source { get; set; }
+    	/// <summary>
+        /// 颜色
+        /// </summary>
+    	[DisplayName( "颜色" )]
+        public string Color { get; set; }
+    	/// <summary>
+        /// 图片
+        /// </summary>
+    	[DisplayName( "图片" )]
+        public string Img { get; set; }
+    	/// <summary>
+        /// 图号
+        /// </summary>
+    	[DisplayName( "图号" )]
+        public string GraphNumber { get; set; }
+    	/// <summary>
+        /// 备注
+        /// </summary>
+    	[DisplayName( "备注" )]
+        public string Remarks { get; set; }
+    	/// <summary>
+        /// 一级销售单价
+        /// </summary>
+    	[DisplayName( "一级销售单价" )]
+        public decimal FirstSellingPrice { get; set; }
+    	/// <summary>
+        /// 二级销售单价
+        /// </summary>
+    	[DisplayName( "二级销售单价" )]
+        public decimal SecondSellingPrice { get; set; }
+    	/// <summary>
+        /// 三级销售单价
+        /// </summary>
+    	[DisplayName( "三级销售单价" )]
+        public decimal ThreeSellingPrice { get; set; }
+    	/// <summary>
+        /// 四级销售单价
+        /// </summary>
+    	[DisplayName( "四级销售单价" )]
+        public decimal FourSellingPrice { get; set; }
+    	/// <summary>
+        /// 五级销售单价
+        /// </summary>
+    	[DisplayName( "五级销售单价" )]
+        public decimal FiveSellingPrice { get; set; }
+    	/// <summary>
+        /// 一级采购单价
+        /// </summary>
+    	[DisplayName( "一级采购单价" )]
+        public decimal FirstPurchasePrice { get; set; }
+    	/// <summary>
+        /// 二级采购单价
+        /// </summary>
+    	[DisplayName( "二级采购单价" )]
+        public decimal SecondPurchasePrice { get; set; }
+    	/// <summary>
+        /// 三级采购单价
+        /// </summary>
+    	[DisplayName( "三级采购单价" )]
+        public decimal ThreePurchasePrice { get; set; }
+    	/// <summary>
+        /// 四级采购单价
+        /// </summary>
+    	[DisplayName( "四级采购单价" )]
+        public decimal FourPurchasePrice { get; set; }
+    	/// <summary>
+        /// 五级采购单价
+        /// </summary>
+    	[DisplayName( "五级采购单价" )]
+        public decimal FivePurchasePrice { get; set; }
+    	/// <summary>
+        /// 修改时间
+        /// </summary>
+    	[DisplayName( "修改时间" )]
+        public System.DateTime UpdateTime { get; set; }
+    	/// <summary>
+        /// 修改人
+        /// </summary>
+    	[DisplayName( "修改人" )]
+        public string UpdateUser { get; set; }
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
-        public string Unit { get; set; }
+        public string TypeId { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string UnitId { get; set; }
+    
+        public virtual MaterialType Type { get; set; }
+        public virtual Unit Unit { get; set; }
+        public virtual MixMaterial MixMaterial { get; set; }
+        public virtual ProductMix ProductMix { get; set; }
     }
 }

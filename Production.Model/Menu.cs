@@ -22,8 +22,6 @@ namespace Production.Model
         public Menu()
         {
             this.UserProperty = new HashSet<UserProperty>();
-            this.RoleProperty = new HashSet<RoleProperty>();
-            this.DepartmentProperty = new HashSet<DepartmentProperty>();
         }
     
     	/// <summary>
@@ -69,9 +67,5 @@ namespace Production.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserProperty> UserProperty { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RoleProperty> RoleProperty { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DepartmentProperty> DepartmentProperty { get; set; }
     }
 }
