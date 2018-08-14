@@ -7,60 +7,163 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Script/easyui/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Script/easyui/js")
+
 </head>
 
 <body class="easyui-layout">
-    <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</div>
+    <div data-options="region:'north',border:false" style="height:60px;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div id="quick_menu" data-options="region:'east',false:true,border:false" style="width:700px;line-height:60px;text-align:right;padding-right:20px;">
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true"><span class="title">商品信息</span></a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true"><span class="title">产品结构</span></a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true"><span class="title">生产进度查询</span></a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true"><span class="title">生产日报表</span></a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true"><span class="title">生产用料统计</span></a>
+                <a href="javascript:;" class="easyui-linkbutton" data-options="plain:true"><span class="title">库存查询</span></a>
+                <a href="/Help/Index" target="_blank" class="easyui-linkbutton" data-options="plain:true">API</a>
+                <a href="javascript:;" class="easyui-menubutton" data-options="plain:true,menu:'#user_menu'">用户：admin</a>
+                
+                <div id="user_menu" style="width:150px;">
+                    <div data-options="iconCls:'icon-man'"><a href="javascript:;">我的资料</a> </div>
+                    <div><a href="javascript:;">消息</a></div>
+                    <div data-options="iconCls:'icon-reload'"><a href="javascript:;">切换用户</a></div>
+                    <div data-options="iconCls:'icon-undo'"><a href="javascript:;">登出</a></div>
+                </div>
+               
+            </div>
+            <div data-options="region:'center',border:false,split:false" style="line-height:60px;padding-left:20px;">
+                <h1 style="margin:0px;height:60px;">进销存ERP系统 <small>(B/S版)</small> </h1>
+            </div>
+        </div>
+        
+    </div>
 
-    <div class="easyui-accordion" data-options="region:'west',split:false" style="width:240px;">
-        <div title="About" data-options="selected:true" style="padding:10px;">
-            <ul class="easyui-tree">
+    <div class="easyui-accordion" data-options="region:'west',split:false,border:false" style="width:240px;">
+        <div title="功能模块" data-options="selected:true" style="">
+            <ul class="my-menu-tree">
                 <li>
-                    <span>My Documents</span>
-                    <ul>
-                        <li data-options="state:'closed'">
-                            <span>Photos</span>
-                            <ul>
-                                <li>
-                                    <span>Friend</span>
-                                </li>
-                                <li>
-                                    <span>Wife</span>
-                                </li>
-                                <li>
-                                    <span>Company</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span>Program Files</span>
-                            <ul>
-                                <li>Intel</li>
-                                <li>Java</li>
-                                <li>Microsoft Office</li>
-                                <li>Games</li>
-                            </ul>
-                        </li>
-                        <li>index.html</li>
-                        <li>about.html</li>
-                        <li>welcome.html</li>
-                    </ul>
+                    <a href="/Home/Modules">
+                        <img class="icon" src="~/Images/Icon/20080527174351985.png" />
+                        <span class="title">生产模块</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Modules">
+                        <img class="icon" src="~/Images/Icon/20080527174352443.png" />
+                        <span class="title">客户供应商</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Modules">
+                        <img class="icon" src="~/Images/Icon/pie-chart_graph1.png" />
+                        <span class="title">进销存管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Modules">
+                        <img class="icon" src="~/Images/Icon/t1PksLkr57t6C6Y.png" />
+                        <span class="title">人力资源</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Modules">
+                        <img class="icon" src="~/Images/Icon/20080527174348804.png" />
+                        <span class="title">审核中心</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Modules">
+                        <img class="icon" src="~/Images/Icon/bar_chart.png" />
+                        <span class="title">报表中心</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Home/Modules">
+                        <img class="icon" src="~/Images/Icon/20080527174351861.png" />
+                        <span class="title">系统维护</span>
+                    </a>
                 </li>
             </ul>
         </div>
-        <div title="Title1" style="padding:10px">
-            <p>Content1</p>
-        </div>
-        <div title="Title2" style="padding:10px">
-            <p>Content2</p>
-        </div>
     </div>
-    <div data-options="region:'center'">
-        @RenderBody()
+    <div class="easyui-tabs" id="module_tabs" data-options="region:'center'">
+        <div title="生产模块" data-options="href:'/Home/Modules'" style="padding:10px">
+           @RenderBody()
+        </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/Script/easyui/js")
+    <div data-options="region:'south',split:false" style="height:50px;text-align:center;padding-top:10px;">
+        <p style="margin:0px;">公司信息</p>
+        <p style="margin:0px;">资质</p>
+    </div>
+    <script>
+        $('#quick_menu').on('click', 'a', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var title = $(this).find('.title').text();
+            var tab = $('#module_tabs').tabs('getTab', title);
+            if (tab) {
+                $('#module_tabs').tabs('select', title);
+                tab.panel('refresh', url);
+            }
+            else {
+                $('#module_tabs').tabs('add', {
+                    title: title,
+                    selected: true,
+                    closable: true,
+                    href: url
+                });
+            }
+            return false;
+        });
+        $('#module_tabs').on('click', '.module-menu a', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var title = $(this).find('.title').text();
+            var tab = $('#module_tabs').tabs('getTab',title);
+            if (tab) {
+                $('#module_tabs').tabs('select', title);
+                tab.panel('refresh', url);
+            }
+            else {
+                $('#module_tabs').tabs('add', {
+                    title: title,
+                    selected: true,
+                    closable:true,
+                    href: url
+                });
+            }
+            return false;
+        });
+
+        $('.my-menu-tree').on('click', 'a', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var title = $(this).find('.title').text();
+            var tab = $('#module_tabs').tabs('getTab', 0);
+            if (tab) {
+                $('#module_tabs').tabs('select', 0);
+                $('#module_tabs').tabs('update', {
+                    tab: tab,
+                    options: {
+                        title: title,
+                        href: url  // the new content URL
+                    }
+                });
+                tab.panel('refresh', url);
+            }
+            else {
+                $('#module_tabs').tabs('add', {
+                    title: title,
+                    selected: true,
+                    href: url
+                });
+            }
+            return false;
+        });
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

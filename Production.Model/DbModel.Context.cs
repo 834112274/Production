@@ -44,5 +44,10 @@ namespace Production.Model
         public virtual DbSet<ProcedureList> ProcedureList { get; set; }
         public virtual DbSet<Warehouse> Warehouse { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
+        public virtual DbSet<StockRecord> StockRecord { get; set; }
+        public virtual DbSet<RecordMaterial> RecordMaterial { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderMaterial> OrderMaterial { get; set; }
+        public virtual DbSet<CapitalAccount> CapitalAccount { get; set; }
     }
 }

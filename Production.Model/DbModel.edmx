@@ -116,6 +116,75 @@
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <EntitySet Name="Stock" EntityType="DbModel.Stock" />
+          <AssociationSet Name="WarehouseStock" Association="DbModel.WarehouseStock">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <EntitySet Name="StockRecord" EntityType="DbModel.StockRecord" />
+          <AssociationSet Name="WarehouseStockRecord" Association="DbModel.WarehouseStockRecord">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="StockRecord" EntitySet="StockRecord" />
+          </AssociationSet>
+          <AssociationSet Name="StockRecordCompany" Association="DbModel.StockRecordCompany">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <EntitySet Name="RecordMaterial" EntityType="DbModel.RecordMaterial" />
+          <AssociationSet Name="StockRecordRecordMaterial" Association="DbModel.StockRecordRecordMaterial">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="RecordMaterial" EntitySet="RecordMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialStock" Association="DbModel.MaterialStock">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <EntitySet Name="Order" EntityType="DbModel.Order" />
+          <AssociationSet Name="EmployeeStockRecord" Association="DbModel.EmployeeStockRecord">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="StockRecord" EntitySet="StockRecord" />
+          </AssociationSet>
+          <AssociationSet Name="OrderStockRecord" Association="DbModel.OrderStockRecord">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="StockRecord" EntitySet="StockRecord" />
+          </AssociationSet>
+          <EntitySet Name="OrderMaterial" EntityType="DbModel.OrderMaterial" />
+          <AssociationSet Name="OrderOrderMaterial" Association="DbModel.OrderOrderMaterial">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderMaterial" EntitySet="OrderMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="OrderCompany" Association="DbModel.OrderCompany">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="OrderEmployee" Association="DbModel.OrderEmployee">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="OrderWarehouse" Association="DbModel.OrderWarehouse">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Warehouse" EntitySet="Warehouse" />
+          </AssociationSet>
+          <EntitySet Name="CapitalAccount" EntityType="DbModel.CapitalAccount" />
+          <AssociationSet Name="CapitalAccountOrder" Association="DbModel.CapitalAccountOrder">
+            <End Role="CapitalAccount" EntitySet="CapitalAccount" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="UnitOrderMaterial" Association="DbModel.UnitOrderMaterial">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="OrderMaterial" EntitySet="OrderMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="UnitRecordMaterial" Association="DbModel.UnitRecordMaterial">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="RecordMaterial" EntitySet="RecordMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialOrderMaterial" Association="DbModel.MaterialOrderMaterial">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="OrderMaterial" EntitySet="OrderMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialRecordMaterial" Association="DbModel.MaterialRecordMaterial">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="RecordMaterial" EntitySet="RecordMaterial" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Employee">
           <Documentation>
@@ -267,6 +336,8 @@
             </Documentation>
           </Property>
           <NavigationProperty Name="User" Relationship="DbModel.UserEmployee" FromRole="Employee" ToRole="User" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.EmployeeStockRecord" FromRole="Employee" ToRole="StockRecord" />
+          <NavigationProperty Name="Order" Relationship="DbModel.OrderEmployee" FromRole="Employee" ToRole="Order" />
         </EntityType>
         <EntityType Name="Department">
           <Documentation>
@@ -582,6 +653,9 @@
           <Property Name="UnitId" Type="String" Nullable="false" MaxLength="40" />
           <NavigationProperty Name="MixMaterial" Relationship="DbModel.MixMaterialMaterial" FromRole="Material" ToRole="MixMaterial" />
           <NavigationProperty Name="ProductMix" Relationship="DbModel.ProductMixMaterial" FromRole="Material" ToRole="ProductMix" />
+          <NavigationProperty Name="Stock" Relationship="DbModel.MaterialStock" FromRole="Material" ToRole="Stock" />
+          <NavigationProperty Name="OrderMaterial" Relationship="DbModel.MaterialOrderMaterial" FromRole="Material" ToRole="OrderMaterial" />
+          <NavigationProperty Name="RecordMaterial" Relationship="DbModel.MaterialRecordMaterial" FromRole="Material" ToRole="RecordMaterial" />
         </EntityType>
         <Association Name="MenuUserProperty">
           <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
@@ -657,6 +731,8 @@
             </Documentation>
           </Property>
           <NavigationProperty Name="MixMaterial" Relationship="DbModel.UnitMixMaterial" FromRole="Unit" ToRole="MixMaterial" />
+          <NavigationProperty Name="OrderMaterial" Relationship="DbModel.UnitOrderMaterial" FromRole="Unit" ToRole="OrderMaterial" />
+          <NavigationProperty Name="RecordMaterial" Relationship="DbModel.UnitRecordMaterial" FromRole="Unit" ToRole="RecordMaterial" />
         </EntityType>
         <EntityType Name="ProductMix">
           <Documentation>
@@ -885,6 +961,8 @@
           <Property Name="PropertyId" Type="String" Nullable="true" MaxLength="40" />
           <NavigationProperty Name="Stage" Relationship="DbModel.CompanyTypeCompanyStage" FromRole="Company" ToRole="CompanyType" />
           <Property Name="StageId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.StockRecordCompany" FromRole="Company" ToRole="StockRecord" />
+          <NavigationProperty Name="Order" Relationship="DbModel.OrderCompany" FromRole="Company" ToRole="Order" />
         </EntityType>
         <EntityType Name="CompanyType">
           <Key>
@@ -1108,7 +1186,7 @@
           <NavigationProperty Name="ProductMix" Relationship="DbModel.ProductMixProcedureList" FromRole="ProcedureList" ToRole="ProductMix" />
           <Property Name="ProductMixId" Type="String" Nullable="true" MaxLength="40" />
           <NavigationProperty Name="Procedure" Relationship="DbModel.ProcedureProcedureList" FromRole="ProcedureList" ToRole="Procedure" />
-          <Property Name="ProcedureId" Type="String" Nullable="false" />
+          <Property Name="ProcedureId" Type="String" Nullable="true" />
         </EntityType>
         <Association Name="ProductMixProcedureList">
           <End Type="DbModel.ProductMix" Role="ProductMix" Multiplicity="0..1" />
@@ -1123,7 +1201,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ProcedureProcedureList">
-          <End Type="DbModel.Procedure" Role="Procedure" Multiplicity="1" />
+          <End Type="DbModel.Procedure" Role="Procedure" Multiplicity="0..1" />
           <End Type="DbModel.ProcedureList" Role="ProcedureList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Procedure">
@@ -1165,6 +1243,9 @@
               <Summary>是否参与计算</Summary>
             </Documentation>
           </Property>
+          <NavigationProperty Name="Stock" Relationship="DbModel.WarehouseStock" FromRole="Warehouse" ToRole="Stock" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.WarehouseStockRecord" FromRole="Warehouse" ToRole="StockRecord" />
+          <NavigationProperty Name="Order" Relationship="DbModel.OrderWarehouse" FromRole="Warehouse" ToRole="Order" />
         </EntityType>
         <Association Name="UserEmployee">
           <End Type="DbModel.User" Role="User" Multiplicity="0..1" />
@@ -1178,13 +1259,462 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <Property Name="BatchNumber" Type="String" MaxLength="30" >
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" />
+          <NavigationProperty Name="Warehouse" Relationship="DbModel.WarehouseStock" FromRole="Stock" ToRole="Warehouse" />
+          <Property Name="WarehouseId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Material" Relationship="DbModel.MaterialStock" FromRole="Stock" ToRole="Material" />
+          <Property Name="MaterialId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="BatchNumber" Type="String" MaxLength="40" />
+        </EntityType>
+        <Association Name="WarehouseStock">
+          <End Type="DbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="DbModel.Stock" Role="Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StockRecord">
+          <Documentation>
+            <Summary>库存记录</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40">
+            <Documentation>
+              <Summary>单号</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Warehouse" Relationship="DbModel.WarehouseStockRecord" FromRole="StockRecord" ToRole="Warehouse" >
+            <Documentation>
+              <Summary>仓库</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="WarehouseId" Type="String" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>仓库ID</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Company" Relationship="DbModel.StockRecordCompany" FromRole="StockRecord" ToRole="Company" >
+            <Documentation>
+              <Summary>客户/供应商</Summary>
+            </Documentation>
+          </NavigationProperty>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>库单创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="StorageTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>出入库时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>记录类型（1入库2出库）</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="RecordMaterial" Relationship="DbModel.StockRecordRecordMaterial" FromRole="StockRecord" ToRole="RecordMaterial" />
+          <Property Name="AmountMoney" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>总金额</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Employee" Relationship="DbModel.EmployeeStockRecord" FromRole="StockRecord" ToRole="Employee" />
+          <Property Name="EmployeeId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Order" Relationship="DbModel.OrderStockRecord" FromRole="StockRecord" ToRole="Order" />
+          <Property Name="OrderId" Type="String" Nullable="true" MaxLength="40" />
+          <Property Name="TaxAmount" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>含税总金额</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <Association Name="WarehouseStockRecord">
+          <End Type="DbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StockRecord">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StockRecordCompany">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="*" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="RecordMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.StockRecordRecordMaterial" FromRole="RecordMaterial" ToRole="StockRecord" />
+          <Property Name="StockRecordId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="BatchNumber" Type="String" Nullable="false" MaxLength="40" >
             <Documentation>
               <Summary>批号</Summary>
             </Documentation>
           </Property>
-          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>数量</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="AmountMoney" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>总价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Invoice" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否开票</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TaxRate" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>税率</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TaxUnitPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>含税单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TaxAmountMoney" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>含税总价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="PackCount" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>装箱数量</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Code" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>关联订单号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CustomerCode" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>客户单号</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Unit" Relationship="DbModel.UnitRecordMaterial" FromRole="RecordMaterial" ToRole="Unit" />
+          <Property Name="UnitId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Material" Relationship="DbModel.MaterialRecordMaterial" FromRole="RecordMaterial" ToRole="Material" />
+          <Property Name="MaterialId" Type="String" Nullable="false" MaxLength="40" />
         </EntityType>
+        <Association Name="StockRecordRecordMaterial">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="1" />
+          <End Type="DbModel.RecordMaterial" Role="RecordMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecordMaterial">
+              <PropertyRef Name="StockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaterialStock">
+          <End Type="DbModel.Material" Role="Material" Multiplicity="1" />
+          <End Type="DbModel.Stock" Role="Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Order">
+          <Documentation>
+            <Summary>订单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.OrderStockRecord" FromRole="Order" ToRole="StockRecord" />
+          <NavigationProperty Name="OrderMaterial" Relationship="DbModel.OrderOrderMaterial" FromRole="Order" ToRole="OrderMaterial" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>订单号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>订单日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CompletionDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>送货日期</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Company" Relationship="DbModel.OrderCompany" FromRole="Order" ToRole="Company" />
+          <Property Name="CompanyId" Type="String" Nullable="true" />
+          <Property Name="PriceLevel" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>单价级别</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Employee" Relationship="DbModel.OrderEmployee" FromRole="Order" ToRole="Employee" />
+          <Property Name="EmployeeId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Warehouse" Relationship="DbModel.OrderWarehouse" FromRole="Order" ToRole="Warehouse" />
+          <Property Name="WarehouseId" Type="String" Nullable="true" MaxLength="40" />
+          <Property Name="AmountMoney" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>总金额</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="StatementDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>计划结账日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="DeliveryAddress" Type="String" MaxLength="200" >
+            <Documentation>
+              <Summary>收货地址</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CustomerCode" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>客户单号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OutInStatus" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>出入库状态</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="AccountStatus" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>出账状态</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="InvoiceCode" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>发票编号</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="CapitalAccount" Relationship="DbModel.CapitalAccountOrder" FromRole="Order" ToRole="CapitalAccount" />
+          <Property Name="CapitalAccountId" Type="String" Nullable="true" MaxLength="40" >
+            <Documentation>
+              <Summary>资金账户ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>订单类型(1销售订单2采购订单)</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <Association Name="EmployeeStockRecord">
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StockRecord">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderStockRecord">
+          <End Type="DbModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StockRecord">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="Order" Relationship="DbModel.OrderOrderMaterial" FromRole="OrderMaterial" ToRole="Order" />
+          <Property Name="OrderId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="BatchNumber" Type="String" MaxLength="40" />
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="AmountMoney" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="Invoice" Type="Boolean" Nullable="false" />
+          <Property Name="TaxRate" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="TaxUnitPrice" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="TaxAmountMoney" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="PackCount" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="Remarks" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Unit" Relationship="DbModel.UnitOrderMaterial" FromRole="OrderMaterial" ToRole="Unit" />
+          <Property Name="UnitId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Material" Relationship="DbModel.MaterialOrderMaterial" FromRole="OrderMaterial" ToRole="Material" />
+          <Property Name="MaterialId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CompletionCount" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>已完成出入库数量</Summary>
+            </Documentation>
+          </Property>
+          </EntityType>
+        <Association Name="OrderOrderMaterial">
+          <End Type="DbModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="DbModel.OrderMaterial" Role="OrderMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderMaterial">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderCompany">
+          <End Type="DbModel.Order" Role="Order" Multiplicity="*" />
+          <End Type="DbModel.Company" Role="Company" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderEmployee">
+          <End Type="DbModel.Order" Role="Order" Multiplicity="*" />
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderWarehouse">
+          <End Type="DbModel.Order" Role="Order" Multiplicity="*" />
+          <End Type="DbModel.Warehouse" Role="Warehouse" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CapitalAccount">
+          <Documentation>
+            <Summary>资金账户</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="Order" Relationship="DbModel.CapitalAccountOrder" FromRole="CapitalAccount" ToRole="Order" />
+        </EntityType>
+        <Association Name="CapitalAccountOrder">
+          <End Type="DbModel.CapitalAccount" Role="CapitalAccount" Multiplicity="0..1" />
+          <End Type="DbModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CapitalAccount">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CapitalAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UnitOrderMaterial">
+          <End Type="DbModel.Unit" Role="Unit" Multiplicity="0..1" />
+          <End Type="DbModel.OrderMaterial" Role="OrderMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderMaterial">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UnitRecordMaterial">
+          <End Type="DbModel.Unit" Role="Unit" Multiplicity="0..1" />
+          <End Type="DbModel.RecordMaterial" Role="RecordMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecordMaterial">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaterialOrderMaterial">
+          <End Type="DbModel.Material" Role="Material" Multiplicity="1" />
+          <End Type="DbModel.OrderMaterial" Role="OrderMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderMaterial">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaterialRecordMaterial">
+          <End Type="DbModel.Material" Role="Material" Multiplicity="1" />
+          <End Type="DbModel.RecordMaterial" Role="RecordMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecordMaterial">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

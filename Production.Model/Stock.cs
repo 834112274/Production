@@ -24,14 +24,27 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 批号
-        /// </summary>
-    	[DisplayName( "批号" )]
-        public string BatchNumber { get; set; }
-    	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
         public decimal Count { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string WarehouseId { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string MaterialId { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string BatchNumber { get; set; }
+    
+        public virtual Warehouse Warehouse { get; set; }
+        public virtual Material Material { get; set; }
     }
 }

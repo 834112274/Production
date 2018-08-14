@@ -18,6 +18,14 @@ namespace Production.Model
     /// </summary>
     public partial class Warehouse
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Warehouse()
+        {
+            this.Stock = new HashSet<Stock>();
+            this.StockRecord = new HashSet<StockRecord>();
+            this.Order = new HashSet<Order>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
@@ -58,5 +66,12 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "是否参与计算" )]
         public bool InCalculation { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock> Stock { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockRecord> StockRecord { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

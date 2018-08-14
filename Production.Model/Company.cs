@@ -18,6 +18,13 @@ namespace Production.Model
     /// </summary>
     public partial class Company
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Company()
+        {
+            this.StockRecord = new HashSet<StockRecord>();
+            this.Order = new HashSet<Order>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
@@ -122,5 +129,9 @@ namespace Production.Model
         public virtual CompanyType Type { get; set; }
         public virtual CompanyType Property { get; set; }
         public virtual CompanyType Stage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockRecord> StockRecord { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

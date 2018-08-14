@@ -18,6 +18,13 @@ namespace Production.Model
     /// </summary>
     public partial class Employee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employee()
+        {
+            this.StockRecord = new HashSet<StockRecord>();
+            this.Order = new HashSet<Order>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
@@ -182,5 +189,9 @@ namespace Production.Model
         public virtual Department Department { get; set; }
         public virtual Role Role { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockRecord> StockRecord { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

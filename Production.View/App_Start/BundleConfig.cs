@@ -29,7 +29,8 @@ namespace Production.View
 
             bundles.Add(new StyleBundle("~/Script/easyui/css").Include(
                       "~/Scripts/jquery-easyui-1.5.5.4/themes/bootstrap/easyui.css",
-                      "~/Scripts/jquery-easyui-1.5.5.4/themes/icon.css"));
+                      "~/Scripts/jquery-easyui-1.5.5.4/themes/icon.css",
+                      "~/Content/modules-page.css"));
         }
     }
 }

@@ -18,6 +18,14 @@ namespace Production.Model
     /// </summary>
     public partial class Material
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Material()
+        {
+            this.Stock = new HashSet<Stock>();
+            this.OrderMaterial = new HashSet<OrderMaterial>();
+            this.RecordMaterial = new HashSet<RecordMaterial>();
+        }
+    
     	/// <summary>
         /// 
         /// </summary>
@@ -183,5 +191,11 @@ namespace Production.Model
         public virtual Unit Unit { get; set; }
         public virtual MixMaterial MixMaterial { get; set; }
         public virtual ProductMix ProductMix { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock> Stock { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderMaterial> OrderMaterial { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RecordMaterial> RecordMaterial { get; set; }
     }
 }

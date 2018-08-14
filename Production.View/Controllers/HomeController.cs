@@ -14,5 +14,11 @@ namespace Production.View.Controllers
 
             return View();
         }
+        public ActionResult Modules(string moduleName)
+        {
+            ViewBag.Title = "Home Page";
+
+            return View();
+        }
     }
 }

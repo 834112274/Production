@@ -22,6 +22,8 @@ namespace Production.Model
         public Unit()
         {
             this.MixMaterial = new HashSet<MixMaterial>();
+            this.OrderMaterial = new HashSet<OrderMaterial>();
+            this.RecordMaterial = new HashSet<RecordMaterial>();
         }
     
     	/// <summary>
@@ -42,5 +44,9 @@ namespace Production.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MixMaterial> MixMaterial { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderMaterial> OrderMaterial { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RecordMaterial> RecordMaterial { get; set; }
     }
 }
