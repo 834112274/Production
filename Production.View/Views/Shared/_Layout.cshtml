@@ -73,6 +73,9 @@
     </div>
     <script>
         $('#quick_menu').on('click', 'a', function (e) {
+            if ($(this).attr('target') == '_blank') {
+                return;
+            }
             e.preventDefault();
             var url = $(this).attr('href');
             var title = $(this).find('.title').text();
@@ -112,6 +115,7 @@
         });
 
         $('.my-menu-tree').on('click', 'a', function (e) {
+            
             e.preventDefault();
             $('.my-menu-tree li').removeClass('selected');
             $(this).parent().addClass('selected');
