@@ -86,7 +86,7 @@ namespace Production.View.Areas.ViewApi.Controllers
             {
                 var instance = menus.First();
                 instance.Name = menu.Name;
-                instance.Ico = menu.Ico;
+                instance.Icon = menu.Icon;
                 instance.Url = menu.Url;
                 instance.ParentId = menu.ParentId;
                 instance.Module = menu.Module;

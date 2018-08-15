@@ -4,11 +4,991 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="DbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="DbModelTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="DbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DbModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="DbModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Department" EntityType="DbModel.Store.Department" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role" EntityType="DbModel.Store.Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Menu" EntityType="DbModel.Store.Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserProperty" EntityType="DbModel.Store.UserProperty" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserLog" EntityType="DbModel.Store.UserLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SystemLog" EntityType="DbModel.Store.SystemLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Material" EntityType="DbModel.Store.Material" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MaterialType" EntityType="DbModel.Store.MaterialType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Unit" EntityType="DbModel.Store.Unit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductMix" EntityType="DbModel.Store.ProductMix" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MixMaterial" EntityType="DbModel.Store.MixMaterial" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Procedure" EntityType="DbModel.Store.Procedure" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Company" EntityType="DbModel.Store.Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyType" EntityType="DbModel.Store.CompanyType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="DbModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProcedureList" EntityType="DbModel.Store.ProcedureList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Warehouse" EntityType="DbModel.Store.Warehouse" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stock" EntityType="DbModel.Store.Stock" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StockRecord" EntityType="DbModel.Store.StockRecord" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecordMaterial" EntityType="DbModel.Store.RecordMaterial" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Order" EntityType="DbModel.Store.Order" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderMaterial" EntityType="DbModel.Store.OrderMaterial" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CapitalAccount" EntityType="DbModel.Store.CapitalAccount" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="MenuUserProperty" Association="DbModel.Store.MenuUserProperty">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="UserProperty" EntitySet="UserProperty" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentEmployee" Association="DbModel.Store.DepartmentEmployee">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="User" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="RoleEmployee" Association="DbModel.Store.RoleEmployee">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyTypeCompanyLevel" Association="DbModel.Store.CompanyTypeCompanyLevel">
+      <End Role="CompanyType" EntitySet="CompanyType" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyTypeCompanySource" Association="DbModel.Store.CompanyTypeCompanySource">
+      <End Role="CompanyType" EntitySet="CompanyType" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyTypeCompanyIndustry" Association="DbModel.Store.CompanyTypeCompanyIndustry">
+      <End Role="CompanyType" EntitySet="CompanyType" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeCompany" Association="DbModel.Store.EmployeeCompany">
+      <End Role="User" EntitySet="Employee" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyTypeCompanyStatus" Association="DbModel.Store.CompanyTypeCompanyStatus">
+      <End Role="CompanyType" EntitySet="CompanyType" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyTypeCompanyType" Association="DbModel.Store.CompanyTypeCompanyType">
+      <End Role="CompanyType" EntitySet="CompanyType" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyTypeCompanyproperty" Association="DbModel.Store.CompanyTypeCompanyproperty">
+      <End Role="CompanyType" EntitySet="CompanyType" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyTypeCompanyStage" Association="DbModel.Store.CompanyTypeCompanyStage">
+      <End Role="CompanyType" EntitySet="CompanyType" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="UserUserProperty" Association="DbModel.Store.UserUserProperty">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserProperty" EntitySet="UserProperty" />
+    </AssociationSet>
+    <AssociationSet Name="MaterialTypeMaterial" Association="DbModel.Store.MaterialTypeMaterial">
+      <End Role="MaterialType" EntitySet="MaterialType" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="UnitMaterial" Association="DbModel.Store.UnitMaterial">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="ProductMixMixMaterial" Association="DbModel.Store.ProductMixMixMaterial">
+      <End Role="ProductMix" EntitySet="ProductMix" />
+      <End Role="MixMaterial" EntitySet="MixMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="MixMaterialMaterial" Association="DbModel.Store.MixMaterialMaterial">
+      <End Role="MixMaterial" EntitySet="MixMaterial" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="UnitMixMaterial" Association="DbModel.Store.UnitMixMaterial">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="MixMaterial" EntitySet="MixMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="ProductMixMaterial" Association="DbModel.Store.ProductMixMaterial">
+      <End Role="ProductMix" EntitySet="ProductMix" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="ProductMixProcedureList" Association="DbModel.Store.ProductMixProcedureList">
+      <End Role="ProductMix" EntitySet="ProductMix" />
+      <End Role="ProcedureList" EntitySet="ProcedureList" />
+    </AssociationSet>
+    <AssociationSet Name="ProcedureProcedureList" Association="DbModel.Store.ProcedureProcedureList">
+      <End Role="Procedure" EntitySet="Procedure" />
+      <End Role="ProcedureList" EntitySet="ProcedureList" />
+    </AssociationSet>
+    <AssociationSet Name="UserEmployee" Association="DbModel.Store.UserEmployee">
+      <End Role="User" EntitySet="User" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="WarehouseStock" Association="DbModel.Store.WarehouseStock">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="WarehouseStockRecord" Association="DbModel.Store.WarehouseStockRecord">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="StockRecord" EntitySet="StockRecord" />
+    </AssociationSet>
+    <AssociationSet Name="StockRecordCompany" Association="DbModel.Store.StockRecordCompany">
+      <End Role="StockRecord" EntitySet="StockRecord" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="StockRecordRecordMaterial" Association="DbModel.Store.StockRecordRecordMaterial">
+      <End Role="StockRecord" EntitySet="StockRecord" />
+      <End Role="RecordMaterial" EntitySet="RecordMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="MaterialStock" Association="DbModel.Store.MaterialStock">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeStockRecord" Association="DbModel.Store.EmployeeStockRecord">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="StockRecord" EntitySet="StockRecord" />
+    </AssociationSet>
+    <AssociationSet Name="OrderStockRecord" Association="DbModel.Store.OrderStockRecord">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="StockRecord" EntitySet="StockRecord" />
+    </AssociationSet>
+    <AssociationSet Name="OrderOrderMaterial" Association="DbModel.Store.OrderOrderMaterial">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderMaterial" EntitySet="OrderMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="OrderCompany" Association="DbModel.Store.OrderCompany">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="OrderEmployee" Association="DbModel.Store.OrderEmployee">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="OrderWarehouse" Association="DbModel.Store.OrderWarehouse">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="CapitalAccountOrder" Association="DbModel.Store.CapitalAccountOrder">
+      <End Role="CapitalAccount" EntitySet="CapitalAccount" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="UnitOrderMaterial" Association="DbModel.Store.UnitOrderMaterial">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="OrderMaterial" EntitySet="OrderMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="UnitRecordMaterial" Association="DbModel.Store.UnitRecordMaterial">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="RecordMaterial" EntitySet="RecordMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="MaterialOrderMaterial" Association="DbModel.Store.MaterialOrderMaterial">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="OrderMaterial" EntitySet="OrderMaterial" />
+    </AssociationSet>
+    <AssociationSet Name="MaterialRecordMaterial" Association="DbModel.Store.MaterialRecordMaterial">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="RecordMaterial" EntitySet="RecordMaterial" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="120" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="PINCodes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="RoleId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="NativePlace" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="HomeAddress" Type="nvarchar" Nullable="true" MaxLength="120" />
+    <Property Name="HomeTel" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="120" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="Sex" Type="smallint" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="TrialDays" Type="smallint" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="QuitDate" Type="datetime" Nullable="false" />
+    <Property Name="Nation" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="MarriageStatus" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PoliticalStatus" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="GraduateSchool" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="Major" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ContractEndDate" Type="datetime" Nullable="false" />
+    <Property Name="BankAccount" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="MedicalInsuranceAccount" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="PensionInsuranceAccount" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="OtherInformation" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Education" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="User_Id" Type="nvarchar" MaxLength="40" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="Code" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="120" />
+    <Property Name="Tel" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Url" Type="nvarchar" Nullable="true" MaxLength="120" />
+    <Property Name="Icon" Type="nvarchar" Nullable="true" MaxLength="120" />
+    <Property Name="Module" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Sort" Type="smallint" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="IsVail" Type="bit" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="Level" Type="smallint" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="UserProperty">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="MenuId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="UserLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Content" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Level" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Method" Type="nvarchar" Nullable="false" MaxLength="120" />
+    <Property Name="Content" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="Specifications" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Brand" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="Producer" Type="nvarchar" Nullable="true" MaxLength="90" />
+    <Property Name="PurchasePrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="SellingPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="SalesCommission" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Purpose" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="MemoryCode" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="Source" Type="smallint" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="Img" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="GraphNumber" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="FirstSellingPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="SecondSellingPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="ThreeSellingPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="FourSellingPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="FiveSellingPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="FirstPurchasePrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="SecondPurchasePrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="ThreePurchasePrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="FourPurchasePrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="FivePurchasePrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateUser" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="TypeId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="UnitId" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="MaterialType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Sort" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductMix">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateUser" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="Material_Id" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MixMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="Specifications" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Count" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Loss" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="Source" Type="smallint" Nullable="false" />
+    <Property Name="ProductMixId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="UnitId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="TotalPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="MaterialRemarks" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="Code" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="Material_Id" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Procedure">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="StepCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Content" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateUser" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="120" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Contacts" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="ContactNumber" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="Tel" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Fax" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Website" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PreDeposit" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="LevelId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="SourceId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="IndustryId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="SalesmanId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="StatusId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="TypeId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="PropertyId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="StageId" Type="nvarchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="CompanyType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="ParentId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Default" Type="bit" Nullable="false" />
+    <Property Name="Level" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ProcedureList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ProductMixId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="ProcedureId" Type="nvarchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Area" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Default" Type="bit" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+    <Property Name="InCalculation" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Count" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="WarehouseId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="MaterialId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="BatchNumber" Type="nvarchar" Nullable="true" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="StockRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="WarehouseId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="StorageTime" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
+    <Property Name="AmountMoney" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="EmployeeId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="OrderId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="TaxAmount" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="Company_Id" Type="nvarchar" MaxLength="40" Nullable="true" />
+  </EntityType>
+  <EntityType Name="RecordMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="StockRecordId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="BatchNumber" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Count" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="AmountMoney" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Invoice" Type="bit" Nullable="false" />
+    <Property Name="TaxRate" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="TaxUnitPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="TaxAmountMoney" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="PackCount" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="Code" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="CustomerCode" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="UnitId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="MaterialId" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="CompletionDate" Type="datetime" Nullable="false" />
+    <Property Name="CompanyId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="PriceLevel" Type="smallint" Nullable="false" />
+    <Property Name="EmployeeId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="WarehouseId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="AmountMoney" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="StatementDate" Type="datetime" Nullable="false" />
+    <Property Name="DeliveryAddress" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="CustomerCode" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="OutInStatus" Type="smallint" Nullable="false" />
+    <Property Name="AccountStatus" Type="smallint" Nullable="false" />
+    <Property Name="InvoiceCode" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="CapitalAccountId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="OrderId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="BatchNumber" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="Count" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="AmountMoney" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Invoice" Type="bit" Nullable="false" />
+    <Property Name="TaxRate" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="TaxUnitPrice" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="TaxAmountMoney" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="PackCount" Type="decimal" Nullable="false" Precision="2" />
+    <Property Name="Remarks" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="UnitId" Type="nvarchar" Nullable="true" MaxLength="40" />
+    <Property Name="MaterialId" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="CompletionCount" Type="decimal" Nullable="false" Precision="2" />
+  </EntityType>
+  <EntityType Name="CapitalAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <Association Name="MenuUserProperty">
+    <End Role="Menu" Type="DbModel.Store.Menu" Multiplicity="1" />
+    <End Role="UserProperty" Type="DbModel.Store.UserProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProperty">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentEmployee">
+    <End Role="Department" Type="DbModel.Store.Department" Multiplicity="1" />
+    <End Role="User" Type="DbModel.Store.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleEmployee">
+    <End Role="Role" Type="DbModel.Store.Role" Multiplicity="0..1" />
+    <End Role="User" Type="DbModel.Store.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyTypeCompanyLevel">
+    <End Role="CompanyType" Type="DbModel.Store.CompanyType" Multiplicity="0..1" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="LevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyTypeCompanySource">
+    <End Role="CompanyType" Type="DbModel.Store.CompanyType" Multiplicity="0..1" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="SourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyTypeCompanyIndustry">
+    <End Role="CompanyType" Type="DbModel.Store.CompanyType" Multiplicity="0..1" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="IndustryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeCompany">
+    <End Role="User" Type="DbModel.Store.Employee" Multiplicity="0..1" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="SalesmanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyTypeCompanyStatus">
+    <End Role="CompanyType" Type="DbModel.Store.CompanyType" Multiplicity="0..1" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyTypeCompanyType">
+    <End Role="CompanyType" Type="DbModel.Store.CompanyType" Multiplicity="0..1" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyTypeCompanyproperty">
+    <End Role="CompanyType" Type="DbModel.Store.CompanyType" Multiplicity="0..1" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyTypeCompanyStage">
+    <End Role="CompanyType" Type="DbModel.Store.CompanyType" Multiplicity="0..1" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="StageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserUserProperty">
+    <End Role="User" Type="DbModel.Store.User" Multiplicity="1" />
+    <End Role="UserProperty" Type="DbModel.Store.UserProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProperty">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterialTypeMaterial">
+    <End Role="MaterialType" Type="DbModel.Store.MaterialType" Multiplicity="1" />
+    <End Role="Material" Type="DbModel.Store.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitMaterial">
+    <End Role="Unit" Type="DbModel.Store.Unit" Multiplicity="1" />
+    <End Role="Material" Type="DbModel.Store.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductMixMixMaterial">
+    <End Role="ProductMix" Type="DbModel.Store.ProductMix" Multiplicity="1" />
+    <End Role="MixMaterial" Type="DbModel.Store.MixMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMix">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MixMaterial">
+        <PropertyRef Name="ProductMixId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MixMaterialMaterial">
+    <End Role="MixMaterial" Type="DbModel.Store.MixMaterial" Multiplicity="*" />
+    <End Role="Material" Type="DbModel.Store.Material" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MixMaterial">
+        <PropertyRef Name="Material_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitMixMaterial">
+    <End Role="Unit" Type="DbModel.Store.Unit" Multiplicity="1" />
+    <End Role="MixMaterial" Type="DbModel.Store.MixMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MixMaterial">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductMixMaterial">
+    <End Role="ProductMix" Type="DbModel.Store.ProductMix" Multiplicity="*" />
+    <End Role="Material" Type="DbModel.Store.Material" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductMix">
+        <PropertyRef Name="Material_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductMixProcedureList">
+    <End Role="ProductMix" Type="DbModel.Store.ProductMix" Multiplicity="0..1" />
+    <End Role="ProcedureList" Type="DbModel.Store.ProcedureList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMix">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProcedureList">
+        <PropertyRef Name="ProductMixId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProcedureProcedureList">
+    <End Role="Procedure" Type="DbModel.Store.Procedure" Multiplicity="0..1" />
+    <End Role="ProcedureList" Type="DbModel.Store.ProcedureList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedure">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProcedureList">
+        <PropertyRef Name="ProcedureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserEmployee">
+    <End Role="User" Type="DbModel.Store.User" Multiplicity="0..1" />
+    <End Role="Employee" Type="DbModel.Store.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WarehouseStock">
+    <End Role="Warehouse" Type="DbModel.Store.Warehouse" Multiplicity="1" />
+    <End Role="Stock" Type="DbModel.Store.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="WarehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WarehouseStockRecord">
+    <End Role="Warehouse" Type="DbModel.Store.Warehouse" Multiplicity="1" />
+    <End Role="StockRecord" Type="DbModel.Store.StockRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockRecord">
+        <PropertyRef Name="WarehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StockRecordCompany">
+    <End Role="StockRecord" Type="DbModel.Store.StockRecord" Multiplicity="*" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockRecord">
+        <PropertyRef Name="Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StockRecordRecordMaterial">
+    <End Role="StockRecord" Type="DbModel.Store.StockRecord" Multiplicity="1" />
+    <End Role="RecordMaterial" Type="DbModel.Store.RecordMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecordMaterial">
+        <PropertyRef Name="StockRecordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterialStock">
+    <End Role="Material" Type="DbModel.Store.Material" Multiplicity="1" />
+    <End Role="Stock" Type="DbModel.Store.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeStockRecord">
+    <End Role="Employee" Type="DbModel.Store.Employee" Multiplicity="0..1" />
+    <End Role="StockRecord" Type="DbModel.Store.StockRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockRecord">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderStockRecord">
+    <End Role="Order" Type="DbModel.Store.Order" Multiplicity="0..1" />
+    <End Role="StockRecord" Type="DbModel.Store.StockRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockRecord">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderOrderMaterial">
+    <End Role="Order" Type="DbModel.Store.Order" Multiplicity="1" />
+    <End Role="OrderMaterial" Type="DbModel.Store.OrderMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderMaterial">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderCompany">
+    <End Role="Order" Type="DbModel.Store.Order" Multiplicity="*" />
+    <End Role="Company" Type="DbModel.Store.Company" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderEmployee">
+    <End Role="Order" Type="DbModel.Store.Order" Multiplicity="*" />
+    <End Role="Employee" Type="DbModel.Store.Employee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderWarehouse">
+    <End Role="Order" Type="DbModel.Store.Order" Multiplicity="*" />
+    <End Role="Warehouse" Type="DbModel.Store.Warehouse" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="WarehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CapitalAccountOrder">
+    <End Role="CapitalAccount" Type="DbModel.Store.CapitalAccount" Multiplicity="0..1" />
+    <End Role="Order" Type="DbModel.Store.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CapitalAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CapitalAccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitOrderMaterial">
+    <End Role="Unit" Type="DbModel.Store.Unit" Multiplicity="0..1" />
+    <End Role="OrderMaterial" Type="DbModel.Store.OrderMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderMaterial">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitRecordMaterial">
+    <End Role="Unit" Type="DbModel.Store.Unit" Multiplicity="0..1" />
+    <End Role="RecordMaterial" Type="DbModel.Store.RecordMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecordMaterial">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterialOrderMaterial">
+    <End Role="Material" Type="DbModel.Store.Material" Multiplicity="1" />
+    <End Role="OrderMaterial" Type="DbModel.Store.OrderMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderMaterial">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterialRecordMaterial">
+    <End Role="Material" Type="DbModel.Store.Material" Multiplicity="1" />
+    <End Role="RecordMaterial" Type="DbModel.Store.RecordMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RecordMaterial">
+        <PropertyRef Name="MaterialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -432,13 +1412,32 @@
               <Summary>菜单名</Summary>
             </Documentation>
           </Property>
-          <Property Name="Url" Type="String" Nullable="false" MaxLength="120" />
-          <Property Name="Ico" Type="String" Nullable="false" MaxLength="15" />
-          <Property Name="Module" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="Url" Type="String" MaxLength="120" />
+          <Property Name="Icon" Type="String" MaxLength="120" />
+          <Property Name="Module" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>模块编号</Summary>
+            </Documentation>
+          </Property>
           <Property Name="Sort" Type="Int16" Nullable="false" />
           <Property Name="ParentId" Type="String" MaxLength="40" />
           <Property Name="IsVail" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="UserProperty" Relationship="DbModel.MenuUserProperty" FromRole="Menu" ToRole="UserProperty" />
+          <Property Name="Status" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>菜单状态</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Level" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>菜单级别</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="6" >
+            <Documentation>
+              <Summary>菜单编号</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
         <EntityType Name="UserProperty">
           <Documentation>
@@ -467,11 +1466,31 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <Property Name="Type" Type="String" Nullable="false" />
-          <Property Name="Content" Type="String" Nullable="false" />
-          <Property Name="UserId" Type="String" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" />
-          <Property Name="CreateTime" Type="String" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>日志类型</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="2000" >
+            <Documentation>
+              <Summary>日志内容</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>用户ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>用户名</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>记录时间</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
         <EntityType Name="SystemLog">
           <Documentation>
@@ -480,11 +1499,27 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
-          <Property Name="Level" Type="String" Nullable="false" />
-          <Property Name="Method" Type="String" Nullable="false" />
-          <Property Name="Content" Type="String" Nullable="false" />
-          <Property Name="CreateTime" Type="String" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Level" Type="String" Nullable="false" MaxLength="20" >
+            <Documentation>
+              <Summary>日志级别</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Method" Type="String" Nullable="false" MaxLength="120" >
+            <Documentation>
+              <Summary>方法位置</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="2000" >
+            <Documentation>
+              <Summary>日志内容</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
         </EntityType>
         <EntityType Name="Material">
           <Documentation>
@@ -829,7 +1864,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="40" >
             <Documentation>
               <Summary>工序名称</Summary>
@@ -866,7 +1901,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="120" >
             <Documentation>
               <Summary>客户名称</Summary>
@@ -1186,7 +2221,7 @@
           <NavigationProperty Name="ProductMix" Relationship="DbModel.ProductMixProcedureList" FromRole="ProcedureList" ToRole="ProductMix" />
           <Property Name="ProductMixId" Type="String" Nullable="true" MaxLength="40" />
           <NavigationProperty Name="Procedure" Relationship="DbModel.ProcedureProcedureList" FromRole="ProcedureList" ToRole="Procedure" />
-          <Property Name="ProcedureId" Type="String" Nullable="true" />
+          <Property Name="ProcedureId" Type="String" Nullable="true" MaxLength="40" />
         </EntityType>
         <Association Name="ProductMixProcedureList">
           <End Type="DbModel.ProductMix" Role="ProductMix" Multiplicity="0..1" />
@@ -1249,7 +2284,7 @@
         </EntityType>
         <Association Name="UserEmployee">
           <End Type="DbModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="DbModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
         </Association>
         <EntityType Name="Stock">
           <Documentation>
@@ -1485,7 +2520,7 @@
             </Documentation>
           </Property>
           <NavigationProperty Name="Company" Relationship="DbModel.OrderCompany" FromRole="Order" ToRole="Company" />
-          <Property Name="CompanyId" Type="String" Nullable="true" />
+          <Property Name="CompanyId" Type="String" Nullable="true" MaxLength="40" />
           <Property Name="PriceLevel" Type="Int16" Nullable="false" >
             <Documentation>
               <Summary>单价级别</Summary>
@@ -1719,13 +2754,429 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="DbModel" />
-        <Alias Key="Target" Value="DbModel.Store" />
-        <EntityContainerMapping CdmEntityContainer="DbModelContainer" StorageEntityContainer="DbModelTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbModelStoreContainer" CdmEntityContainer="DbModelContainer">
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Employee)">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PINCodes" ColumnName="PINCodes" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="NativePlace" ColumnName="NativePlace" />
+          <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+          <ScalarProperty Name="HomeTel" ColumnName="HomeTel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="TrialDays" ColumnName="TrialDays" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="QuitDate" ColumnName="QuitDate" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="MarriageStatus" ColumnName="MarriageStatus" />
+          <ScalarProperty Name="PoliticalStatus" ColumnName="PoliticalStatus" />
+          <ScalarProperty Name="GraduateSchool" ColumnName="GraduateSchool" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+          <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+          <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+          <ScalarProperty Name="MedicalInsuranceAccount" ColumnName="MedicalInsuranceAccount" />
+          <ScalarProperty Name="PensionInsuranceAccount" ColumnName="PensionInsuranceAccount" />
+          <ScalarProperty Name="OtherInformation" ColumnName="OtherInformation" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Department)">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Role)">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Menu)">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="IsVail" ColumnName="IsVail" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProperty">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.UserProperty)">
+        <MappingFragment StoreEntitySet="UserProperty">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLog">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.UserLog)">
+        <MappingFragment StoreEntitySet="UserLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemLog">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.SystemLog)">
+        <MappingFragment StoreEntitySet="SystemLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Material)">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Producer" ColumnName="Producer" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+          <ScalarProperty Name="SalesCommission" ColumnName="SalesCommission" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="MemoryCode" ColumnName="MemoryCode" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Img" ColumnName="Img" />
+          <ScalarProperty Name="GraphNumber" ColumnName="GraphNumber" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FirstSellingPrice" ColumnName="FirstSellingPrice" />
+          <ScalarProperty Name="SecondSellingPrice" ColumnName="SecondSellingPrice" />
+          <ScalarProperty Name="ThreeSellingPrice" ColumnName="ThreeSellingPrice" />
+          <ScalarProperty Name="FourSellingPrice" ColumnName="FourSellingPrice" />
+          <ScalarProperty Name="FiveSellingPrice" ColumnName="FiveSellingPrice" />
+          <ScalarProperty Name="FirstPurchasePrice" ColumnName="FirstPurchasePrice" />
+          <ScalarProperty Name="SecondPurchasePrice" ColumnName="SecondPurchasePrice" />
+          <ScalarProperty Name="ThreePurchasePrice" ColumnName="ThreePurchasePrice" />
+          <ScalarProperty Name="FourPurchasePrice" ColumnName="FourPurchasePrice" />
+          <ScalarProperty Name="FivePurchasePrice" ColumnName="FivePurchasePrice" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialType">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.MaterialType)">
+        <MappingFragment StoreEntitySet="MaterialType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Unit)">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductMix">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.ProductMix)">
+        <MappingFragment StoreEntitySet="ProductMix">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MixMaterial">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.MixMaterial)">
+        <MappingFragment StoreEntitySet="MixMaterial">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Loss" ColumnName="Loss" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ProductMixId" ColumnName="ProductMixId" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="MaterialRemarks" ColumnName="MaterialRemarks" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedure">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Procedure)">
+        <MappingFragment StoreEntitySet="Procedure">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StepCode" ColumnName="StepCode" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Company)">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="PreDeposit" ColumnName="PreDeposit" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+          <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+          <ScalarProperty Name="SalesmanId" ColumnName="SalesmanId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyType">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.CompanyType)">
+        <MappingFragment StoreEntitySet="CompanyType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Default" ColumnName="Default" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcedureList">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.ProcedureList)">
+        <MappingFragment StoreEntitySet="ProcedureList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductMixId" ColumnName="ProductMixId" />
+          <ScalarProperty Name="ProcedureId" ColumnName="ProcedureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouse">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Warehouse)">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Default" ColumnName="Default" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="InCalculation" ColumnName="InCalculation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Stock)">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockRecord">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.StockRecord)">
+        <MappingFragment StoreEntitySet="StockRecord">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="StorageTime" ColumnName="StorageTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="AmountMoney" ColumnName="AmountMoney" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecordMaterial">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.RecordMaterial)">
+        <MappingFragment StoreEntitySet="RecordMaterial">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StockRecordId" ColumnName="StockRecordId" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="AmountMoney" ColumnName="AmountMoney" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="TaxUnitPrice" ColumnName="TaxUnitPrice" />
+          <ScalarProperty Name="TaxAmountMoney" ColumnName="TaxAmountMoney" />
+          <ScalarProperty Name="PackCount" ColumnName="PackCount" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Order)">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="PriceLevel" ColumnName="PriceLevel" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="AmountMoney" ColumnName="AmountMoney" />
+          <ScalarProperty Name="StatementDate" ColumnName="StatementDate" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+          <ScalarProperty Name="OutInStatus" ColumnName="OutInStatus" />
+          <ScalarProperty Name="AccountStatus" ColumnName="AccountStatus" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="CapitalAccountId" ColumnName="CapitalAccountId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderMaterial">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.OrderMaterial)">
+        <MappingFragment StoreEntitySet="OrderMaterial">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="AmountMoney" ColumnName="AmountMoney" />
+          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="TaxUnitPrice" ColumnName="TaxUnitPrice" />
+          <ScalarProperty Name="TaxAmountMoney" ColumnName="TaxAmountMoney" />
+          <ScalarProperty Name="PackCount" ColumnName="PackCount" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="CompletionCount" ColumnName="CompletionCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CapitalAccount">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.CapitalAccount)">
+        <MappingFragment StoreEntitySet="CapitalAccount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MixMaterialMaterial" TypeName="DbModel.MixMaterialMaterial" StoreEntitySet="MixMaterial">
+      <EndProperty Name="Material">
+        <ScalarProperty Name="Id" ColumnName="Material_Id" />
+      </EndProperty>
+      <EndProperty Name="MixMaterial">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductMixMaterial" TypeName="DbModel.ProductMixMaterial" StoreEntitySet="ProductMix">
+      <EndProperty Name="Material">
+        <ScalarProperty Name="Id" ColumnName="Material_Id" />
+      </EndProperty>
+      <EndProperty Name="ProductMix">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserEmployee" TypeName="DbModel.UserEmployee" StoreEntitySet="Employee">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="User_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StockRecordCompany" TypeName="DbModel.StockRecordCompany" StoreEntitySet="StockRecord">
+      <EndProperty Name="Company">
+        <ScalarProperty Name="Id" ColumnName="Company_Id" />
+      </EndProperty>
+      <EndProperty Name="StockRecord">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Company_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -1739,6 +3190,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -43,11 +43,11 @@ namespace Production.Model
         /// 
         /// </summary>
     	[DisplayName( "" )]
-        public string Ico { get; set; }
+        public string Icon { get; set; }
     	/// <summary>
-        /// 
+        /// 模块编号
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "模块编号" )]
         public string Module { get; set; }
     	/// <summary>
         /// 
@@ -64,6 +64,21 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public bool IsVail { get; set; }
+    	/// <summary>
+        /// 菜单状态
+        /// </summary>
+    	[DisplayName( "菜单状态" )]
+        public short Status { get; set; }
+    	/// <summary>
+        /// 菜单级别
+        /// </summary>
+    	[DisplayName( "菜单级别" )]
+        public short Level { get; set; }
+    	/// <summary>
+        /// 菜单编号
+        /// </summary>
+    	[DisplayName( "菜单编号" )]
+        public string Code { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserProperty> UserProperty { get; set; }

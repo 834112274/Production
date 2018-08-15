@@ -160,6 +160,7 @@
       <LastGenOutput>DbModel.Context.cs</LastGenOutput>
       <DependentUpon>DbModel.edmx</DependentUpon>
     </Content>
+    <Content Include="DbModel.edmx.sql" />
     <Content Include="DbModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbModel.cs</LastGenOutput>

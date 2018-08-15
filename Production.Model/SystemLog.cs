@@ -24,24 +24,24 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 
+        /// 日志级别
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "日志级别" )]
         public string Level { get; set; }
     	/// <summary>
-        /// 
+        /// 方法位置
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "方法位置" )]
         public string Method { get; set; }
     	/// <summary>
-        /// 
+        /// 日志内容
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "日志内容" )]
         public string Content { get; set; }
     	/// <summary>
-        /// 
+        /// 创建时间
         /// </summary>
-    	[DisplayName( "" )]
-        public string CreateTime { get; set; }
+    	[DisplayName( "创建时间" )]
+        public System.DateTime CreateTime { get; set; }
     }
 }

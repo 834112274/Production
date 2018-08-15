@@ -24,29 +24,29 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 
+        /// 日志类型
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "日志类型" )]
         public string Type { get; set; }
     	/// <summary>
-        /// 
+        /// 日志内容
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "日志内容" )]
         public string Content { get; set; }
     	/// <summary>
-        /// 
+        /// 用户ID
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "用户ID" )]
         public string UserId { get; set; }
     	/// <summary>
-        /// 
+        /// 用户名
         /// </summary>
-    	[DisplayName( "" )]
+    	[DisplayName( "用户名" )]
         public string UserName { get; set; }
     	/// <summary>
-        /// 
+        /// 记录时间
         /// </summary>
-    	[DisplayName( "" )]
-        public string CreateTime { get; set; }
+    	[DisplayName( "记录时间" )]
+        public System.DateTime CreateTime { get; set; }
     }
 }

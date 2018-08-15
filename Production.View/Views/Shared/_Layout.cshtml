@@ -43,48 +43,21 @@
     <div class="easyui-accordion" data-options="region:'west',split:false,border:false" style="width:240px;">
         <div title="功能模块" data-options="selected:true" style="">
             <ul class="my-menu-tree">
-                <li>
-                    <a href="/Home/Modules">
-                        <img class="icon" src="~/Images/Icon/20080527174351985.png" />
-                        <span class="title">生产模块</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Home/Modules">
-                        <img class="icon" src="~/Images/Icon/20080527174352443.png" />
-                        <span class="title">客户供应商</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Home/Modules">
-                        <img class="icon" src="~/Images/Icon/pie-chart_graph1.png" />
-                        <span class="title">进销存管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Home/Modules">
-                        <img class="icon" src="~/Images/Icon/t1PksLkr57t6C6Y.png" />
-                        <span class="title">人力资源</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Home/Modules">
-                        <img class="icon" src="~/Images/Icon/20080527174348804.png" />
-                        <span class="title">审核中心</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Home/Modules">
-                        <img class="icon" src="~/Images/Icon/bar_chart.png" />
-                        <span class="title">报表中心</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Home/Modules">
-                        <img class="icon" src="~/Images/Icon/20080527174351861.png" />
-                        <span class="title">系统维护</span>
-                    </a>
-                </li>
+                @{
+                    if (ViewBag.Menu != null)
+                    {
+                        foreach (var m in ViewBag.Menu)
+                        {
+                            <li>
+                                <a href="@m.Url">
+                                    <img class="icon" src="@m.Icon" />
+                                    <span class="title">@m.Name</span>
+                                </a>
+                            </li>
+                        }
+                    }
+                }
+                
             </ul>
         </div>
     </div>
@@ -140,6 +113,8 @@
 
         $('.my-menu-tree').on('click', 'a', function (e) {
             e.preventDefault();
+            $('.my-menu-tree li').removeClass('selected');
+            $(this).parent().addClass('selected');
             var url = $(this).attr('href');
             var title = $(this).find('.title').text();
             var tab = $('#module_tabs').tabs('getTab', 0);
@@ -163,6 +138,39 @@
             }
             return false;
         });
+        var init = function () {
+            $('.my-menu-tree li').removeClass('selected');
+            
+            var first = $('.my-menu-tree a').eq(0);
+            first.parent().addClass('selected');
+            var url = first.attr('href');
+            var title = first.find('.title').text();
+            //console.log(url);
+            var tab = $('#module_tabs').tabs('getTab', 0);
+            //console.log(tab);
+            if (tab) {
+                $('#module_tabs').tabs('select', 0);
+                $('#module_tabs').tabs('update', {
+                    tab: tab,
+                    options: {
+                        title: title,
+                        href: url  // the new content URL
+                    }
+                });
+                tab.panel('refresh', url);
+            }
+            else {
+                $('#module_tabs').tabs('add', {
+                    title: title,
+                    selected: true,
+                    href: url
+                });
+            }
+        };
+        $(document).ready(function () {
+            init();
+        });
+        
     </script>
     @RenderSection("scripts", required: false)
 </body>

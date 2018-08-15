@@ -1,0 +1,93 @@
+[
+  {
+    "Id": "001",
+    "Name": "生产模块",
+    "Url": "/Home/Moduels/001",
+    "Level": 1,
+    "ParentId": "",
+    "IsVail": true,
+    "Sort": 1,
+    "Code": "001",
+    "Status": 1,
+    "Icon": "/Images/Icon/20080527174351985.png",
+    "Module": "生产模块"
+  },
+  {
+    "Id": "002",
+    "Name": "客户供应商",
+    "Url": "/Home/Moduels/002",
+    "Level": 1,
+    "ParentId": "",
+    "IsVail": true,
+    "Sort": 2,
+    "Code": "002",
+    "Status": 1,
+    "Icon": "/Images/Icon/20080527174352443.png",
+    "Module": "客户供应商"
+  },
+  {
+    "Id": "003",
+    "Name": "进销存管理",
+    "Url": "/Home/Moduels/003",
+    "Level": 1,
+    "ParentId": "",
+    "IsVail": true,
+    "Sort": 3,
+    "Code": "003",
+    "Status": 1,
+    "Icon": "/Images/Icon/pie-chart_graph1.png",
+    "Module": "进销存管理"
+  },
+  {
+    "Id": "004",
+    "Name": "人力资源",
+    "Url": "/Home/Moduels/004",
+    "Level": 1,
+    "ParentId": "",
+    "IsVail": true,
+    "Sort": 4,
+    "Code": "004",
+    "Status": 1,
+    "Icon": "/Images/Icon/t1PksLkr57t6C6Y.png",
+    "Module": "人力资源"
+  },
+  {
+    "Id": "005",
+    "Name": "客户供应商",
+    "Url": "/Home/Moduels/005",
+    "Level": 1,
+    "ParentId": "",
+    "IsVail": true,
+    "Sort": 5,
+    "Code": "005",
+    "Status": 1,
+    "Icon": "/Images/Icon/20080527174352443.png",
+    "Module": "客户供应商"
+  },
+  {
+    "Id": "002",
+    "Name": "客户供应商",
+    "Url": "/Home/Moduels/002",
+    "Level": 1,
+    "ParentId": "",
+    "IsVail": true,
+    "Sort": 2,
+    "Code": "002",
+    "Status": 1,
+    "Icon": "/Images/Icon/20080527174352443.png",
+    "Module": "客户供应商"
+  },
+  {
+    "Id": "002",
+    "Name": "客户供应商",
+    "Url": "/Home/Moduels/002",
+    "Level": 1,
+    "ParentId": "",
+    "IsVail": true,
+    "Sort": 2,
+    "Code": "002",
+    "Status": 1,
+    "Icon": "/Images/Icon/20080527174352443.png",
+    "Module": "客户供应商"
+  }
+]

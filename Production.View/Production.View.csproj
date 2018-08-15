@@ -666,6 +666,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\ViewApi\Views\web.config" />
+    <Content Include="App_Data\menu.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1575,7 +1576,6 @@
     <Content Include="Views\Home\Modules.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\ViewApi\Models\" />
     <Folder Include="Areas\ViewApi\Views\Shared\" />
   </ItemGroup>
@@ -1588,6 +1588,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Production.Handle\Production.Handle.csproj">
+      <Project>{3987F176-ACA2-4D08-8169-0FC169E7011D}</Project>
+      <Name>Production.Handle</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Production.Model\Production.Model.csproj">
       <Project>{0F3924C7-5EB0-4569-9FC6-868154450883}</Project>
       <Name>Production.Model</Name>

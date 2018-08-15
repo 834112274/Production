@@ -25,7 +25,9 @@
             outline: none;
             text-decoration: none;
         }
-
+        .my-menu-tree .selected a {
+            background:#F0F8FF;
+        }
             .my-menu-tree li a:hover {
                 outline: none;
                 text-decoration: none;
@@ -56,7 +58,6 @@
     }
 
 .module-menu {
-    height: 40px;
     list-style: none;
     margin: 0px;
     padding: 0px;
@@ -64,8 +65,11 @@
 
     .module-menu li {
         cursor: pointer;
-        float: left;
+        display: inline-block;
+        vertical-align: top;
         text-align: center;
+        width:100px;
+        overflow:hidden;
     }
 
         .module-menu li a {
@@ -90,5 +94,7 @@
 
     .module-menu .icon {
         vertical-align: middle;
+        height:34px;
+        width:34px;
     }
 /*-----------------模块主菜单结束---------------*/
