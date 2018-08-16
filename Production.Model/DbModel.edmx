@@ -1123,10 +1123,6 @@
             <End Role="Employee" EntitySet="Employee" />
             <End Role="StockRecord" EntitySet="StockRecord" />
           </AssociationSet>
-          <AssociationSet Name="OrderStockRecord" Association="DbModel.OrderStockRecord">
-            <End Role="Order" EntitySet="Order" />
-            <End Role="StockRecord" EntitySet="StockRecord" />
-          </AssociationSet>
           <EntitySet Name="OrderMaterial" EntityType="DbModel.OrderMaterial" />
           <AssociationSet Name="OrderOrderMaterial" Association="DbModel.OrderOrderMaterial">
             <End Role="Order" EntitySet="Order" />
@@ -1165,6 +1161,172 @@
             <End Role="Material" EntitySet="Material" />
             <End Role="RecordMaterial" EntitySet="RecordMaterial" />
           </AssociationSet>
+          <EntitySet Name="Allocation" EntityType="DbModel.Allocation" />
+          <AssociationSet Name="WarehouseAllocation" Association="DbModel.WarehouseAllocation">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Allocation" EntitySet="Allocation" />
+          </AssociationSet>
+          <AssociationSet Name="InWarehouseAllocation" Association="DbModel.InWarehouseAllocation">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Allocation" EntitySet="Allocation" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeAllocation" Association="DbModel.EmployeeAllocation">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Allocation" EntitySet="Allocation" />
+          </AssociationSet>
+          <EntitySet Name="Receipt" EntityType="DbModel.Receipt" />
+          <EntitySet Name="ReceiptDetail" EntityType="DbModel.ReceiptDetail" />
+          <AssociationSet Name="ReceiptReceiptDetail" Association="DbModel.ReceiptReceiptDetail">
+            <End Role="Receipt" EntitySet="Receipt" />
+            <End Role="ReceiptDetail" EntitySet="ReceiptDetail" />
+          </AssociationSet>
+          <AssociationSet Name="OrderReceiptDetail" Association="DbModel.OrderReceiptDetail">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="ReceiptDetail" EntitySet="ReceiptDetail" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyReceipt" Association="DbModel.CompanyReceipt">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeReceipt" Association="DbModel.EmployeeReceipt">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <EntitySet Name="StockBack" EntityType="DbModel.StockBack" />
+          <AssociationSet Name="StockRecordStockBack" Association="DbModel.StockRecordStockBack">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="StockBack" EntitySet="StockBack" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeStockBack" Association="DbModel.EmployeeStockBack">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="StockBack" EntitySet="StockBack" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyStockBack" Association="DbModel.CompanyStockBack">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="StockBack" EntitySet="StockBack" />
+          </AssociationSet>
+          <EntitySet Name="ProductionQuotation" EntityType="DbModel.ProductionQuotation" />
+          <AssociationSet Name="MaterialProductionQuotation" Association="DbModel.MaterialProductionQuotation">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="ProductionQuotation" EntitySet="ProductionQuotation" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeProductionQuotation" Association="DbModel.EmployeeProductionQuotation">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ProductionQuotation" EntitySet="ProductionQuotation" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyProductionQuotation" Association="DbModel.CompanyProductionQuotation">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="ProductionQuotation" EntitySet="ProductionQuotation" />
+          </AssociationSet>
+          <EntitySet Name="OfferDetail" EntityType="DbModel.OfferDetail" />
+          <AssociationSet Name="ProductionQuotationOfferDetail" Association="DbModel.ProductionQuotationOfferDetail">
+            <End Role="ProductionQuotation" EntitySet="ProductionQuotation" />
+            <End Role="OfferDetail" EntitySet="OfferDetail" />
+          </AssociationSet>
+          <EntitySet Name="ProductionPlan" EntityType="DbModel.ProductionPlan" />
+          <AssociationSet Name="ProductionPlanMaterial" Association="DbModel.ProductionPlanMaterial">
+            <End Role="ProductionPlan" EntitySet="ProductionPlan" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="OrderProductionPlan" Association="DbModel.OrderProductionPlan">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="ProductionPlan" EntitySet="ProductionPlan" />
+          </AssociationSet>
+          <AssociationSet Name="ProductionQuotationProductionPlan" Association="DbModel.ProductionQuotationProductionPlan">
+            <End Role="ProductionQuotation" EntitySet="ProductionQuotation" />
+            <End Role="ProductionPlan" EntitySet="ProductionPlan" />
+          </AssociationSet>
+          <EntitySet Name="Worksheet" EntityType="DbModel.Worksheet" />
+          <EntitySet Name="WorkingProcedure" EntityType="DbModel.WorkingProcedure" />
+          <AssociationSet Name="WorksheetWorkingProcedure" Association="DbModel.WorksheetWorkingProcedure">
+            <End Role="Worksheet" EntitySet="Worksheet" />
+            <End Role="WorkingProcedure" EntitySet="WorkingProcedure" />
+          </AssociationSet>
+          <AssociationSet Name="ProcedureWorkingProcedure" Association="DbModel.ProcedureWorkingProcedure">
+            <End Role="Procedure" EntitySet="Procedure" />
+            <End Role="WorkingProcedure" EntitySet="WorkingProcedure" />
+          </AssociationSet>
+          <EntitySet Name="WorkingMaterial" EntityType="DbModel.WorkingMaterial" />
+          <AssociationSet Name="MaterialWorkingMaterial" Association="DbModel.MaterialWorkingMaterial">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="WorkingMaterial" EntitySet="WorkingMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="WorksheetWorkingMaterial" Association="DbModel.WorksheetWorkingMaterial">
+            <End Role="Worksheet" EntitySet="Worksheet" />
+            <End Role="WorkingMaterial" EntitySet="WorkingMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="ProductionPlanWorksheet" Association="DbModel.ProductionPlanWorksheet">
+            <End Role="ProductionPlan" EntitySet="ProductionPlan" />
+            <End Role="Worksheet" EntitySet="Worksheet" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentWorksheet" Association="DbModel.DepartmentWorksheet">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Worksheet" EntitySet="Worksheet" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyWorksheet" Association="DbModel.CompanyWorksheet">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Worksheet" EntitySet="Worksheet" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeWorksheet" Association="DbModel.EmployeeWorksheet">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Worksheet" EntitySet="Worksheet" />
+          </AssociationSet>
+          <AssociationSet Name="StockRecordStockBackNow" Association="DbModel.StockRecordStockBackNow">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="StockBack" EntitySet="StockBack" />
+          </AssociationSet>
+          <AssociationSet Name="StockRecordAllocationOut" Association="DbModel.StockRecordAllocationOut">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="Allocation" EntitySet="Allocation" />
+          </AssociationSet>
+          <AssociationSet Name="StockRecordAllocationIn" Association="DbModel.StockRecordAllocationIn">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="Allocation" EntitySet="Allocation" />
+          </AssociationSet>
+          <AssociationSet Name="StockRecordOrder" Association="DbModel.StockRecordOrder">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <EntitySet Name="MaterialRequisition" EntityType="DbModel.MaterialRequisition" />
+          <AssociationSet Name="WorksheetMaterialRequisition" Association="DbModel.WorksheetMaterialRequisition">
+            <End Role="Worksheet" EntitySet="Worksheet" />
+            <End Role="MaterialRequisition" EntitySet="MaterialRequisition" />
+          </AssociationSet>
+          <AssociationSet Name="StockRecordMaterialRequisition" Association="DbModel.StockRecordMaterialRequisition">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="MaterialRequisition" EntitySet="MaterialRequisition" />
+          </AssociationSet>
+          <EntitySet Name="Acceptance" EntityType="DbModel.Acceptance" />
+          <EntitySet Name="PlanStorage" EntityType="DbModel.PlanStorage" />
+          <AssociationSet Name="WorksheetAcceptance" Association="DbModel.WorksheetAcceptance">
+            <End Role="Worksheet" EntitySet="Worksheet" />
+            <End Role="Acceptance" EntitySet="Acceptance" />
+          </AssociationSet>
+          <AssociationSet Name="WarehouseAcceptance" Association="DbModel.WarehouseAcceptance">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Acceptance" EntitySet="Acceptance" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeAcceptance" Association="DbModel.EmployeeAcceptance">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Acceptance" EntitySet="Acceptance" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeAcceptance1Examine" Association="DbModel.EmployeeAcceptance1Examine">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Acceptance" EntitySet="Acceptance" />
+          </AssociationSet>
+          <AssociationSet Name="StockRecordAcceptance" Association="DbModel.StockRecordAcceptance">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="Acceptance" EntitySet="Acceptance" />
+          </AssociationSet>
+          <AssociationSet Name="ProductionPlanPlanStorage" Association="DbModel.ProductionPlanPlanStorage">
+            <End Role="ProductionPlan" EntitySet="ProductionPlan" />
+            <End Role="PlanStorage" EntitySet="PlanStorage" />
+          </AssociationSet>
+          <AssociationSet Name="StockRecordPlanStorage" Association="DbModel.StockRecordPlanStorage">
+            <End Role="StockRecord" EntitySet="StockRecord" />
+            <End Role="PlanStorage" EntitySet="PlanStorage" />
+          </AssociationSet>
+          <EntitySet Name="SystemParams" EntityType="DbModel.SystemParams" />
         </EntityContainer>
         <EntityType Name="Employee">
           <Documentation>
@@ -1318,6 +1480,13 @@
           <NavigationProperty Name="User" Relationship="DbModel.UserEmployee" FromRole="Employee" ToRole="User" />
           <NavigationProperty Name="StockRecord" Relationship="DbModel.EmployeeStockRecord" FromRole="Employee" ToRole="StockRecord" />
           <NavigationProperty Name="Order" Relationship="DbModel.OrderEmployee" FromRole="Employee" ToRole="Order" />
+          <NavigationProperty Name="Allocation" Relationship="DbModel.EmployeeAllocation" FromRole="Employee" ToRole="Allocation" />
+          <NavigationProperty Name="Receipt" Relationship="DbModel.EmployeeReceipt" FromRole="Employee" ToRole="Receipt" />
+          <NavigationProperty Name="StockBack" Relationship="DbModel.EmployeeStockBack" FromRole="Employee" ToRole="StockBack" />
+          <NavigationProperty Name="ProductionQuotation" Relationship="DbModel.EmployeeProductionQuotation" FromRole="Employee" ToRole="ProductionQuotation" />
+          <NavigationProperty Name="Worksheet" Relationship="DbModel.EmployeeWorksheet" FromRole="Employee" ToRole="Worksheet" />
+          <NavigationProperty Name="Acceptance" Relationship="DbModel.EmployeeAcceptance" FromRole="Employee" ToRole="Acceptance" />
+          <NavigationProperty Name="ExamineAcceptance" Relationship="DbModel.EmployeeAcceptance1Examine" FromRole="Employee" ToRole="Acceptance" />
         </EntityType>
         <EntityType Name="Department">
           <Documentation>
@@ -1368,6 +1537,7 @@
               <Summary>备注</Summary>
             </Documentation>
           </Property>
+          <NavigationProperty Name="Worksheet" Relationship="DbModel.DepartmentWorksheet" FromRole="Department" ToRole="Worksheet" />
         </EntityType>
         <EntityType Name="Role">
           <Documentation>
@@ -1377,12 +1547,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <Property Name="Name" Type="String" Nullable="false" >
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="60" >
             <Documentation>
               <Summary>职位名称</Summary>
             </Documentation>
           </Property>
-          <Property Name="Code" Type="String" Nullable="false" >
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" >
             <Documentation>
               <Summary>职位编号</Summary>
             </Documentation>
@@ -1691,6 +1861,14 @@
           <NavigationProperty Name="Stock" Relationship="DbModel.MaterialStock" FromRole="Material" ToRole="Stock" />
           <NavigationProperty Name="OrderMaterial" Relationship="DbModel.MaterialOrderMaterial" FromRole="Material" ToRole="OrderMaterial" />
           <NavigationProperty Name="RecordMaterial" Relationship="DbModel.MaterialRecordMaterial" FromRole="Material" ToRole="RecordMaterial" />
+          <Property Name="BarCode" Type="String" MaxLength="30" >
+            <Documentation>
+              <Summary>条码</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="ProductionQuotation" Relationship="DbModel.MaterialProductionQuotation" FromRole="Material" ToRole="ProductionQuotation" />
+          <NavigationProperty Name="ProductionPlan" Relationship="DbModel.ProductionPlanMaterial" FromRole="Material" ToRole="ProductionPlan" />
+          <NavigationProperty Name="WorkingMaterial" Relationship="DbModel.MaterialWorkingMaterial" FromRole="Material" ToRole="WorkingMaterial" />
         </EntityType>
         <Association Name="MenuUserProperty">
           <End Type="DbModel.Menu" Role="Menu" Multiplicity="1" />
@@ -1896,6 +2074,7 @@
             </Documentation>
           </Property>
           <NavigationProperty Name="ProcedureList" Relationship="DbModel.ProcedureProcedureList" FromRole="Procedure" ToRole="ProcedureList" />
+          <NavigationProperty Name="WorkingProcedure" Relationship="DbModel.ProcedureWorkingProcedure" FromRole="Procedure" ToRole="WorkingProcedure" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -1947,11 +2126,6 @@
               <Summary>网站</Summary>
             </Documentation>
           </Property>
-          <Property Name="PreDeposit" Type="Decimal" Nullable="false" Precision="2" >
-            <Documentation>
-              <Summary>预存款</Summary>
-            </Documentation>
-          </Property>
           <NavigationProperty Name="Level" Relationship="DbModel.CompanyTypeCompanyLevel" FromRole="Company" ToRole="CompanyType" >
             <Documentation>
               <Summary>客户级别</Summary>
@@ -1998,6 +2172,80 @@
           <Property Name="StageId" Type="String" Nullable="true" MaxLength="40" />
           <NavigationProperty Name="StockRecord" Relationship="DbModel.StockRecordCompany" FromRole="Company" ToRole="StockRecord" />
           <NavigationProperty Name="Order" Relationship="DbModel.OrderCompany" FromRole="Company" ToRole="Order" />
+          <Property Name="IsSupplier" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否是供应商</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsCustomer" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>是否是客户</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IsInvoice" Type="Boolean" Nullable="false" >
+            <Documentation>
+              <Summary>默认开票</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Province" Type="String" MaxLength="15" >
+            <Documentation>
+              <Summary>省份</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="City" Type="String" MaxLength="20" >
+            <Documentation>
+              <Summary>城市</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BankName" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>开户行</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BankAccount" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>开户行账号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="DutyParagraph" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>税号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="InvoiceAddress" Type="String" MaxLength="60" >
+            <Documentation>
+              <Summary>发票地址</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TaxRate" Type="Decimal" Nullable="false" Precision="4" >
+            <Documentation>
+              <Summary>税率</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="SupplierPreDeposit" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>供应商预存款</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CustomerPreDeposit" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>客户预存款</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="MainProducts" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>首营产品</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" Nullable="true" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Receipt" Relationship="DbModel.CompanyReceipt" FromRole="Company" ToRole="Receipt" />
+          <NavigationProperty Name="StockBack" Relationship="DbModel.CompanyStockBack" FromRole="Company" ToRole="StockBack" />
+          <NavigationProperty Name="ProductionQuotation" Relationship="DbModel.CompanyProductionQuotation" FromRole="Company" ToRole="ProductionQuotation" />
+          <NavigationProperty Name="Worksheet" Relationship="DbModel.CompanyWorksheet" FromRole="Company" ToRole="Worksheet" />
         </EntityType>
         <EntityType Name="CompanyType">
           <Key>
@@ -2018,6 +2266,16 @@
           <Property Name="Level" Type="Int16" Nullable="false" >
             <Documentation>
               <Summary>层级</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="10" >
+            <Documentation>
+              <Summary>类型</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="TypeName" Type="String" MaxLength="20" >
+            <Documentation>
+              <Summary>类型名称</Summary>
             </Documentation>
           </Property>
         </EntityType>
@@ -2281,6 +2539,9 @@
           <NavigationProperty Name="Stock" Relationship="DbModel.WarehouseStock" FromRole="Warehouse" ToRole="Stock" />
           <NavigationProperty Name="StockRecord" Relationship="DbModel.WarehouseStockRecord" FromRole="Warehouse" ToRole="StockRecord" />
           <NavigationProperty Name="Order" Relationship="DbModel.OrderWarehouse" FromRole="Warehouse" ToRole="Order" />
+          <NavigationProperty Name="OutAllocation" Relationship="DbModel.WarehouseAllocation" FromRole="Warehouse" ToRole="Allocation" />
+          <NavigationProperty Name="InAllocation" Relationship="DbModel.InWarehouseAllocation" FromRole="Warehouse" ToRole="Allocation" />
+          <NavigationProperty Name="Acceptance" Relationship="DbModel.WarehouseAcceptance" FromRole="Warehouse" ToRole="Acceptance" />
         </EntityType>
         <Association Name="UserEmployee">
           <End Type="DbModel.User" Role="User" Multiplicity="0..1" />
@@ -2348,10 +2609,10 @@
           </Property>
           <Property Name="StorageTime" Type="DateTime" Nullable="false" >
             <Documentation>
-              <Summary>出入库时间</Summary>
+              <Summary>退回时间时间</Summary>
             </Documentation>
           </Property>
-          <Property Name="Type" Type="Int16" Nullable="false" >
+          <Property Name="Type" Type="DbModel.StockType" Nullable="false" >
             <Documentation>
               <Summary>记录类型（1入库2出库）</Summary>
             </Documentation>
@@ -2364,8 +2625,6 @@
           </Property>
           <NavigationProperty Name="Employee" Relationship="DbModel.EmployeeStockRecord" FromRole="StockRecord" ToRole="Employee" />
           <Property Name="EmployeeId" Type="String" Nullable="true" MaxLength="40" />
-          <NavigationProperty Name="Order" Relationship="DbModel.OrderStockRecord" FromRole="StockRecord" ToRole="Order" />
-          <Property Name="OrderId" Type="String" Nullable="true" MaxLength="40" />
           <Property Name="TaxAmount" Type="Decimal" Nullable="false" Precision="2" >
             <Documentation>
               <Summary>含税总金额</Summary>
@@ -2376,6 +2635,14 @@
               <Summary>备注</Summary>
             </Documentation>
           </Property>
+          <NavigationProperty Name="StockBack" Relationship="DbModel.StockRecordStockBack" FromRole="StockRecord" ToRole="StockBack" />
+          <NavigationProperty Name="Back" Relationship="DbModel.StockRecordStockBackNow" FromRole="StockRecord" ToRole="StockBack" />
+          <NavigationProperty Name="AllocationOut" Relationship="DbModel.StockRecordAllocationOut" FromRole="StockRecord" ToRole="Allocation" />
+          <NavigationProperty Name="AllocationIn" Relationship="DbModel.StockRecordAllocationIn" FromRole="StockRecord" ToRole="Allocation" />
+          <NavigationProperty Name="Order" Relationship="DbModel.StockRecordOrder" FromRole="StockRecord" ToRole="Order" />
+          <NavigationProperty Name="MaterialRequisition" Relationship="DbModel.StockRecordMaterialRequisition" FromRole="StockRecord" ToRole="MaterialRequisition" />
+          <NavigationProperty Name="Acceptance" Relationship="DbModel.StockRecordAcceptance" FromRole="StockRecord" ToRole="Acceptance" />
+          <NavigationProperty Name="PlanStorage" Relationship="DbModel.StockRecordPlanStorage" FromRole="StockRecord" ToRole="PlanStorage" />
         </EntityType>
         <Association Name="WarehouseStockRecord">
           <End Type="DbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
@@ -2497,7 +2764,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
-          <NavigationProperty Name="StockRecord" Relationship="DbModel.OrderStockRecord" FromRole="Order" ToRole="StockRecord" />
           <NavigationProperty Name="OrderMaterial" Relationship="DbModel.OrderOrderMaterial" FromRole="Order" ToRole="OrderMaterial" />
           <Property Name="Code" Type="String" Nullable="false" MaxLength="40" >
             <Documentation>
@@ -2576,6 +2842,10 @@
               <Summary>订单类型(1销售订单2采购订单)</Summary>
             </Documentation>
           </Property>
+          <NavigationProperty Name="ReceiptDetail" Relationship="DbModel.OrderReceiptDetail" FromRole="Order" ToRole="ReceiptDetail" />
+          <NavigationProperty Name="ProductionPlan" Relationship="DbModel.OrderProductionPlan" FromRole="Order" ToRole="ProductionPlan" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.StockRecordOrder" FromRole="Order" ToRole="StockRecord" />
+          <Property Name="StockRecordId" Type="String" Nullable="true" MaxLength="40" />
         </EntityType>
         <Association Name="EmployeeStockRecord">
           <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
@@ -2586,18 +2856,6 @@
             </Principal>
             <Dependent Role="StockRecord">
               <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="OrderStockRecord">
-          <End Type="DbModel.Order" Role="Order" Multiplicity="0..1" />
-          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StockRecord">
-              <PropertyRef Name="OrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2750,6 +3008,942 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Allocation">
+          <Documentation>
+            <Summary>库存调拨</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="AllocationTime" Type="DateTime" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="300" />
+          <NavigationProperty Name="OutWarehouse" Relationship="DbModel.WarehouseAllocation" FromRole="Allocation" ToRole="Warehouse" />
+          <Property Name="OutWarehouseId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="InWarehouse" Relationship="DbModel.InWarehouseAllocation" FromRole="Allocation" ToRole="Warehouse" />
+          <Property Name="WarehouseId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Scheduler" Relationship="DbModel.EmployeeAllocation" FromRole="Allocation" ToRole="Employee" />
+          <Property Name="EmployeeId" Type="String" Nullable="true" MaxLength="40" >
+            <Documentation>
+              <Summary>发货人</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="OutStockRecord" Relationship="DbModel.StockRecordAllocationOut" FromRole="Allocation" ToRole="StockRecord" />
+          <Property Name="OutStockRecordId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="InStockRecord" Relationship="DbModel.StockRecordAllocationIn" FromRole="Allocation" ToRole="StockRecord" />
+          <Property Name="InStockRecordId" Type="String" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="WarehouseAllocation">
+          <End Type="DbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="DbModel.Allocation" Role="Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Allocation">
+              <PropertyRef Name="OutWarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InWarehouseAllocation">
+          <End Type="DbModel.Warehouse" Role="Warehouse" Multiplicity="1" />
+          <End Type="DbModel.Allocation" Role="Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Allocation">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeAllocation">
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="DbModel.Allocation" Role="Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Allocation">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Receipt">
+          <Documentation>
+            <Summary>收付款账单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>账单编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Type" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>账单类型（1收款2付款）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BillDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>收付款日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="AmountMoney" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>总金额</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="NetReceipts" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>实收金额</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="IntegerMoney" Type="Int32" Nullable="false" >
+            <Documentation>
+              <Summary>抹0金额</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="BillCode" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>票据编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ReceivableMoney" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>应收金额</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="ReceiptDetail" Relationship="DbModel.ReceiptReceiptDetail" FromRole="Receipt" ToRole="ReceiptDetail" />
+          <NavigationProperty Name="Company" Relationship="DbModel.CompanyReceipt" FromRole="Receipt" ToRole="Company" />
+          <Property Name="CompanyId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Employee" Relationship="DbModel.EmployeeReceipt" FromRole="Receipt" ToRole="Employee" />
+          <Property Name="EmployeeId" Type="String" Nullable="true" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="ReceiptDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>类型（1采购订单2销售订单）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>订单日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OrderMoney" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>订单金额</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="AmountCollected" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>收款金额</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="AmountReceived" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>已收金额</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Receipt" Relationship="DbModel.ReceiptReceiptDetail" FromRole="ReceiptDetail" ToRole="Receipt" />
+          <Property Name="ReceiptId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Order" Relationship="DbModel.OrderReceiptDetail" FromRole="ReceiptDetail" ToRole="Order" />
+          <Property Name="OrderId" Type="String" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="ReceiptReceiptDetail">
+          <End Type="DbModel.Receipt" Role="Receipt" Multiplicity="1" />
+          <End Type="DbModel.ReceiptDetail" Role="ReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receipt">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceiptDetail">
+              <PropertyRef Name="ReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderReceiptDetail">
+          <End Type="DbModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="DbModel.ReceiptDetail" Role="ReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceiptDetail">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyReceipt">
+          <End Type="DbModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="DbModel.Receipt" Role="Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeReceipt">
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="DbModel.Receipt" Role="Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StockBack">
+          <Documentation>
+            <Summary>退回单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="StorageTime" Type="DateTime" Nullable="false" />
+          <Property Name="AmountMoney" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="Remarks" Type="String" MaxLength="300" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.StockRecordStockBack" FromRole="StockBack" ToRole="StockRecord" />
+          <Property Name="OutStockRecordId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Employee" Relationship="DbModel.EmployeeStockBack" FromRole="StockBack" ToRole="Employee" />
+          <Property Name="EmployeeId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Company" Relationship="DbModel.CompanyStockBack" FromRole="StockBack" ToRole="Company" />
+          <Property Name="CompanyId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="BackStockRecord" Relationship="DbModel.StockRecordStockBackNow" FromRole="StockBack" ToRole="StockRecord" />
+          <Property Name="StockRecordId" Type="String" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="StockRecordStockBack">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="1" />
+          <End Type="DbModel.StockBack" Role="StockBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StockBack">
+              <PropertyRef Name="OutStockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeStockBack">
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="DbModel.StockBack" Role="StockBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StockBack">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyStockBack">
+          <End Type="DbModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="DbModel.StockBack" Role="StockBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StockBack">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProductionQuotation">
+          <Documentation>
+            <Summary>生产报价</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" >
+            <Documentation>
+              <Summary>报价编号</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="OfferDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>报价时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>计划数量</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="RrofitRate" Type="Decimal" Nullable="false" Precision="4" >
+            <Documentation>
+              <Summary>利率</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Currency" Type="String" Nullable="false" MaxLength="10" >
+            <Documentation>
+              <Summary>币种</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ExchangeRate" Type="Decimal" Nullable="false" Precision="4" >
+            <Documentation>
+              <Summary>汇率</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Material" Relationship="DbModel.MaterialProductionQuotation" FromRole="ProductionQuotation" ToRole="Material" />
+          <Property Name="MaterialId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Employee" Relationship="DbModel.EmployeeProductionQuotation" FromRole="ProductionQuotation" ToRole="Employee" />
+          <Property Name="EmployeeId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Company" Relationship="DbModel.CompanyProductionQuotation" FromRole="ProductionQuotation" ToRole="Company" />
+          <Property Name="CompanyId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="OfferDetail" Relationship="DbModel.ProductionQuotationOfferDetail" FromRole="ProductionQuotation" ToRole="OfferDetail" />
+          <NavigationProperty Name="ProductionPlan" Relationship="DbModel.ProductionQuotationProductionPlan" FromRole="ProductionQuotation" ToRole="ProductionPlan" />
+        </EntityType>
+        <Association Name="MaterialProductionQuotation">
+          <End Type="DbModel.Material" Role="Material" Multiplicity="0..1" />
+          <End Type="DbModel.ProductionQuotation" Role="ProductionQuotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionQuotation">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeProductionQuotation">
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="DbModel.ProductionQuotation" Role="ProductionQuotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionQuotation">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyProductionQuotation">
+          <End Type="DbModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="DbModel.ProductionQuotation" Role="ProductionQuotation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionQuotation">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OfferDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>类型（1工序2原料）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Name" Type="String" MaxLength="60" >
+            <Documentation>
+              <Summary>名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Summary" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>说明</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>单位价格</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UnitCount" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>单位数量</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="UnitAmount" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>单位总价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>总计成本</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="ProductionQuotation" Relationship="DbModel.ProductionQuotationOfferDetail" FromRole="OfferDetail" ToRole="ProductionQuotation" />
+          <Property Name="ProductionQuotationId" Type="String" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="ProductionQuotationOfferDetail">
+          <End Type="DbModel.ProductionQuotation" Role="ProductionQuotation" Multiplicity="1" />
+          <End Type="DbModel.OfferDetail" Role="OfferDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductionQuotation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OfferDetail">
+              <PropertyRef Name="ProductionQuotationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProductionPlan">
+          <Documentation>
+            <Summary>生产计划</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="BatchNumber" Type="String" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="PlanDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>计划状态</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="PlanCompleteDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>预计完成日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="CompleteDate" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>完成日期</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" Nullable="false" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Material" Relationship="DbModel.ProductionPlanMaterial" FromRole="ProductionPlan" ToRole="Material" />
+          <NavigationProperty Name="Order" Relationship="DbModel.OrderProductionPlan" FromRole="ProductionPlan" ToRole="Order" />
+          <Property Name="OrderId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="ProductionQuotation" Relationship="DbModel.ProductionQuotationProductionPlan" FromRole="ProductionPlan" ToRole="ProductionQuotation" />
+          <Property Name="ProductionQuotationId" Type="String" Nullable="true" MaxLength="40" />
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>计划类型（1成品2半成品）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="ParentId" Type="String" MaxLength="40" >
+            <Documentation>
+              <Summary>父级计划ID</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Worksheet" Relationship="DbModel.ProductionPlanWorksheet" FromRole="ProductionPlan" ToRole="Worksheet" />
+          <NavigationProperty Name="PlanStorage" Relationship="DbModel.ProductionPlanPlanStorage" FromRole="ProductionPlan" ToRole="PlanStorage" />
+        </EntityType>
+        <Association Name="ProductionPlanMaterial">
+          <End Type="DbModel.ProductionPlan" Role="ProductionPlan" Multiplicity="1" />
+          <End Type="DbModel.Material" Role="Material" Multiplicity="1" />
+        </Association>
+        <Association Name="OrderProductionPlan">
+          <End Type="DbModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="DbModel.ProductionPlan" Role="ProductionPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionPlan">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductionQuotationProductionPlan">
+          <End Type="DbModel.ProductionQuotation" Role="ProductionQuotation" Multiplicity="0..1" />
+          <End Type="DbModel.ProductionPlan" Role="ProductionPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductionQuotation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionPlan">
+              <PropertyRef Name="ProductionQuotationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Worksheet">
+          <Documentation>
+            <Summary>加工单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="300" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="WorkingProcedure" Relationship="DbModel.WorksheetWorkingProcedure" FromRole="Worksheet" ToRole="WorkingProcedure" />
+          <NavigationProperty Name="WorkingMaterial" Relationship="DbModel.WorksheetWorkingMaterial" FromRole="Worksheet" ToRole="WorkingMaterial" />
+          <NavigationProperty Name="ProductionPlan" Relationship="DbModel.ProductionPlanWorksheet" FromRole="Worksheet" ToRole="ProductionPlan" />
+          <Property Name="ProductionPlanId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Department" Relationship="DbModel.DepartmentWorksheet" FromRole="Worksheet" ToRole="Department" />
+          <Property Name="DepartmentId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Company" Relationship="DbModel.CompanyWorksheet" FromRole="Worksheet" ToRole="Company" />
+          <Property Name="CompanyId" Type="String" Nullable="true" MaxLength="40" />
+          <NavigationProperty Name="Employee" Relationship="DbModel.EmployeeWorksheet" FromRole="Worksheet" ToRole="Employee" />
+          <Property Name="EmployeeId" Type="String" Nullable="true" MaxLength="40" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>加工单价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="AmountMoney" Type="String" Nullable="false" >
+            <Documentation>
+              <Summary>总价</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>加工单类型（1自产加工2委外加工）</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Status" Type="String" Nullable="false" />
+          <NavigationProperty Name="MaterialRequisition" Relationship="DbModel.WorksheetMaterialRequisition" FromRole="Worksheet" ToRole="MaterialRequisition" />
+          <NavigationProperty Name="Acceptance" Relationship="DbModel.WorksheetAcceptance" FromRole="Worksheet" ToRole="Acceptance" />
+        </EntityType>
+        <EntityType Name="WorkingProcedure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <NavigationProperty Name="Worksheet" Relationship="DbModel.WorksheetWorkingProcedure" FromRole="WorkingProcedure" ToRole="Worksheet" />
+          <Property Name="WorksheetId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Procedure" Relationship="DbModel.ProcedureWorkingProcedure" FromRole="WorkingProcedure" ToRole="Procedure" />
+          <Property Name="ProcedureId" Type="String" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="WorksheetWorkingProcedure">
+          <End Type="DbModel.Worksheet" Role="Worksheet" Multiplicity="1" />
+          <End Type="DbModel.WorkingProcedure" Role="WorkingProcedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worksheet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkingProcedure">
+              <PropertyRef Name="WorksheetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProcedureWorkingProcedure">
+          <End Type="DbModel.Procedure" Role="Procedure" Multiplicity="1" />
+          <End Type="DbModel.WorkingProcedure" Role="WorkingProcedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkingProcedure">
+              <PropertyRef Name="ProcedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WorkingMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" >
+            <Documentation>
+              <Summary>数量</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="300" >
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Material" Relationship="DbModel.MaterialWorkingMaterial" FromRole="WorkingMaterial" ToRole="Material" />
+          <Property Name="MaterialId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="Worksheet" Relationship="DbModel.WorksheetWorkingMaterial" FromRole="WorkingMaterial" ToRole="Worksheet" />
+          <Property Name="WorksheetId" Type="String" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="MaterialWorkingMaterial">
+          <End Type="DbModel.Material" Role="Material" Multiplicity="1" />
+          <End Type="DbModel.WorkingMaterial" Role="WorkingMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkingMaterial">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WorksheetWorkingMaterial">
+          <End Type="DbModel.Worksheet" Role="Worksheet" Multiplicity="1" />
+          <End Type="DbModel.WorkingMaterial" Role="WorkingMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worksheet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkingMaterial">
+              <PropertyRef Name="WorksheetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductionPlanWorksheet">
+          <End Type="DbModel.ProductionPlan" Role="ProductionPlan" Multiplicity="1" />
+          <End Type="DbModel.Worksheet" Role="Worksheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductionPlan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Worksheet">
+              <PropertyRef Name="ProductionPlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepartmentWorksheet">
+          <End Type="DbModel.Department" Role="Department" Multiplicity="0..1" />
+          <End Type="DbModel.Worksheet" Role="Worksheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Worksheet">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompanyWorksheet">
+          <End Type="DbModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="DbModel.Worksheet" Role="Worksheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Worksheet">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeWorksheet">
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="DbModel.Worksheet" Role="Worksheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Worksheet">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="StockType" UnderlyingType="Int16">
+          <Member Name="其他入库" />
+          <Member Name="其他出库" />
+          <Member Name="采购订单入库" />
+          <Member Name="销售订单出库" />
+          <Member Name="领料单出库" />
+          <Member Name="退料单入库" />
+          <Member Name="库存调拨入库" />
+          <Member Name="库存调拨出库" />
+        </EnumType>
+        <Association Name="StockRecordStockBackNow">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="1" />
+          <End Type="DbModel.StockBack" Role="StockBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StockBack">
+              <PropertyRef Name="StockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StockRecordAllocationOut">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="1" />
+          <End Type="DbModel.Allocation" Role="Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Allocation">
+              <PropertyRef Name="OutStockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StockRecordAllocationIn">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="1" />
+          <End Type="DbModel.Allocation" Role="Allocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Allocation">
+              <PropertyRef Name="InStockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StockRecordOrder">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="0..1" />
+          <End Type="DbModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MaterialRequisition">
+          <Documentation>
+            <Summary>领料单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="PickingTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <Summary>领退料时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Remarks" Type="String" MaxLength="300" />
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>1领料2退料</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Worksheet" Relationship="DbModel.WorksheetMaterialRequisition" FromRole="MaterialRequisition" ToRole="Worksheet" />
+          <Property Name="WorksheetId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.StockRecordMaterialRequisition" FromRole="MaterialRequisition" ToRole="StockRecord" />
+          <Property Name="StockRecordId" Type="String" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="WorksheetMaterialRequisition">
+          <End Type="DbModel.Worksheet" Role="Worksheet" Multiplicity="1" />
+          <End Type="DbModel.MaterialRequisition" Role="MaterialRequisition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worksheet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialRequisition">
+              <PropertyRef Name="WorksheetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StockRecordMaterialRequisition">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="1" />
+          <End Type="DbModel.MaterialRequisition" Role="MaterialRequisition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialRequisition">
+              <PropertyRef Name="StockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Acceptance">
+          <Documentation>
+            <Summary>验收单</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="BatchNumber" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="300" />
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="AmountMoney" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="Procedure" Type="String" MaxLength="200" />
+          <Property Name="UnqualifiedCount" Type="Decimal" Nullable="false" Precision="2" />
+          <NavigationProperty Name="Worksheet" Relationship="DbModel.WorksheetAcceptance" FromRole="Acceptance" ToRole="Worksheet" />
+          <Property Name="WorksheetId" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="Type" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>1加工单验收2委外加工单验收</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Warehouse" Relationship="DbModel.WarehouseAcceptance" FromRole="Acceptance" ToRole="Warehouse" />
+          <Property Name="WarehouseId" Type="String" Nullable="true" MaxLength="40" />
+          <Property Name="Storage" Type="Int16" Nullable="false" >
+            <Documentation>
+              <Summary>入库状态0未入库1已入库</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="CheckEmployee" Relationship="DbModel.EmployeeAcceptance" FromRole="Acceptance" ToRole="Employee" />
+          <Property Name="CheckEmployeeId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="ExamineEmployee" Relationship="DbModel.EmployeeAcceptance1Examine" FromRole="Acceptance" ToRole="Employee" />
+          <Property Name="ExamineEmployeeId" Type="String" Nullable="true" MaxLength="40" />
+          <Property Name="ExamineDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.StockRecordAcceptance" FromRole="Acceptance" ToRole="StockRecord" />
+          <Property Name="StockRecordId" Type="String" Nullable="true" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="PlanStorage">
+          <Documentation>
+            <Summary>生产入库</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="BatchNumber" Type="String" Nullable="false" MaxLength="40" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Count" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="2" />
+          <Property Name="AmountMoney" Type="Decimal" Nullable="false" Precision="2" />
+          <NavigationProperty Name="ProductionPlan" Relationship="DbModel.ProductionPlanPlanStorage" FromRole="PlanStorage" ToRole="ProductionPlan" />
+          <Property Name="ProductionPlanId" Type="String" Nullable="false" MaxLength="40" />
+          <NavigationProperty Name="StockRecord" Relationship="DbModel.StockRecordPlanStorage" FromRole="PlanStorage" ToRole="StockRecord" />
+          <Property Name="StockRecordId" Type="String" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="WorksheetAcceptance">
+          <End Type="DbModel.Worksheet" Role="Worksheet" Multiplicity="1" />
+          <End Type="DbModel.Acceptance" Role="Acceptance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worksheet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Acceptance">
+              <PropertyRef Name="WorksheetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WarehouseAcceptance">
+          <End Type="DbModel.Warehouse" Role="Warehouse" Multiplicity="0..1" />
+          <End Type="DbModel.Acceptance" Role="Acceptance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Acceptance">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeAcceptance">
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="DbModel.Acceptance" Role="Acceptance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Acceptance">
+              <PropertyRef Name="CheckEmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeAcceptance1Examine">
+          <End Type="DbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="DbModel.Acceptance" Role="Acceptance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Acceptance">
+              <PropertyRef Name="ExamineEmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StockRecordAcceptance">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="0..1" />
+          <End Type="DbModel.Acceptance" Role="Acceptance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Acceptance">
+              <PropertyRef Name="StockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductionPlanPlanStorage">
+          <End Type="DbModel.ProductionPlan" Role="ProductionPlan" Multiplicity="1" />
+          <End Type="DbModel.PlanStorage" Role="PlanStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductionPlan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlanStorage">
+              <PropertyRef Name="ProductionPlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StockRecordPlanStorage">
+          <End Type="DbModel.StockRecord" Role="StockRecord" Multiplicity="1" />
+          <End Type="DbModel.PlanStorage" Role="PlanStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlanStorage">
+              <PropertyRef Name="StockRecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SystemParams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="40" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="120" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="ParentId" Type="String" MaxLength="40" />
+          <Property Name="Remarks" Type="String" MaxLength="300" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2982,7 +4176,6 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Fax" ColumnName="Fax" />
           <ScalarProperty Name="Website" ColumnName="Website" />
-          <ScalarProperty Name="PreDeposit" ColumnName="PreDeposit" />
           <ScalarProperty Name="LevelId" ColumnName="LevelId" />
           <ScalarProperty Name="SourceId" ColumnName="SourceId" />
           <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
@@ -3061,7 +4254,6 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="AmountMoney" ColumnName="AmountMoney" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
           <ScalarProperty Name="Remarks" ColumnName="Remarks" />
         </MappingFragment>

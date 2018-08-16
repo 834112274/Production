@@ -24,6 +24,9 @@ namespace Production.Model
             this.Stock = new HashSet<Stock>();
             this.StockRecord = new HashSet<StockRecord>();
             this.Order = new HashSet<Order>();
+            this.OutAllocation = new HashSet<Allocation>();
+            this.InAllocation = new HashSet<Allocation>();
+            this.Acceptance = new HashSet<Acceptance>();
         }
     
     	/// <summary>
@@ -73,5 +76,11 @@ namespace Production.Model
         public virtual ICollection<StockRecord> StockRecord { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Allocation> OutAllocation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Allocation> InAllocation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Acceptance> Acceptance { get; set; }
     }
 }

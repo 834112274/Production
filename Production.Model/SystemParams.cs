@@ -14,9 +14,9 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// CompanyType
+    /// SystemParams
     /// </summary>
-    public partial class CompanyType
+    public partial class SystemParams
     {
     	/// <summary>
         /// 
@@ -24,34 +24,24 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 类型名称
+        /// 
         /// </summary>
-    	[DisplayName( "类型名称" )]
+    	[DisplayName( "" )]
         public string Name { get; set; }
     	/// <summary>
-        /// 父级ID
+        /// 
         /// </summary>
-    	[DisplayName( "父级ID" )]
+    	[DisplayName( "" )]
+        public string Value { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
         public string ParentId { get; set; }
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
-        public bool Default { get; set; }
-    	/// <summary>
-        /// 层级
-        /// </summary>
-    	[DisplayName( "层级" )]
-        public short Level { get; set; }
-    	/// <summary>
-        /// 类型
-        /// </summary>
-    	[DisplayName( "类型" )]
-        public string Type { get; set; }
-    	/// <summary>
-        /// 类型名称
-        /// </summary>
-    	[DisplayName( "类型名称" )]
-        public string TypeName { get; set; }
+        public string Remarks { get; set; }
     }
 }

@@ -21,8 +21,9 @@ namespace Production.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.StockRecord = new HashSet<StockRecord>();
             this.OrderMaterial = new HashSet<OrderMaterial>();
+            this.ReceiptDetail = new HashSet<ReceiptDetail>();
+            this.ProductionPlan = new HashSet<ProductionPlan>();
         }
     
     	/// <summary>
@@ -115,14 +116,22 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "订单类型(1销售订单2采购订单)" )]
         public short Type { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string StockRecordId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StockRecord> StockRecord { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderMaterial> OrderMaterial { get; set; }
         public virtual Company Company { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Warehouse Warehouse { get; set; }
         public virtual CapitalAccount CapitalAccount { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ReceiptDetail> ReceiptDetail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductionPlan> ProductionPlan { get; set; }
+        public virtual StockRecord StockRecord { get; set; }
     }
 }

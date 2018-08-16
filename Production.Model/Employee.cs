@@ -23,6 +23,13 @@ namespace Production.Model
         {
             this.StockRecord = new HashSet<StockRecord>();
             this.Order = new HashSet<Order>();
+            this.Allocation = new HashSet<Allocation>();
+            this.Receipt = new HashSet<Receipt>();
+            this.StockBack = new HashSet<StockBack>();
+            this.ProductionQuotation = new HashSet<ProductionQuotation>();
+            this.Worksheet = new HashSet<Worksheet>();
+            this.Acceptance = new HashSet<Acceptance>();
+            this.ExamineAcceptance = new HashSet<Acceptance>();
         }
     
     	/// <summary>
@@ -193,5 +200,19 @@ namespace Production.Model
         public virtual ICollection<StockRecord> StockRecord { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Allocation> Allocation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Receipt> Receipt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockBack> StockBack { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductionQuotation> ProductionQuotation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Worksheet> Worksheet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Acceptance> Acceptance { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Acceptance> ExamineAcceptance { get; set; }
     }
 }

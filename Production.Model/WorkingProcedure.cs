@@ -14,9 +14,9 @@ namespace Production.Model
     
     using System.ComponentModel;
     /// <summary>
-    /// CompanyType
+    /// WorkingProcedure
     /// </summary>
-    public partial class CompanyType
+    public partial class WorkingProcedure
     {
     	/// <summary>
         /// 
@@ -24,34 +24,17 @@ namespace Production.Model
     	[DisplayName( "" )]
         public string Id { get; set; }
     	/// <summary>
-        /// 类型名称
+        /// 
         /// </summary>
-    	[DisplayName( "类型名称" )]
-        public string Name { get; set; }
-    	/// <summary>
-        /// 父级ID
-        /// </summary>
-    	[DisplayName( "父级ID" )]
-        public string ParentId { get; set; }
+    	[DisplayName( "" )]
+        public string WorksheetId { get; set; }
     	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
-        public bool Default { get; set; }
-    	/// <summary>
-        /// 层级
-        /// </summary>
-    	[DisplayName( "层级" )]
-        public short Level { get; set; }
-    	/// <summary>
-        /// 类型
-        /// </summary>
-    	[DisplayName( "类型" )]
-        public string Type { get; set; }
-    	/// <summary>
-        /// 类型名称
-        /// </summary>
-    	[DisplayName( "类型名称" )]
-        public string TypeName { get; set; }
+        public string ProcedureId { get; set; }
+    
+        public virtual Worksheet Worksheet { get; set; }
+        public virtual Procedure Procedure { get; set; }
     }
 }

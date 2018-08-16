@@ -4,25 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="262754fbad3a4582bb6469e245bc9a2f" Name="Diagram1" >
-        <EntityTypeShape EntityType="DbModel.Employee" Width="1.5" PointX="0.75" PointY="22.25" />
-        <EntityTypeShape EntityType="DbModel.Department" Width="1.5" PointX="1.5" PointY="31.75" />
-        <EntityTypeShape EntityType="DbModel.Role" Width="1.5" PointX="1.5" PointY="44.5" />
-        <EntityTypeShape EntityType="DbModel.Menu" Width="1.5" PointX="1.5" PointY="47.5" />
-        <EntityTypeShape EntityType="DbModel.UserProperty" Width="1.5" PointX="3.75" PointY="18.75" />
-        <EntityTypeShape EntityType="DbModel.UserLog" Width="1.5" PointX="2.75" PointY="8.75" />
-        <EntityTypeShape EntityType="DbModel.SystemLog" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DbModel.Material" Width="1.5" PointX="10.25" PointY="6.25" />
+      <Diagram DiagramId="262754fbad3a4582bb6469e245bc9a2f" Name="Diagram1" ZoomLevel="93" >
+        <EntityTypeShape EntityType="DbModel.Employee" Width="1.5" PointX="0.75" PointY="10.875" />
+        <EntityTypeShape EntityType="DbModel.Department" Width="1.5" PointX="1.5" PointY="7" />
+        <EntityTypeShape EntityType="DbModel.Role" Width="1.5" PointX="1.5" PointY="0.75" />
+        <EntityTypeShape EntityType="DbModel.Menu" Width="1.5" PointX="1.5" PointY="55.375" />
+        <EntityTypeShape EntityType="DbModel.UserProperty" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DbModel.UserLog" Width="1.5" PointX="5.75" PointY="1.625" />
+        <EntityTypeShape EntityType="DbModel.SystemLog" Width="1.5" PointX="5.75" PointY="4.625" />
+        <EntityTypeShape EntityType="DbModel.Material" Width="1.5" PointX="9.75" PointY="15" />
         <AssociationConnector Association="DbModel.MenuUserProperty" />
         <AssociationConnector Association="DbModel.DepartmentEmployee" />
         <AssociationConnector Association="DbModel.RoleEmployee" />
-        <EntityTypeShape EntityType="DbModel.MaterialType" Width="1.5" PointX="8" PointY="6" />
-        <EntityTypeShape EntityType="DbModel.Unit" Width="1.5" PointX="5.75" PointY="9.25" />
-        <EntityTypeShape EntityType="DbModel.ProductMix" Width="1.5" PointX="5.75" PointY="6.25" />
-        <EntityTypeShape EntityType="DbModel.MixMaterial" Width="1.5" PointX="8" PointY="8.375" />
-        <EntityTypeShape EntityType="DbModel.Procedure" Width="1.5" PointX="5.75" PointY="2.125" />
-        <EntityTypeShape EntityType="DbModel.Company" Width="1.5" PointX="3" PointY="1.125" />
-        <EntityTypeShape EntityType="DbModel.CompanyType" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="DbModel.MaterialType" Width="1.5" PointX="7.5" PointY="10.625" />
+        <EntityTypeShape EntityType="DbModel.Unit" Width="1.5" PointX="7.5" PointY="33.875" />
+        <EntityTypeShape EntityType="DbModel.ProductMix" Width="1.5" PointX="5.25" PointY="14.75" />
+        <EntityTypeShape EntityType="DbModel.MixMaterial" Width="1.5" PointX="7.5" PointY="13.875" />
+        <EntityTypeShape EntityType="DbModel.Procedure" Width="1.5" PointX="12.75" PointY="28.875" />
+        <EntityTypeShape EntityType="DbModel.Company" Width="1.5" PointX="3" PointY="21.625" />
+        <EntityTypeShape EntityType="DbModel.CompanyType" Width="1.5" PointX="0.75" PointY="25.25" />
         <AssociationConnector Association="DbModel.CompanyTypeCompanyLevel" />
         <AssociationConnector Association="DbModel.CompanyTypeCompanySource" />
         <AssociationConnector Association="DbModel.CompanyTypeCompanyIndustry" />
@@ -31,7 +31,7 @@
         <AssociationConnector Association="DbModel.CompanyTypeCompanyType" />
         <AssociationConnector Association="DbModel.CompanyTypeCompanyproperty" />
         <AssociationConnector Association="DbModel.CompanyTypeCompanyStage" />
-        <EntityTypeShape EntityType="DbModel.User" Width="1.5" PointX="1.5" PointY="18.75" />
+        <EntityTypeShape EntityType="DbModel.User" Width="1.5" PointX="1.5" PointY="3.75" />
         <AssociationConnector Association="DbModel.UserUserProperty" />
         <AssociationConnector Association="DbModel.MaterialTypeMaterial" />
         <AssociationConnector Association="DbModel.UnitMaterial" />
@@ -39,33 +39,84 @@
         <AssociationConnector Association="DbModel.MixMaterialMaterial" />
         <AssociationConnector Association="DbModel.UnitMixMaterial" />
         <AssociationConnector Association="DbModel.ProductMixMaterial" />
-        <EntityTypeShape EntityType="DbModel.ProcedureList" Width="1.5" PointX="8" PointY="3.375" />
+        <EntityTypeShape EntityType="DbModel.ProcedureList" Width="1.5" PointX="21" PointY="22.125" />
         <AssociationConnector Association="DbModel.ProductMixProcedureList" />
         <AssociationConnector Association="DbModel.ProcedureProcedureList" />
-        <EntityTypeShape EntityType="DbModel.Warehouse" Width="1.5" PointX="1.5" PointY="14.5" />
+        <EntityTypeShape EntityType="DbModel.Warehouse" Width="1.5" PointX="1.5" PointY="47.5" />
         <AssociationConnector Association="DbModel.UserEmployee" />
-        <EntityTypeShape EntityType="DbModel.Stock" Width="1.5" PointX="12.5" PointY="13.75" />
+        <EntityTypeShape EntityType="DbModel.Stock" Width="1.5" PointX="12" PointY="14.25" />
         <AssociationConnector Association="DbModel.WarehouseStock" />
-        <EntityTypeShape EntityType="DbModel.StockRecord" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="DbModel.StockRecord" Width="1.5" PointX="1.5" PointY="40.875" />
         <AssociationConnector Association="DbModel.WarehouseStockRecord" />
         <AssociationConnector Association="DbModel.StockRecordCompany" />
-        <EntityTypeShape EntityType="DbModel.RecordMaterial" Width="1.5" PointX="12.5" PointY="8.125" />
+        <EntityTypeShape EntityType="DbModel.RecordMaterial" Width="1.5" PointX="18" PointY="17.125" />
         <AssociationConnector Association="DbModel.StockRecordRecordMaterial" />
         <AssociationConnector Association="DbModel.MaterialStock" />
-        <EntityTypeShape EntityType="DbModel.Order" Width="1.5" PointX="1.5" PointY="35.375" />
+        <EntityTypeShape EntityType="DbModel.Order" Width="1.5" PointX="1.5" PointY="33.375" />
         <AssociationConnector Association="DbModel.EmployeeStockRecord" />
-        <AssociationConnector Association="DbModel.OrderStockRecord" />
-        <EntityTypeShape EntityType="DbModel.OrderMaterial" Width="1.5" PointX="12.5" PointY="21.375" />
+        <EntityTypeShape EntityType="DbModel.OrderMaterial" Width="1.5" PointX="15" PointY="17.25" />
         <AssociationConnector Association="DbModel.OrderOrderMaterial" />
         <AssociationConnector Association="DbModel.OrderCompany" />
         <AssociationConnector Association="DbModel.OrderEmployee" />
         <AssociationConnector Association="DbModel.OrderWarehouse" />
-        <EntityTypeShape EntityType="DbModel.CapitalAccount" Width="1.5" PointX="1.5" PointY="42.375" />
+        <EntityTypeShape EntityType="DbModel.CapitalAccount" Width="1.5" PointX="1.5" PointY="52.625" />
         <AssociationConnector Association="DbModel.CapitalAccountOrder" />
         <AssociationConnector Association="DbModel.UnitOrderMaterial" />
         <AssociationConnector Association="DbModel.UnitRecordMaterial" />
         <AssociationConnector Association="DbModel.MaterialOrderMaterial" />
         <AssociationConnector Association="DbModel.MaterialRecordMaterial" />
+        <EntityTypeShape EntityType="DbModel.Allocation" Width="1.5" PointX="3.75" PointY="32.125" />
+        <AssociationConnector Association="DbModel.WarehouseAllocation" />
+        <AssociationConnector Association="DbModel.InWarehouseAllocation" />
+        <AssociationConnector Association="DbModel.EmployeeAllocation" />
+        <EntityTypeShape EntityType="DbModel.Receipt" Width="1.5" PointX="5.25" PointY="24.5" />
+        <EntityTypeShape EntityType="DbModel.ReceiptDetail" Width="1.5" PointX="10.5" PointY="24.875" />
+        <AssociationConnector Association="DbModel.ReceiptReceiptDetail" />
+        <AssociationConnector Association="DbModel.OrderReceiptDetail" />
+        <AssociationConnector Association="DbModel.CompanyReceipt" />
+        <AssociationConnector Association="DbModel.EmployeeReceipt" />
+        <EntityTypeShape EntityType="DbModel.StockBack" Width="1.5" PointX="8.25" PointY="24.625" />
+        <AssociationConnector Association="DbModel.StockRecordStockBack" />
+        <AssociationConnector Association="DbModel.EmployeeStockBack" />
+        <AssociationConnector Association="DbModel.CompanyStockBack" />
+        <EntityTypeShape EntityType="DbModel.ProductionQuotation" Width="1.5" PointX="5.25" PointY="19.375" />
+        <AssociationConnector Association="DbModel.MaterialProductionQuotation" />
+        <AssociationConnector Association="DbModel.EmployeeProductionQuotation" />
+        <AssociationConnector Association="DbModel.CompanyProductionQuotation" />
+        <EntityTypeShape EntityType="DbModel.OfferDetail" Width="1.5" PointX="7.5" PointY="29.125" />
+        <AssociationConnector Association="DbModel.ProductionQuotationOfferDetail" />
+        <EntityTypeShape EntityType="DbModel.ProductionPlan" Width="1.5" PointX="7.5" PointY="19.125" />
+        <AssociationConnector Association="DbModel.ProductionPlanMaterial" />
+        <AssociationConnector Association="DbModel.OrderProductionPlan" />
+        <AssociationConnector Association="DbModel.ProductionQuotationProductionPlan" />
+        <EntityTypeShape EntityType="DbModel.Worksheet" Width="1.5" PointX="12.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbModel.WorkingProcedure" Width="1.5" PointX="15" PointY="27.25" />
+        <AssociationConnector Association="DbModel.WorksheetWorkingProcedure" />
+        <AssociationConnector Association="DbModel.ProcedureWorkingProcedure" />
+        <EntityTypeShape EntityType="DbModel.WorkingMaterial" Width="1.5" PointX="15" PointY="23.25" />
+        <AssociationConnector Association="DbModel.MaterialWorkingMaterial" />
+        <AssociationConnector Association="DbModel.WorksheetWorkingMaterial" />
+        <AssociationConnector Association="DbModel.ProductionPlanWorksheet" />
+        <AssociationConnector Association="DbModel.DepartmentWorksheet" />
+        <AssociationConnector Association="DbModel.CompanyWorksheet" />
+        <AssociationConnector Association="DbModel.EmployeeWorksheet" />
+        <AssociationConnector Association="DbModel.StockRecordStockBackNow" />
+        <AssociationConnector Association="DbModel.StockRecordAllocationOut" />
+        <AssociationConnector Association="DbModel.StockRecordAllocationIn" />
+        <AssociationConnector Association="DbModel.StockRecordOrder" />
+        <EntityTypeShape EntityType="DbModel.MaterialRequisition" Width="1.5" PointX="18" PointY="23.75" />
+        <AssociationConnector Association="DbModel.WorksheetMaterialRequisition" />
+        <AssociationConnector Association="DbModel.StockRecordMaterialRequisition" />
+        <EntityTypeShape EntityType="DbModel.Acceptance" Width="1.5" PointX="18" PointY="27.5" />
+        <EntityTypeShape EntityType="DbModel.PlanStorage" Width="1.5" PointX="12.75" PointY="17.875" />
+        <AssociationConnector Association="DbModel.WorksheetAcceptance" />
+        <AssociationConnector Association="DbModel.WarehouseAcceptance" />
+        <AssociationConnector Association="DbModel.EmployeeAcceptance" />
+        <AssociationConnector Association="DbModel.EmployeeAcceptance1Examine" />
+        <AssociationConnector Association="DbModel.StockRecordAcceptance" />
+        <AssociationConnector Association="DbModel.ProductionPlanPlanStorage" />
+        <AssociationConnector Association="DbModel.StockRecordPlanStorage" />
+        <EntityTypeShape EntityType="DbModel.SystemParams" Width="1.5" PointX="5.375" PointY="49.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

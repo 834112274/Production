@@ -22,6 +22,7 @@ namespace Production.Model
         public Department()
         {
             this.User = new HashSet<Employee>();
+            this.Worksheet = new HashSet<Worksheet>();
         }
     
     	/// <summary>
@@ -72,5 +73,7 @@ namespace Production.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Worksheet> Worksheet { get; set; }
     }
 }

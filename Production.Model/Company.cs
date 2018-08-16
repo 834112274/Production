@@ -23,6 +23,10 @@ namespace Production.Model
         {
             this.StockRecord = new HashSet<StockRecord>();
             this.Order = new HashSet<Order>();
+            this.Receipt = new HashSet<Receipt>();
+            this.StockBack = new HashSet<StockBack>();
+            this.ProductionQuotation = new HashSet<ProductionQuotation>();
+            this.Worksheet = new HashSet<Worksheet>();
         }
     
     	/// <summary>
@@ -76,11 +80,6 @@ namespace Production.Model
     	[DisplayName( "网站" )]
         public string Website { get; set; }
     	/// <summary>
-        /// 预存款
-        /// </summary>
-    	[DisplayName( "预存款" )]
-        public decimal PreDeposit { get; set; }
-    	/// <summary>
         /// 
         /// </summary>
     	[DisplayName( "" )]
@@ -120,6 +119,76 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public string StageId { get; set; }
+    	/// <summary>
+        /// 是否是供应商
+        /// </summary>
+    	[DisplayName( "是否是供应商" )]
+        public bool IsSupplier { get; set; }
+    	/// <summary>
+        /// 是否是客户
+        /// </summary>
+    	[DisplayName( "是否是客户" )]
+        public bool IsCustomer { get; set; }
+    	/// <summary>
+        /// 默认开票
+        /// </summary>
+    	[DisplayName( "默认开票" )]
+        public bool IsInvoice { get; set; }
+    	/// <summary>
+        /// 省份
+        /// </summary>
+    	[DisplayName( "省份" )]
+        public string Province { get; set; }
+    	/// <summary>
+        /// 城市
+        /// </summary>
+    	[DisplayName( "城市" )]
+        public string City { get; set; }
+    	/// <summary>
+        /// 开户行
+        /// </summary>
+    	[DisplayName( "开户行" )]
+        public string BankName { get; set; }
+    	/// <summary>
+        /// 开户行账号
+        /// </summary>
+    	[DisplayName( "开户行账号" )]
+        public string BankAccount { get; set; }
+    	/// <summary>
+        /// 税号
+        /// </summary>
+    	[DisplayName( "税号" )]
+        public string DutyParagraph { get; set; }
+    	/// <summary>
+        /// 发票地址
+        /// </summary>
+    	[DisplayName( "发票地址" )]
+        public string InvoiceAddress { get; set; }
+    	/// <summary>
+        /// 税率
+        /// </summary>
+    	[DisplayName( "税率" )]
+        public decimal TaxRate { get; set; }
+    	/// <summary>
+        /// 供应商预存款
+        /// </summary>
+    	[DisplayName( "供应商预存款" )]
+        public decimal SupplierPreDeposit { get; set; }
+    	/// <summary>
+        /// 客户预存款
+        /// </summary>
+    	[DisplayName( "客户预存款" )]
+        public decimal CustomerPreDeposit { get; set; }
+    	/// <summary>
+        /// 首营产品
+        /// </summary>
+    	[DisplayName( "首营产品" )]
+        public string MainProducts { get; set; }
+    	/// <summary>
+        /// 备注
+        /// </summary>
+    	[DisplayName( "备注" )]
+        public string Remarks { get; set; }
     
         public virtual CompanyType Level { get; set; }
         public virtual CompanyType Source { get; set; }
@@ -133,5 +202,13 @@ namespace Production.Model
         public virtual ICollection<StockRecord> StockRecord { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Receipt> Receipt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockBack> StockBack { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductionQuotation> ProductionQuotation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Worksheet> Worksheet { get; set; }
     }
 }

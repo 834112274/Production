@@ -22,6 +22,7 @@ namespace Production.Model
         public Procedure()
         {
             this.ProcedureList = new HashSet<ProcedureList>();
+            this.WorkingProcedure = new HashSet<WorkingProcedure>();
         }
     
     	/// <summary>
@@ -62,5 +63,7 @@ namespace Production.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProcedureList> ProcedureList { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WorkingProcedure> WorkingProcedure { get; set; }
     }
 }

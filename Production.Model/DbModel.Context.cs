@@ -49,5 +49,19 @@ namespace Production.Model
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderMaterial> OrderMaterial { get; set; }
         public virtual DbSet<CapitalAccount> CapitalAccount { get; set; }
+        public virtual DbSet<Allocation> Allocation { get; set; }
+        public virtual DbSet<Receipt> Receipt { get; set; }
+        public virtual DbSet<ReceiptDetail> ReceiptDetail { get; set; }
+        public virtual DbSet<StockBack> StockBack { get; set; }
+        public virtual DbSet<ProductionQuotation> ProductionQuotation { get; set; }
+        public virtual DbSet<OfferDetail> OfferDetail { get; set; }
+        public virtual DbSet<ProductionPlan> ProductionPlan { get; set; }
+        public virtual DbSet<Worksheet> Worksheet { get; set; }
+        public virtual DbSet<WorkingProcedure> WorkingProcedure { get; set; }
+        public virtual DbSet<WorkingMaterial> WorkingMaterial { get; set; }
+        public virtual DbSet<MaterialRequisition> MaterialRequisition { get; set; }
+        public virtual DbSet<Acceptance> Acceptance { get; set; }
+        public virtual DbSet<PlanStorage> PlanStorage { get; set; }
+        public virtual DbSet<SystemParams> SystemParams { get; set; }
     }
 }

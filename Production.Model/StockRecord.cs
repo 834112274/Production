@@ -22,6 +22,14 @@ namespace Production.Model
         public StockRecord()
         {
             this.RecordMaterial = new HashSet<RecordMaterial>();
+            this.StockBack = new HashSet<StockBack>();
+            this.Back = new HashSet<StockBack>();
+            this.AllocationOut = new HashSet<Allocation>();
+            this.AllocationIn = new HashSet<Allocation>();
+            this.Order = new HashSet<Order>();
+            this.MaterialRequisition = new HashSet<MaterialRequisition>();
+            this.Acceptance = new HashSet<Acceptance>();
+            this.PlanStorage = new HashSet<PlanStorage>();
         }
     
     	/// <summary>
@@ -45,15 +53,15 @@ namespace Production.Model
     	[DisplayName( "库单创建时间" )]
         public System.DateTime CreateTime { get; set; }
     	/// <summary>
-        /// 出入库时间
+        /// 退回时间时间
         /// </summary>
-    	[DisplayName( "出入库时间" )]
+    	[DisplayName( "退回时间时间" )]
         public System.DateTime StorageTime { get; set; }
     	/// <summary>
         /// 记录类型（1入库2出库）
         /// </summary>
     	[DisplayName( "记录类型（1入库2出库）" )]
-        public short Type { get; set; }
+        public StockType Type { get; set; }
     	/// <summary>
         /// 总金额
         /// </summary>
@@ -64,11 +72,6 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public string EmployeeId { get; set; }
-    	/// <summary>
-        /// 
-        /// </summary>
-    	[DisplayName( "" )]
-        public string OrderId { get; set; }
     	/// <summary>
         /// 含税总金额
         /// </summary>
@@ -85,6 +88,21 @@ namespace Production.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecordMaterial> RecordMaterial { get; set; }
         public virtual Employee Employee { get; set; }
-        public virtual Order Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockBack> StockBack { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockBack> Back { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Allocation> AllocationOut { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Allocation> AllocationIn { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MaterialRequisition> MaterialRequisition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Acceptance> Acceptance { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PlanStorage> PlanStorage { get; set; }
     }
 }

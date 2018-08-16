@@ -24,6 +24,8 @@ namespace Production.Model
             this.Stock = new HashSet<Stock>();
             this.OrderMaterial = new HashSet<OrderMaterial>();
             this.RecordMaterial = new HashSet<RecordMaterial>();
+            this.ProductionQuotation = new HashSet<ProductionQuotation>();
+            this.WorkingMaterial = new HashSet<WorkingMaterial>();
         }
     
     	/// <summary>
@@ -186,6 +188,11 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "" )]
         public string UnitId { get; set; }
+    	/// <summary>
+        /// 条码
+        /// </summary>
+    	[DisplayName( "条码" )]
+        public string BarCode { get; set; }
     
         public virtual MaterialType Type { get; set; }
         public virtual Unit Unit { get; set; }
@@ -197,5 +204,10 @@ namespace Production.Model
         public virtual ICollection<OrderMaterial> OrderMaterial { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecordMaterial> RecordMaterial { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductionQuotation> ProductionQuotation { get; set; }
+        public virtual ProductionPlan ProductionPlan { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WorkingMaterial> WorkingMaterial { get; set; }
     }
 }
