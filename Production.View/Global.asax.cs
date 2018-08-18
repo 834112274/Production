@@ -7,11 +7,17 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.SessionState;
 
 namespace Production.View
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        public override void Init()
+        {
+            this.PostAuthenticateRequest += (sender, e) => HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
+            base.Init();
+        }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

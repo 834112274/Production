@@ -1,0 +1,61 @@
+﻿<div id="menu_edit" class="easyui-dialog" data-callback="" title="菜单编辑" style="width:400px;height:360px;max-width:800px;padding:10px" data-options="modal:true,onResize:function(){$(this).dialog('center');},buttons: [{
+text:'保存',
+iconCls:'icon-ok',
+handler:function(){
+	$('#menu_edit').find('form').form('submit',{
+		onSubmit:function(){
+			return $(this).form('enableValidation').form('validate');
+		},
+     	success:function(data){
+            data=JSON.parse(data);
+			$.messager.alert('处理结果', data.msg, 'info');
+            var callback=$('#menu_edit').data('callback');
+            var  func=eval(callback);
+            func(data.result_code);
+		}
+	});
+}
+},{
+	text:'取消',
+	handler:function(){
+		$('#menu_edit').dialog('close');
+	}
+}]">
+    <form action="/api/Menu/Add" method="post">
+
+        <input type="hidden" name="Id" value="" />
+        <table cellpadding="5" style="width:100%;">
+            <tr>
+                <td style="width:30%;">菜单目录:</td>
+                <td>
+                    <select class="easyui-combotree" name="ParentId" data-options="url:'/api/Menu/GetModuleList',method:'get'" style="width:100%;"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>排序:</td>
+                <td><input class="easyui-numberbox" type="text" name="Sort" data-options="required:true" style="width:100%;"></td>
+            </tr>
+            <tr>
+                <td>状态:</td>
+                <td>
+                    <select class="easyui-combobox" name="IsVail" style="width:100%">
+                        <option value="1">有效</option>
+                        <option value="0">无效</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>菜单名称:</td>
+                <td><input class="easyui-textbox" name="Name" data-options="required:true" style="width:100%"></td>
+            </tr>
+            <tr>
+                <td>菜单地址:</td>
+                <td><input class="easyui-textbox" name="Url" data-options="required:true" style="width:100%"></td>
+            </tr>
+            <tr>
+                <td>图标:</td>
+                <td><input class="easyui-textbox" name="Icon" style="width:100%"></td>
+            </tr>
+        </table>
+    </form>
+</div>

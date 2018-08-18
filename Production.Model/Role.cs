@@ -49,6 +49,11 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "父级ID" )]
         public string ParentId { get; set; }
+    	/// <summary>
+        /// 
+        /// </summary>
+    	[DisplayName( "" )]
+        public string Remarks { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> User { get; set; }

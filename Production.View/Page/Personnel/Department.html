@@ -1,0 +1,11 @@
+﻿<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="height:50px;padding:6px;line-height:30px;">
+        <a href="javascript:;" onclick="page.menuConfig.menuAdd()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a>
+        <a href="javascript:;" onclick="page.menuConfig.menuChange()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
+        <a href="javascript:;" onclick="page.menuConfig.menuRemove()" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a>
+    </div>
+    <div data-options="region:'center',border:false">
+
+        <ul class="easyui-tree" data-options="url:'/api/Department/GetList',method:'get',animate:true,lines:true"></ul>
+    </div>
+</div>

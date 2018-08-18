@@ -18,12 +18,6 @@ namespace Production.Model
     /// </summary>
     public partial class Menu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Menu()
-        {
-            this.UserProperty = new HashSet<UserProperty>();
-        }
-    
     	/// <summary>
         /// 
         /// </summary>
@@ -79,8 +73,5 @@ namespace Production.Model
         /// </summary>
     	[DisplayName( "菜单编号" )]
         public string Code { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserProperty> UserProperty { get; set; }
     }
 }

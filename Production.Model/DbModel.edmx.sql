@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/15/2018 09:55:46
+-- Date Created: 08/18/2018 18:35:48
 -- Generated from EDMX file: G:\Github\Production\Production.Model\DbModel.edmx
 -- --------------------------------------------------
 
@@ -78,7 +78,7 @@ IF OBJECT_ID(N'[dbo].[FK_ProcedureProcedureList]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProcedureList] DROP CONSTRAINT [FK_ProcedureProcedureList];
 GO
 IF OBJECT_ID(N'[dbo].[FK_UserEmployee]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_UserEmployee];
+    ALTER TABLE [dbo].[Employee] DROP CONSTRAINT [FK_UserEmployee];
 GO
 IF OBJECT_ID(N'[dbo].[FK_WarehouseStock]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Stock] DROP CONSTRAINT [FK_WarehouseStock];
@@ -97,9 +97,6 @@ IF OBJECT_ID(N'[dbo].[FK_MaterialStock]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeeStockRecord]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[StockRecord] DROP CONSTRAINT [FK_EmployeeStockRecord];
-GO
-IF OBJECT_ID(N'[dbo].[FK_OrderStockRecord]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[StockRecord] DROP CONSTRAINT [FK_OrderStockRecord];
 GO
 IF OBJECT_ID(N'[dbo].[FK_OrderOrderMaterial]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[OrderMaterial] DROP CONSTRAINT [FK_OrderOrderMaterial];
@@ -127,6 +124,120 @@ IF OBJECT_ID(N'[dbo].[FK_MaterialOrderMaterial]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_MaterialRecordMaterial]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RecordMaterial] DROP CONSTRAINT [FK_MaterialRecordMaterial];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WarehouseAllocation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Allocation] DROP CONSTRAINT [FK_WarehouseAllocation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_InWarehouseAllocation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Allocation] DROP CONSTRAINT [FK_InWarehouseAllocation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeAllocation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Allocation] DROP CONSTRAINT [FK_EmployeeAllocation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ReceiptReceiptDetail]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ReceiptDetail] DROP CONSTRAINT [FK_ReceiptReceiptDetail];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrderReceiptDetail]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ReceiptDetail] DROP CONSTRAINT [FK_OrderReceiptDetail];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompanyReceipt]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Receipt] DROP CONSTRAINT [FK_CompanyReceipt];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeReceipt]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Receipt] DROP CONSTRAINT [FK_EmployeeReceipt];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockRecordStockBack]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[StockBack] DROP CONSTRAINT [FK_StockRecordStockBack];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeStockBack]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[StockBack] DROP CONSTRAINT [FK_EmployeeStockBack];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompanyStockBack]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[StockBack] DROP CONSTRAINT [FK_CompanyStockBack];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MaterialProductionQuotation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProductionQuotation] DROP CONSTRAINT [FK_MaterialProductionQuotation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeProductionQuotation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProductionQuotation] DROP CONSTRAINT [FK_EmployeeProductionQuotation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompanyProductionQuotation]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProductionQuotation] DROP CONSTRAINT [FK_CompanyProductionQuotation];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProductionQuotationOfferDetail]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OfferDetail] DROP CONSTRAINT [FK_ProductionQuotationOfferDetail];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProductionPlanMaterial]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProductionPlan] DROP CONSTRAINT [FK_ProductionPlanMaterial];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrderProductionPlan]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProductionPlan] DROP CONSTRAINT [FK_OrderProductionPlan];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProductionQuotationProductionPlan]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProductionPlan] DROP CONSTRAINT [FK_ProductionQuotationProductionPlan];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WorksheetWorkingProcedure]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[WorkingProcedure] DROP CONSTRAINT [FK_WorksheetWorkingProcedure];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProcedureWorkingProcedure]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[WorkingProcedure] DROP CONSTRAINT [FK_ProcedureWorkingProcedure];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MaterialWorkingMaterial]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[WorkingMaterial] DROP CONSTRAINT [FK_MaterialWorkingMaterial];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WorksheetWorkingMaterial]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[WorkingMaterial] DROP CONSTRAINT [FK_WorksheetWorkingMaterial];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProductionPlanWorksheet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Worksheet] DROP CONSTRAINT [FK_ProductionPlanWorksheet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DepartmentWorksheet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Worksheet] DROP CONSTRAINT [FK_DepartmentWorksheet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompanyWorksheet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Worksheet] DROP CONSTRAINT [FK_CompanyWorksheet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeWorksheet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Worksheet] DROP CONSTRAINT [FK_EmployeeWorksheet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockRecordStockBackNow]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[StockBack] DROP CONSTRAINT [FK_StockRecordStockBackNow];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockRecordAllocationOut]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Allocation] DROP CONSTRAINT [FK_StockRecordAllocationOut];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockRecordAllocationIn]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Allocation] DROP CONSTRAINT [FK_StockRecordAllocationIn];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockRecordOrder]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Order] DROP CONSTRAINT [FK_StockRecordOrder];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WorksheetMaterialRequisition]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MaterialRequisition] DROP CONSTRAINT [FK_WorksheetMaterialRequisition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockRecordMaterialRequisition]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MaterialRequisition] DROP CONSTRAINT [FK_StockRecordMaterialRequisition];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WorksheetAcceptance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Acceptance] DROP CONSTRAINT [FK_WorksheetAcceptance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WarehouseAcceptance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Acceptance] DROP CONSTRAINT [FK_WarehouseAcceptance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeAcceptance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Acceptance] DROP CONSTRAINT [FK_EmployeeAcceptance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeeAcceptance1Examine]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Acceptance] DROP CONSTRAINT [FK_EmployeeAcceptance1Examine];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockRecordAcceptance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Acceptance] DROP CONSTRAINT [FK_StockRecordAcceptance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProductionPlanPlanStorage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PlanStorage] DROP CONSTRAINT [FK_ProductionPlanPlanStorage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StockRecordPlanStorage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PlanStorage] DROP CONSTRAINT [FK_StockRecordPlanStorage];
 GO
 
 -- --------------------------------------------------
@@ -205,6 +316,51 @@ GO
 IF OBJECT_ID(N'[dbo].[CapitalAccount]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CapitalAccount];
 GO
+IF OBJECT_ID(N'[dbo].[Allocation]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Allocation];
+GO
+IF OBJECT_ID(N'[dbo].[Receipt]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Receipt];
+GO
+IF OBJECT_ID(N'[dbo].[ReceiptDetail]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ReceiptDetail];
+GO
+IF OBJECT_ID(N'[dbo].[StockBack]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[StockBack];
+GO
+IF OBJECT_ID(N'[dbo].[ProductionQuotation]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProductionQuotation];
+GO
+IF OBJECT_ID(N'[dbo].[OfferDetail]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[OfferDetail];
+GO
+IF OBJECT_ID(N'[dbo].[ProductionPlan]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProductionPlan];
+GO
+IF OBJECT_ID(N'[dbo].[Worksheet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Worksheet];
+GO
+IF OBJECT_ID(N'[dbo].[WorkingProcedure]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[WorkingProcedure];
+GO
+IF OBJECT_ID(N'[dbo].[WorkingMaterial]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[WorkingMaterial];
+GO
+IF OBJECT_ID(N'[dbo].[MaterialRequisition]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MaterialRequisition];
+GO
+IF OBJECT_ID(N'[dbo].[Acceptance]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Acceptance];
+GO
+IF OBJECT_ID(N'[dbo].[PlanStorage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PlanStorage];
+GO
+IF OBJECT_ID(N'[dbo].[SystemParams]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SystemParams];
+GO
+IF OBJECT_ID(N'[dbo].[Attachment]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Attachment];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -221,7 +377,7 @@ CREATE TABLE [dbo].[Employee] (
     [Type] smallint  NOT NULL,
     [Status] smallint  NOT NULL,
     [PINCodes] nvarchar(max)  NOT NULL,
-    [DepartmentId] nvarchar(40)  NOT NULL,
+    [DepartmentId] nvarchar(40)  NULL,
     [RoleId] nvarchar(40)  NULL,
     [NativePlace] nvarchar(20)  NULL,
     [HomeAddress] nvarchar(120)  NULL,
@@ -265,10 +421,11 @@ GO
 -- Creating table 'Role'
 CREATE TABLE [dbo].[Role] (
     [Id] nvarchar(40)  NOT NULL,
-    [Name] nvarchar(max)  NOT NULL,
-    [Code] nvarchar(max)  NOT NULL,
+    [Name] nvarchar(60)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
     [CreateTime] datetime  NOT NULL,
-    [ParentId] nvarchar(40)  NULL
+    [ParentId] nvarchar(40)  NULL,
+    [Remarks] nvarchar(300)  NULL
 );
 GO
 
@@ -352,7 +509,8 @@ CREATE TABLE [dbo].[Material] (
     [UpdateTime] datetime  NOT NULL,
     [UpdateUser] nvarchar(20)  NOT NULL,
     [TypeId] nvarchar(40)  NOT NULL,
-    [UnitId] nvarchar(40)  NOT NULL
+    [UnitId] nvarchar(40)  NOT NULL,
+    [BarCode] nvarchar(30)  NULL
 );
 GO
 
@@ -425,7 +583,6 @@ CREATE TABLE [dbo].[Company] (
     [Address] nvarchar(max)  NULL,
     [Fax] nvarchar(max)  NULL,
     [Website] nvarchar(max)  NULL,
-    [PreDeposit] decimal(2,0)  NOT NULL,
     [LevelId] nvarchar(40)  NULL,
     [SourceId] nvarchar(40)  NULL,
     [IndustryId] nvarchar(40)  NULL,
@@ -433,7 +590,21 @@ CREATE TABLE [dbo].[Company] (
     [StatusId] nvarchar(40)  NULL,
     [TypeId] nvarchar(40)  NULL,
     [PropertyId] nvarchar(40)  NULL,
-    [StageId] nvarchar(40)  NULL
+    [StageId] nvarchar(40)  NULL,
+    [IsSupplier] bit  NOT NULL,
+    [IsCustomer] bit  NOT NULL,
+    [IsInvoice] bit  NOT NULL,
+    [Province] nvarchar(15)  NULL,
+    [City] nvarchar(20)  NULL,
+    [BankName] nvarchar(40)  NULL,
+    [BankAccount] nvarchar(40)  NULL,
+    [DutyParagraph] nvarchar(40)  NULL,
+    [InvoiceAddress] nvarchar(60)  NULL,
+    [TaxRate] decimal(4,0)  NOT NULL,
+    [SupplierPreDeposit] decimal(2,0)  NOT NULL,
+    [CustomerPreDeposit] decimal(2,0)  NOT NULL,
+    [MainProducts] nvarchar(300)  NULL,
+    [Remarks] nvarchar(300)  NULL
 );
 GO
 
@@ -443,7 +614,9 @@ CREATE TABLE [dbo].[CompanyType] (
     [Name] nvarchar(30)  NOT NULL,
     [ParentId] nvarchar(max)  NOT NULL,
     [Default] bit  NOT NULL,
-    [Level] smallint  NOT NULL
+    [Level] smallint  NOT NULL,
+    [Type] nvarchar(10)  NOT NULL,
+    [TypeName] nvarchar(20)  NULL
 );
 GO
 
@@ -498,7 +671,6 @@ CREATE TABLE [dbo].[StockRecord] (
     [Type] smallint  NOT NULL,
     [AmountMoney] decimal(2,0)  NOT NULL,
     [EmployeeId] nvarchar(40)  NULL,
-    [OrderId] nvarchar(40)  NULL,
     [TaxAmount] decimal(2,0)  NOT NULL,
     [Remarks] nvarchar(300)  NULL,
     [Company_Id] nvarchar(40)  NULL
@@ -545,7 +717,8 @@ CREATE TABLE [dbo].[Order] (
     [AccountStatus] smallint  NOT NULL,
     [InvoiceCode] nvarchar(40)  NULL,
     [CapitalAccountId] nvarchar(40)  NULL,
-    [Type] smallint  NOT NULL
+    [Type] smallint  NOT NULL,
+    [StockRecordId] nvarchar(40)  NULL
 );
 GO
 
@@ -572,6 +745,238 @@ GO
 -- Creating table 'CapitalAccount'
 CREATE TABLE [dbo].[CapitalAccount] (
     [Id] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'Allocation'
+CREATE TABLE [dbo].[Allocation] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [CreateTime] datetime  NOT NULL,
+    [AllocationTime] datetime  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [OutWarehouseId] nvarchar(40)  NOT NULL,
+    [WarehouseId] nvarchar(40)  NOT NULL,
+    [EmployeeId] nvarchar(40)  NULL,
+    [OutStockRecordId] nvarchar(40)  NOT NULL,
+    [InStockRecordId] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'Receipt'
+CREATE TABLE [dbo].[Receipt] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [Type] nvarchar(max)  NOT NULL,
+    [CreateTime] datetime  NOT NULL,
+    [BillDate] datetime  NOT NULL,
+    [AmountMoney] decimal(2,0)  NOT NULL,
+    [NetReceipts] decimal(2,0)  NOT NULL,
+    [IntegerMoney] int  NOT NULL,
+    [BillCode] nvarchar(40)  NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [ReceivableMoney] decimal(2,0)  NOT NULL,
+    [CompanyId] nvarchar(40)  NOT NULL,
+    [EmployeeId] nvarchar(40)  NULL
+);
+GO
+
+-- Creating table 'ReceiptDetail'
+CREATE TABLE [dbo].[ReceiptDetail] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Type] smallint  NOT NULL,
+    [OrderDate] datetime  NOT NULL,
+    [OrderMoney] datetime  NOT NULL,
+    [AmountCollected] decimal(2,0)  NOT NULL,
+    [AmountReceived] decimal(2,0)  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [ReceiptId] nvarchar(40)  NOT NULL,
+    [OrderId] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'StockBack'
+CREATE TABLE [dbo].[StockBack] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [CreateTime] datetime  NOT NULL,
+    [StorageTime] datetime  NOT NULL,
+    [AmountMoney] decimal(2,0)  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [OutStockRecordId] nvarchar(40)  NOT NULL,
+    [EmployeeId] nvarchar(40)  NULL,
+    [CompanyId] nvarchar(40)  NULL,
+    [StockRecordId] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'ProductionQuotation'
+CREATE TABLE [dbo].[ProductionQuotation] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [CreateTime] datetime  NOT NULL,
+    [OfferDate] datetime  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [Count] decimal(2,0)  NOT NULL,
+    [RrofitRate] decimal(4,0)  NOT NULL,
+    [Currency] nvarchar(10)  NOT NULL,
+    [ExchangeRate] decimal(4,0)  NOT NULL,
+    [MaterialId] nvarchar(40)  NULL,
+    [EmployeeId] nvarchar(40)  NULL,
+    [CompanyId] nvarchar(40)  NULL
+);
+GO
+
+-- Creating table 'OfferDetail'
+CREATE TABLE [dbo].[OfferDetail] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Type] smallint  NOT NULL,
+    [Name] nvarchar(60)  NULL,
+    [Summary] nvarchar(300)  NULL,
+    [UnitPrice] decimal(2,0)  NOT NULL,
+    [UnitCount] decimal(2,0)  NOT NULL,
+    [UnitAmount] decimal(2,0)  NOT NULL,
+    [Amount] decimal(2,0)  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [ProductionQuotationId] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'ProductionPlan'
+CREATE TABLE [dbo].[ProductionPlan] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [Count] decimal(2,0)  NOT NULL,
+    [BatchNumber] nvarchar(40)  NULL,
+    [CreateTime] datetime  NOT NULL,
+    [PlanDate] datetime  NOT NULL,
+    [Status] smallint  NOT NULL,
+    [PlanCompleteDate] datetime  NOT NULL,
+    [CompleteDate] datetime  NOT NULL,
+    [Remarks] nvarchar(300)  NOT NULL,
+    [OrderId] nvarchar(40)  NULL,
+    [ProductionQuotationId] nvarchar(40)  NULL,
+    [Type] smallint  NOT NULL,
+    [ParentId] nvarchar(40)  NULL,
+    [Material_Id] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'Worksheet'
+CREATE TABLE [dbo].[Worksheet] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [Count] decimal(2,0)  NOT NULL,
+    [StartDate] datetime  NOT NULL,
+    [EndDate] datetime  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [CreateTime] datetime  NOT NULL,
+    [ProductionPlanId] nvarchar(40)  NOT NULL,
+    [DepartmentId] nvarchar(40)  NULL,
+    [CompanyId] nvarchar(40)  NULL,
+    [EmployeeId] nvarchar(40)  NULL,
+    [UnitPrice] decimal(2,0)  NOT NULL,
+    [AmountMoney] nvarchar(max)  NOT NULL,
+    [Type] smallint  NOT NULL,
+    [Status] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'WorkingProcedure'
+CREATE TABLE [dbo].[WorkingProcedure] (
+    [Id] nvarchar(40)  NOT NULL,
+    [WorksheetId] nvarchar(40)  NOT NULL,
+    [ProcedureId] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'WorkingMaterial'
+CREATE TABLE [dbo].[WorkingMaterial] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Count] decimal(2,0)  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [MaterialId] nvarchar(40)  NOT NULL,
+    [WorksheetId] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'MaterialRequisition'
+CREATE TABLE [dbo].[MaterialRequisition] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [CreateTime] datetime  NOT NULL,
+    [PickingTime] datetime  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [Type] smallint  NOT NULL,
+    [WorksheetId] nvarchar(40)  NOT NULL,
+    [StockRecordId] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'Acceptance'
+CREATE TABLE [dbo].[Acceptance] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [CreateTime] datetime  NOT NULL,
+    [BatchNumber] nvarchar(40)  NOT NULL,
+    [Date] datetime  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [Count] decimal(2,0)  NOT NULL,
+    [UnitPrice] decimal(2,0)  NOT NULL,
+    [AmountMoney] decimal(2,0)  NOT NULL,
+    [Procedure] nvarchar(200)  NULL,
+    [UnqualifiedCount] decimal(2,0)  NOT NULL,
+    [WorksheetId] nvarchar(40)  NOT NULL,
+    [Type] smallint  NOT NULL,
+    [WarehouseId] nvarchar(40)  NULL,
+    [Storage] smallint  NOT NULL,
+    [CheckEmployeeId] nvarchar(40)  NOT NULL,
+    [ExamineEmployeeId] nvarchar(40)  NULL,
+    [ExamineDate] datetime  NOT NULL,
+    [StockRecordId] nvarchar(40)  NULL
+);
+GO
+
+-- Creating table 'PlanStorage'
+CREATE TABLE [dbo].[PlanStorage] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Code] nvarchar(40)  NOT NULL,
+    [CreateTime] datetime  NOT NULL,
+    [BatchNumber] nvarchar(40)  NOT NULL,
+    [Date] datetime  NOT NULL,
+    [Count] decimal(2,0)  NOT NULL,
+    [UnitPrice] decimal(2,0)  NOT NULL,
+    [AmountMoney] decimal(2,0)  NOT NULL,
+    [ProductionPlanId] nvarchar(40)  NOT NULL,
+    [StockRecordId] nvarchar(40)  NOT NULL
+);
+GO
+
+-- Creating table 'SystemParams'
+CREATE TABLE [dbo].[SystemParams] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Name] nvarchar(120)  NOT NULL,
+    [Value] nvarchar(200)  NOT NULL,
+    [ParentId] nvarchar(40)  NULL,
+    [Remarks] nvarchar(300)  NULL
+);
+GO
+
+-- Creating table 'Attachment'
+CREATE TABLE [dbo].[Attachment] (
+    [Id] nvarchar(40)  NOT NULL,
+    [Name] nvarchar(200)  NOT NULL,
+    [FileType] nvarchar(10)  NOT NULL,
+    [Size] decimal(2,0)  NOT NULL,
+    [Url] nvarchar(300)  NOT NULL,
+    [CreateTime] datetime  NOT NULL,
+    [SearchKey] nvarchar(40)  NOT NULL,
+    [UserId] nvarchar(max)  NOT NULL,
+    [UserName] nvarchar(max)  NOT NULL,
+    [DownloadCount] smallint  NOT NULL,
+    [LastTime] datetime  NOT NULL,
+    [Remarks] nvarchar(300)  NULL,
+    [Summary] nvarchar(200)  NULL
 );
 GO
 
@@ -720,6 +1125,96 @@ GO
 -- Creating primary key on [Id] in table 'CapitalAccount'
 ALTER TABLE [dbo].[CapitalAccount]
 ADD CONSTRAINT [PK_CapitalAccount]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Allocation'
+ALTER TABLE [dbo].[Allocation]
+ADD CONSTRAINT [PK_Allocation]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Receipt'
+ALTER TABLE [dbo].[Receipt]
+ADD CONSTRAINT [PK_Receipt]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ReceiptDetail'
+ALTER TABLE [dbo].[ReceiptDetail]
+ADD CONSTRAINT [PK_ReceiptDetail]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'StockBack'
+ALTER TABLE [dbo].[StockBack]
+ADD CONSTRAINT [PK_StockBack]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ProductionQuotation'
+ALTER TABLE [dbo].[ProductionQuotation]
+ADD CONSTRAINT [PK_ProductionQuotation]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'OfferDetail'
+ALTER TABLE [dbo].[OfferDetail]
+ADD CONSTRAINT [PK_OfferDetail]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ProductionPlan'
+ALTER TABLE [dbo].[ProductionPlan]
+ADD CONSTRAINT [PK_ProductionPlan]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Worksheet'
+ALTER TABLE [dbo].[Worksheet]
+ADD CONSTRAINT [PK_Worksheet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'WorkingProcedure'
+ALTER TABLE [dbo].[WorkingProcedure]
+ADD CONSTRAINT [PK_WorkingProcedure]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'WorkingMaterial'
+ALTER TABLE [dbo].[WorkingMaterial]
+ADD CONSTRAINT [PK_WorkingMaterial]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'MaterialRequisition'
+ALTER TABLE [dbo].[MaterialRequisition]
+ADD CONSTRAINT [PK_MaterialRequisition]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Acceptance'
+ALTER TABLE [dbo].[Acceptance]
+ADD CONSTRAINT [PK_Acceptance]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'PlanStorage'
+ALTER TABLE [dbo].[PlanStorage]
+ADD CONSTRAINT [PK_PlanStorage]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SystemParams'
+ALTER TABLE [dbo].[SystemParams]
+ADD CONSTRAINT [PK_SystemParams]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Attachment'
+ALTER TABLE [dbo].[Attachment]
+ADD CONSTRAINT [PK_Attachment]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -1132,21 +1627,6 @@ ON [dbo].[StockRecord]
     ([EmployeeId]);
 GO
 
--- Creating foreign key on [OrderId] in table 'StockRecord'
-ALTER TABLE [dbo].[StockRecord]
-ADD CONSTRAINT [FK_OrderStockRecord]
-    FOREIGN KEY ([OrderId])
-    REFERENCES [dbo].[Order]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_OrderStockRecord'
-CREATE INDEX [IX_FK_OrderStockRecord]
-ON [dbo].[StockRecord]
-    ([OrderId]);
-GO
-
 -- Creating foreign key on [OrderId] in table 'OrderMaterial'
 ALTER TABLE [dbo].[OrderMaterial]
 ADD CONSTRAINT [FK_OrderOrderMaterial]
@@ -1280,6 +1760,576 @@ GO
 CREATE INDEX [IX_FK_MaterialRecordMaterial]
 ON [dbo].[RecordMaterial]
     ([MaterialId]);
+GO
+
+-- Creating foreign key on [OutWarehouseId] in table 'Allocation'
+ALTER TABLE [dbo].[Allocation]
+ADD CONSTRAINT [FK_WarehouseAllocation]
+    FOREIGN KEY ([OutWarehouseId])
+    REFERENCES [dbo].[Warehouse]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WarehouseAllocation'
+CREATE INDEX [IX_FK_WarehouseAllocation]
+ON [dbo].[Allocation]
+    ([OutWarehouseId]);
+GO
+
+-- Creating foreign key on [WarehouseId] in table 'Allocation'
+ALTER TABLE [dbo].[Allocation]
+ADD CONSTRAINT [FK_InWarehouseAllocation]
+    FOREIGN KEY ([WarehouseId])
+    REFERENCES [dbo].[Warehouse]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_InWarehouseAllocation'
+CREATE INDEX [IX_FK_InWarehouseAllocation]
+ON [dbo].[Allocation]
+    ([WarehouseId]);
+GO
+
+-- Creating foreign key on [EmployeeId] in table 'Allocation'
+ALTER TABLE [dbo].[Allocation]
+ADD CONSTRAINT [FK_EmployeeAllocation]
+    FOREIGN KEY ([EmployeeId])
+    REFERENCES [dbo].[Employee]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeAllocation'
+CREATE INDEX [IX_FK_EmployeeAllocation]
+ON [dbo].[Allocation]
+    ([EmployeeId]);
+GO
+
+-- Creating foreign key on [ReceiptId] in table 'ReceiptDetail'
+ALTER TABLE [dbo].[ReceiptDetail]
+ADD CONSTRAINT [FK_ReceiptReceiptDetail]
+    FOREIGN KEY ([ReceiptId])
+    REFERENCES [dbo].[Receipt]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ReceiptReceiptDetail'
+CREATE INDEX [IX_FK_ReceiptReceiptDetail]
+ON [dbo].[ReceiptDetail]
+    ([ReceiptId]);
+GO
+
+-- Creating foreign key on [OrderId] in table 'ReceiptDetail'
+ALTER TABLE [dbo].[ReceiptDetail]
+ADD CONSTRAINT [FK_OrderReceiptDetail]
+    FOREIGN KEY ([OrderId])
+    REFERENCES [dbo].[Order]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OrderReceiptDetail'
+CREATE INDEX [IX_FK_OrderReceiptDetail]
+ON [dbo].[ReceiptDetail]
+    ([OrderId]);
+GO
+
+-- Creating foreign key on [CompanyId] in table 'Receipt'
+ALTER TABLE [dbo].[Receipt]
+ADD CONSTRAINT [FK_CompanyReceipt]
+    FOREIGN KEY ([CompanyId])
+    REFERENCES [dbo].[Company]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CompanyReceipt'
+CREATE INDEX [IX_FK_CompanyReceipt]
+ON [dbo].[Receipt]
+    ([CompanyId]);
+GO
+
+-- Creating foreign key on [EmployeeId] in table 'Receipt'
+ALTER TABLE [dbo].[Receipt]
+ADD CONSTRAINT [FK_EmployeeReceipt]
+    FOREIGN KEY ([EmployeeId])
+    REFERENCES [dbo].[Employee]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeReceipt'
+CREATE INDEX [IX_FK_EmployeeReceipt]
+ON [dbo].[Receipt]
+    ([EmployeeId]);
+GO
+
+-- Creating foreign key on [OutStockRecordId] in table 'StockBack'
+ALTER TABLE [dbo].[StockBack]
+ADD CONSTRAINT [FK_StockRecordStockBack]
+    FOREIGN KEY ([OutStockRecordId])
+    REFERENCES [dbo].[StockRecord]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockRecordStockBack'
+CREATE INDEX [IX_FK_StockRecordStockBack]
+ON [dbo].[StockBack]
+    ([OutStockRecordId]);
+GO
+
+-- Creating foreign key on [EmployeeId] in table 'StockBack'
+ALTER TABLE [dbo].[StockBack]
+ADD CONSTRAINT [FK_EmployeeStockBack]
+    FOREIGN KEY ([EmployeeId])
+    REFERENCES [dbo].[Employee]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeStockBack'
+CREATE INDEX [IX_FK_EmployeeStockBack]
+ON [dbo].[StockBack]
+    ([EmployeeId]);
+GO
+
+-- Creating foreign key on [CompanyId] in table 'StockBack'
+ALTER TABLE [dbo].[StockBack]
+ADD CONSTRAINT [FK_CompanyStockBack]
+    FOREIGN KEY ([CompanyId])
+    REFERENCES [dbo].[Company]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CompanyStockBack'
+CREATE INDEX [IX_FK_CompanyStockBack]
+ON [dbo].[StockBack]
+    ([CompanyId]);
+GO
+
+-- Creating foreign key on [MaterialId] in table 'ProductionQuotation'
+ALTER TABLE [dbo].[ProductionQuotation]
+ADD CONSTRAINT [FK_MaterialProductionQuotation]
+    FOREIGN KEY ([MaterialId])
+    REFERENCES [dbo].[Material]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_MaterialProductionQuotation'
+CREATE INDEX [IX_FK_MaterialProductionQuotation]
+ON [dbo].[ProductionQuotation]
+    ([MaterialId]);
+GO
+
+-- Creating foreign key on [EmployeeId] in table 'ProductionQuotation'
+ALTER TABLE [dbo].[ProductionQuotation]
+ADD CONSTRAINT [FK_EmployeeProductionQuotation]
+    FOREIGN KEY ([EmployeeId])
+    REFERENCES [dbo].[Employee]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeProductionQuotation'
+CREATE INDEX [IX_FK_EmployeeProductionQuotation]
+ON [dbo].[ProductionQuotation]
+    ([EmployeeId]);
+GO
+
+-- Creating foreign key on [CompanyId] in table 'ProductionQuotation'
+ALTER TABLE [dbo].[ProductionQuotation]
+ADD CONSTRAINT [FK_CompanyProductionQuotation]
+    FOREIGN KEY ([CompanyId])
+    REFERENCES [dbo].[Company]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CompanyProductionQuotation'
+CREATE INDEX [IX_FK_CompanyProductionQuotation]
+ON [dbo].[ProductionQuotation]
+    ([CompanyId]);
+GO
+
+-- Creating foreign key on [ProductionQuotationId] in table 'OfferDetail'
+ALTER TABLE [dbo].[OfferDetail]
+ADD CONSTRAINT [FK_ProductionQuotationOfferDetail]
+    FOREIGN KEY ([ProductionQuotationId])
+    REFERENCES [dbo].[ProductionQuotation]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductionQuotationOfferDetail'
+CREATE INDEX [IX_FK_ProductionQuotationOfferDetail]
+ON [dbo].[OfferDetail]
+    ([ProductionQuotationId]);
+GO
+
+-- Creating foreign key on [Material_Id] in table 'ProductionPlan'
+ALTER TABLE [dbo].[ProductionPlan]
+ADD CONSTRAINT [FK_ProductionPlanMaterial]
+    FOREIGN KEY ([Material_Id])
+    REFERENCES [dbo].[Material]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductionPlanMaterial'
+CREATE INDEX [IX_FK_ProductionPlanMaterial]
+ON [dbo].[ProductionPlan]
+    ([Material_Id]);
+GO
+
+-- Creating foreign key on [OrderId] in table 'ProductionPlan'
+ALTER TABLE [dbo].[ProductionPlan]
+ADD CONSTRAINT [FK_OrderProductionPlan]
+    FOREIGN KEY ([OrderId])
+    REFERENCES [dbo].[Order]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OrderProductionPlan'
+CREATE INDEX [IX_FK_OrderProductionPlan]
+ON [dbo].[ProductionPlan]
+    ([OrderId]);
+GO
+
+-- Creating foreign key on [ProductionQuotationId] in table 'ProductionPlan'
+ALTER TABLE [dbo].[ProductionPlan]
+ADD CONSTRAINT [FK_ProductionQuotationProductionPlan]
+    FOREIGN KEY ([ProductionQuotationId])
+    REFERENCES [dbo].[ProductionQuotation]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductionQuotationProductionPlan'
+CREATE INDEX [IX_FK_ProductionQuotationProductionPlan]
+ON [dbo].[ProductionPlan]
+    ([ProductionQuotationId]);
+GO
+
+-- Creating foreign key on [WorksheetId] in table 'WorkingProcedure'
+ALTER TABLE [dbo].[WorkingProcedure]
+ADD CONSTRAINT [FK_WorksheetWorkingProcedure]
+    FOREIGN KEY ([WorksheetId])
+    REFERENCES [dbo].[Worksheet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WorksheetWorkingProcedure'
+CREATE INDEX [IX_FK_WorksheetWorkingProcedure]
+ON [dbo].[WorkingProcedure]
+    ([WorksheetId]);
+GO
+
+-- Creating foreign key on [ProcedureId] in table 'WorkingProcedure'
+ALTER TABLE [dbo].[WorkingProcedure]
+ADD CONSTRAINT [FK_ProcedureWorkingProcedure]
+    FOREIGN KEY ([ProcedureId])
+    REFERENCES [dbo].[Procedure]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProcedureWorkingProcedure'
+CREATE INDEX [IX_FK_ProcedureWorkingProcedure]
+ON [dbo].[WorkingProcedure]
+    ([ProcedureId]);
+GO
+
+-- Creating foreign key on [MaterialId] in table 'WorkingMaterial'
+ALTER TABLE [dbo].[WorkingMaterial]
+ADD CONSTRAINT [FK_MaterialWorkingMaterial]
+    FOREIGN KEY ([MaterialId])
+    REFERENCES [dbo].[Material]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_MaterialWorkingMaterial'
+CREATE INDEX [IX_FK_MaterialWorkingMaterial]
+ON [dbo].[WorkingMaterial]
+    ([MaterialId]);
+GO
+
+-- Creating foreign key on [WorksheetId] in table 'WorkingMaterial'
+ALTER TABLE [dbo].[WorkingMaterial]
+ADD CONSTRAINT [FK_WorksheetWorkingMaterial]
+    FOREIGN KEY ([WorksheetId])
+    REFERENCES [dbo].[Worksheet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WorksheetWorkingMaterial'
+CREATE INDEX [IX_FK_WorksheetWorkingMaterial]
+ON [dbo].[WorkingMaterial]
+    ([WorksheetId]);
+GO
+
+-- Creating foreign key on [ProductionPlanId] in table 'Worksheet'
+ALTER TABLE [dbo].[Worksheet]
+ADD CONSTRAINT [FK_ProductionPlanWorksheet]
+    FOREIGN KEY ([ProductionPlanId])
+    REFERENCES [dbo].[ProductionPlan]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductionPlanWorksheet'
+CREATE INDEX [IX_FK_ProductionPlanWorksheet]
+ON [dbo].[Worksheet]
+    ([ProductionPlanId]);
+GO
+
+-- Creating foreign key on [DepartmentId] in table 'Worksheet'
+ALTER TABLE [dbo].[Worksheet]
+ADD CONSTRAINT [FK_DepartmentWorksheet]
+    FOREIGN KEY ([DepartmentId])
+    REFERENCES [dbo].[Department]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DepartmentWorksheet'
+CREATE INDEX [IX_FK_DepartmentWorksheet]
+ON [dbo].[Worksheet]
+    ([DepartmentId]);
+GO
+
+-- Creating foreign key on [CompanyId] in table 'Worksheet'
+ALTER TABLE [dbo].[Worksheet]
+ADD CONSTRAINT [FK_CompanyWorksheet]
+    FOREIGN KEY ([CompanyId])
+    REFERENCES [dbo].[Company]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CompanyWorksheet'
+CREATE INDEX [IX_FK_CompanyWorksheet]
+ON [dbo].[Worksheet]
+    ([CompanyId]);
+GO
+
+-- Creating foreign key on [EmployeeId] in table 'Worksheet'
+ALTER TABLE [dbo].[Worksheet]
+ADD CONSTRAINT [FK_EmployeeWorksheet]
+    FOREIGN KEY ([EmployeeId])
+    REFERENCES [dbo].[Employee]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeWorksheet'
+CREATE INDEX [IX_FK_EmployeeWorksheet]
+ON [dbo].[Worksheet]
+    ([EmployeeId]);
+GO
+
+-- Creating foreign key on [StockRecordId] in table 'StockBack'
+ALTER TABLE [dbo].[StockBack]
+ADD CONSTRAINT [FK_StockRecordStockBackNow]
+    FOREIGN KEY ([StockRecordId])
+    REFERENCES [dbo].[StockRecord]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockRecordStockBackNow'
+CREATE INDEX [IX_FK_StockRecordStockBackNow]
+ON [dbo].[StockBack]
+    ([StockRecordId]);
+GO
+
+-- Creating foreign key on [OutStockRecordId] in table 'Allocation'
+ALTER TABLE [dbo].[Allocation]
+ADD CONSTRAINT [FK_StockRecordAllocationOut]
+    FOREIGN KEY ([OutStockRecordId])
+    REFERENCES [dbo].[StockRecord]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockRecordAllocationOut'
+CREATE INDEX [IX_FK_StockRecordAllocationOut]
+ON [dbo].[Allocation]
+    ([OutStockRecordId]);
+GO
+
+-- Creating foreign key on [InStockRecordId] in table 'Allocation'
+ALTER TABLE [dbo].[Allocation]
+ADD CONSTRAINT [FK_StockRecordAllocationIn]
+    FOREIGN KEY ([InStockRecordId])
+    REFERENCES [dbo].[StockRecord]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockRecordAllocationIn'
+CREATE INDEX [IX_FK_StockRecordAllocationIn]
+ON [dbo].[Allocation]
+    ([InStockRecordId]);
+GO
+
+-- Creating foreign key on [StockRecordId] in table 'Order'
+ALTER TABLE [dbo].[Order]
+ADD CONSTRAINT [FK_StockRecordOrder]
+    FOREIGN KEY ([StockRecordId])
+    REFERENCES [dbo].[StockRecord]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockRecordOrder'
+CREATE INDEX [IX_FK_StockRecordOrder]
+ON [dbo].[Order]
+    ([StockRecordId]);
+GO
+
+-- Creating foreign key on [WorksheetId] in table 'MaterialRequisition'
+ALTER TABLE [dbo].[MaterialRequisition]
+ADD CONSTRAINT [FK_WorksheetMaterialRequisition]
+    FOREIGN KEY ([WorksheetId])
+    REFERENCES [dbo].[Worksheet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WorksheetMaterialRequisition'
+CREATE INDEX [IX_FK_WorksheetMaterialRequisition]
+ON [dbo].[MaterialRequisition]
+    ([WorksheetId]);
+GO
+
+-- Creating foreign key on [StockRecordId] in table 'MaterialRequisition'
+ALTER TABLE [dbo].[MaterialRequisition]
+ADD CONSTRAINT [FK_StockRecordMaterialRequisition]
+    FOREIGN KEY ([StockRecordId])
+    REFERENCES [dbo].[StockRecord]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockRecordMaterialRequisition'
+CREATE INDEX [IX_FK_StockRecordMaterialRequisition]
+ON [dbo].[MaterialRequisition]
+    ([StockRecordId]);
+GO
+
+-- Creating foreign key on [WorksheetId] in table 'Acceptance'
+ALTER TABLE [dbo].[Acceptance]
+ADD CONSTRAINT [FK_WorksheetAcceptance]
+    FOREIGN KEY ([WorksheetId])
+    REFERENCES [dbo].[Worksheet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WorksheetAcceptance'
+CREATE INDEX [IX_FK_WorksheetAcceptance]
+ON [dbo].[Acceptance]
+    ([WorksheetId]);
+GO
+
+-- Creating foreign key on [WarehouseId] in table 'Acceptance'
+ALTER TABLE [dbo].[Acceptance]
+ADD CONSTRAINT [FK_WarehouseAcceptance]
+    FOREIGN KEY ([WarehouseId])
+    REFERENCES [dbo].[Warehouse]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WarehouseAcceptance'
+CREATE INDEX [IX_FK_WarehouseAcceptance]
+ON [dbo].[Acceptance]
+    ([WarehouseId]);
+GO
+
+-- Creating foreign key on [CheckEmployeeId] in table 'Acceptance'
+ALTER TABLE [dbo].[Acceptance]
+ADD CONSTRAINT [FK_EmployeeAcceptance]
+    FOREIGN KEY ([CheckEmployeeId])
+    REFERENCES [dbo].[Employee]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeAcceptance'
+CREATE INDEX [IX_FK_EmployeeAcceptance]
+ON [dbo].[Acceptance]
+    ([CheckEmployeeId]);
+GO
+
+-- Creating foreign key on [ExamineEmployeeId] in table 'Acceptance'
+ALTER TABLE [dbo].[Acceptance]
+ADD CONSTRAINT [FK_EmployeeAcceptance1Examine]
+    FOREIGN KEY ([ExamineEmployeeId])
+    REFERENCES [dbo].[Employee]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeAcceptance1Examine'
+CREATE INDEX [IX_FK_EmployeeAcceptance1Examine]
+ON [dbo].[Acceptance]
+    ([ExamineEmployeeId]);
+GO
+
+-- Creating foreign key on [StockRecordId] in table 'Acceptance'
+ALTER TABLE [dbo].[Acceptance]
+ADD CONSTRAINT [FK_StockRecordAcceptance]
+    FOREIGN KEY ([StockRecordId])
+    REFERENCES [dbo].[StockRecord]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockRecordAcceptance'
+CREATE INDEX [IX_FK_StockRecordAcceptance]
+ON [dbo].[Acceptance]
+    ([StockRecordId]);
+GO
+
+-- Creating foreign key on [ProductionPlanId] in table 'PlanStorage'
+ALTER TABLE [dbo].[PlanStorage]
+ADD CONSTRAINT [FK_ProductionPlanPlanStorage]
+    FOREIGN KEY ([ProductionPlanId])
+    REFERENCES [dbo].[ProductionPlan]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductionPlanPlanStorage'
+CREATE INDEX [IX_FK_ProductionPlanPlanStorage]
+ON [dbo].[PlanStorage]
+    ([ProductionPlanId]);
+GO
+
+-- Creating foreign key on [StockRecordId] in table 'PlanStorage'
+ALTER TABLE [dbo].[PlanStorage]
+ADD CONSTRAINT [FK_StockRecordPlanStorage]
+    FOREIGN KEY ([StockRecordId])
+    REFERENCES [dbo].[StockRecord]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_StockRecordPlanStorage'
+CREATE INDEX [IX_FK_StockRecordPlanStorage]
+ON [dbo].[PlanStorage]
+    ([StockRecordId]);
 GO
 
 -- --------------------------------------------------

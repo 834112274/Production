@@ -58,6 +58,9 @@
     <Compile Include="Allocation.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Attachment.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CapitalAccount.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -174,6 +177,7 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Message.cs" />
+    <Compile Include="ViewModel\UserView.cs" />
     <Compile Include="Warehouse.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>

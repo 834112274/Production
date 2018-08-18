@@ -16,7 +16,8 @@ namespace Production.View
             // 将 Web API 配置为仅使用不记名令牌身份验证。
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-
+            // 解决json序列化时的循环引用问题(网上骗子千万，各种摘抄，真日狗)
+            //config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             // Web API 路由
             config.MapHttpAttributeRoutes();
 

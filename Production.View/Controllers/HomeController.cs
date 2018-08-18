@@ -26,5 +26,18 @@ namespace Production.View.Controllers
             ViewBag.Menu = menu;
             return View();
         }
+
+        public ActionResult Login()
+        {
+            var name= Request.Cookies["login_name"];
+            ViewBag.Name = name.Value;
+            
+            if (name != null)
+            {
+                ViewBag.Checked = "checked";
+                ViewBag.Password = Request.Cookies["login_password"].Value;
+            }
+            return View();
+        }
     }
 }

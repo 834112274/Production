@@ -1,0 +1,26 @@
+﻿<table id="tab_login_record_list" class="easyui-datagrid" style="width:100%;"
+       data-options="singleSelect:true,multiSort:true,collapsible:false,url:'/api/UserLogInfo/GetLogin',method:'get',fit:true,fitColumns:true,toolbar:'#login_list_search'">
+    <thead>
+        <tr>
+            <th data-options="field:'UserName',sortable:true,width:150">登陆用户</th>
+            <th data-options="field:'CreateTime',sortable:true,width:150">登陆时间</th>
+            <th data-options="field:'Content',width:300,align:'center'">其他信息</th>
+        </tr>
+    </thead>
+</table>
+<div id="login_list_search" style="padding:5px;height:auto">
+
+    开始日期: <input class="easyui-datebox" style="width:150px" id="search_login_record_start">
+    结束日期: <input class="easyui-datebox" style="width:150px" id="search_login_record_end">
+    
+    <a href="javascript:;" class="easyui-linkbutton" iconCls="icon-search" onclick="userLoginRecord.search()">Search</a>
+</div>
+<script>
+    var userLoginRecord = {
+        search: function () {
+            var start = $('#search_login_record_start').datebox('getValue');
+            var end = $('#search_login_record_end').datebox('getValue');
+            $('#tab_login_record_list').datagrid('load', { start: start, end: end });
+        }
+    };
+</script>

@@ -63,5 +63,6 @@ namespace Production.Model
         public virtual DbSet<Acceptance> Acceptance { get; set; }
         public virtual DbSet<PlanStorage> PlanStorage { get; set; }
         public virtual DbSet<SystemParams> SystemParams { get; set; }
+        public virtual DbSet<Attachment> Attachment { get; set; }
     }
 }

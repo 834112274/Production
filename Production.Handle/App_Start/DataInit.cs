@@ -15,8 +15,9 @@ namespace Production.Handle.App_Start
             using (DbModelContainer DbContext = new DbModelContainer())
             {
                 //初始化管理员用户
-                var userCount = DbContext.User.Count();
-                if (userCount==0)
+                var adminUser = new User();
+                var users =from m in DbContext.User where m.Name=="admin" select m;
+                if (users.Count() == 0)
                 {
                     User user = new User() {
                         Id = Guid.NewGuid().ToString(),
@@ -26,7 +27,15 @@ namespace Production.Handle.App_Start
                         Remarks="系统生成超级管理员"
                     };
                     DbContext.User.Add(user);
+                    adminUser = user;
                 }
+                else
+                {
+                    adminUser = users.First();
+                }
+                var ids = from m in DbContext.UserProperty where m.UserId == adminUser.Id select m.MenuId;
+                var newMenus = (from m in DbContext.Menu where !ids.Contains(m.Id) select m).ToList().Select(m=>new UserProperty { Id = Guid.NewGuid().ToString(),MenuId=m.Id,UserId=adminUser.Id,CreateTime=DateTime.Now,CreateUser="系统生成" });
+                DbContext.UserProperty.AddRange(newMenus);
                 DbContext.SaveChanges();
             }
         }

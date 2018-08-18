@@ -209,6 +209,7 @@
     <Compile Include="Areas\ViewApi\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\ViewApi\Controllers\RoleController.cs" />
     <Compile Include="Areas\ViewApi\Controllers\UserController.cs" />
+    <Compile Include="Areas\ViewApi\Controllers\UserLogInfoController.cs" />
     <Compile Include="Areas\ViewApi\ViewApiAreaRegistration.cs" />
     <Compile Include="Areas\ViewApi\Controllers\MenuController.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
@@ -248,6 +249,8 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JsonConfig.cs" />
+    <Compile Include="Models\UserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -637,8 +640,14 @@
     <Content Include="Images\Icon\webapp_icon23.png" />
     <Content Include="Images\Icon\webapp_icon3.png" />
     <Content Include="Images\Icon\YRwax8OV46.JPG" />
+    <Content Include="Images\login_bgx.gif" />
     <Content Include="Page\HtmlPage1.html" />
     <Content Include="Page\Login.html" />
+    <Content Include="Page\Personnel\Department.html" />
+    <Content Include="Page\System\MenuConfig.html" />
+    <Content Include="Page\System\MenuEdit.html" />
+    <Content Include="Page\System\UserList.html" />
+    <Content Include="Page\System\UserLoginRecord.html" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1551,6 +1560,8 @@
     <Content Include="Scripts\jquery-easyui-1.5.5.4\themes\metro\validatebox.css" />
     <Content Include="Scripts\jquery-easyui-1.5.5.4\themes\metro\window.css" />
     <Content Include="Scripts\jquery-easyui-1.5.5.4\themes\mobile.css" />
+    <Content Include="Scripts\jquery.cookie-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1574,6 +1585,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Modules.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\ViewApi\Models\" />
@@ -1591,6 +1603,10 @@
     <ProjectReference Include="..\Production.Handle\Production.Handle.csproj">
       <Project>{3987F176-ACA2-4D08-8169-0FC169E7011D}</Project>
       <Name>Production.Handle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Production.Help\Production.Help.csproj">
+      <Project>{33BD9513-8311-48BC-A947-AF4066DCD7C9}</Project>
+      <Name>Production.Help</Name>
     </ProjectReference>
     <ProjectReference Include="..\Production.Model\Production.Model.csproj">
       <Project>{0F3924C7-5EB0-4569-9FC6-868154450883}</Project>

@@ -1,0 +1,260 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>系统登录</title>
+    <link href="/Scripts/jquery-easyui-1.5.5.4/themes/bootstrap/easyui.css" rel="stylesheet">
+    <link href="/Scripts/jquery-easyui-1.5.5.4/themes/icon.css" rel="stylesheet">
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <script src="/Scripts/jquery-easyui-1.5.5.4/jquery.easyui.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        p {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html, body {
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            color: #797979;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .login-container {
+            background: #F7F7F7;
+            border-radius: 2px;
+            box-shadow: 0 0 8px;
+            width: 700px;
+            padding: 20px;
+            border: 1px solid #cad2db;
+        }
+
+        .login-box {
+            display: inline-block;
+            vertical-align: top;
+            border-left: 1px solid #ccc;
+            padding-left: 30px;
+            
+        }
+
+        .form-group {
+            margin: 10px auto;
+            line-height: 60px;
+        }
+
+            .form-group p {
+                margin-bottom: 10px;
+            }
+
+            .form-group .login-input {
+                width: 250px;
+                height: 36px;
+                border: 1px solid #cad2db;
+                padding: 0 5px;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                line-height: 36px;
+                margin-bottom: 10px;
+                font-size: 14px;
+                color: #717171;
+                background: #F7F7F7;
+                padding-left:15px;
+            }
+
+        .system-info {
+            display: inline-block;
+            width: 350px;
+            height: 100%;
+            vertical-align: top;
+            padding-top: 10px;
+        }
+
+            .system-info ul {
+                margin: 0px auto auto 20px;
+                padding: 0px;
+                list-style: none;
+                line-height: 28px;
+            }
+
+        .hearder {
+            font-size: 14px;
+        }
+
+        .remember-checkbox {
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-block;
+            vertical-align:middle;
+        }
+
+        .login-btn {
+            float:right;
+            vertical-align:middle;
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
+            padding: 6px 20px;
+            margin: 0;
+            cursor: pointer;
+            border: 1px solid #bbb;
+            overflow: visible;
+            font: bold 13px arial, helvetica, sans-serif;
+            text-decoration: none;
+            white-space: nowrap;
+            background-color: #57a957;
+            border-color: #57a957;
+            color: #fff;
+            text-shadow: 0 1px 0 rgba(0,0,0,.2);
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.3)), to(rgba(255,255,255,0)));
+            background-image: -webkit-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+            background-image: -moz-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+            background-image: -ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+            background-image: -o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+            background-image: linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+            -webkit-transition: background-color .2s ease-out;
+            -moz-transition: background-color .2s ease-out;
+            -ms-transition: background-color .2s ease-out;
+            -o-transition: background-color .2s ease-out;
+            transition: background-color .2s ease-out;
+            background-clip: padding-box; /* Fix bleeding */
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+            text-shadow: 0 1px 0 rgba(255,255,255, .9);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+            .login-btn:hover {
+                background-color: #62c462;
+            }
+
+            .login-btn:active {
+                background: #57a957;
+                position: relative;
+                top: 1px;
+                text-shadow: none;
+                -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+                -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
+            }
+
+            .login-btn[disabled], .button[disabled]:hover, .button[disabled]:active {
+                border-color: #eaeaea;
+                background: #fafafa;
+                cursor: default;
+                position: static;
+                color: #999;
+                /* Usually, !important should be avoided but here it's really needed :) */
+                -moz-box-shadow: none !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+            .system-title{
+                text-align:center;
+            }
+    </style>
+</head>
+<body style="background:url(/Images/login_bgx.gif);">
+    
+    <div >
+        <h1 class="system-title">生产管理ERP <small>v1.0</small></h1>
+        <div class="login-container">
+
+            <div class="system-info">
+                <p class="hearder">系统运营状况</p>
+                <ul>
+                    <li>运营时间</li>
+                </ul>
+            </div>
+            <div class="login-box">
+                <form id="login_form" action="/api/User/Login" method="post">
+                    <p id="login_msg" style="color:red;"></p>
+                    <div class="form-group">
+                        <input class="login-input" type="text" name="Name" value="@ViewBag.Name" placeholder="用户名">
+                    </div>
+                    <div class="form-group">
+                        <input class="login-input" type="password" name="Password" value="@ViewBag.Password" placeholder="密码">
+                    </div>
+
+                    <div style="overflow:hidden;line-height:31px;">
+                        <input type="submit" class="login-btn" value="登录">
+                        <label class="remember-checkbox">
+                            <input type="checkbox" name="remember" value="1" @ViewBag.Checked>记住账号
+                        </label>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.login-btn').click(function () {
+            $.messager.progress({
+                title: '提示',
+                msg: '正在登陆……',
+                text: ''
+            });
+        });
+        $('#login_form').form({
+            success: function (data) {
+                data = JSON.parse(data);
+                //console.log(data);
+                
+                if (data.result_code == 'fail') {
+                    $.messager.progress('close');
+                    $('#login_msg').text(data.msg);
+                }
+                else {
+                    var name = $.cookie('login_name');
+                    if (!name) {
+                        $.cookie('login_name', data.data.Name, { expires: 30 });
+                        $.cookie('login_password', data.data.Password, { expires: 30 });
+                    }
+                    
+                    window.location = "/Home/Index";
+                }
+            }
+        });
+        $(document.body).ready(function () {
+            if ($('input[name="Name"]').val() != '' && $('input[name="Password"]').val() != '') {
+                $('#login_form').form('submit', {
+                    onSubmit: function () {
+                        return $(this).form('enableValidation').form('validate');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

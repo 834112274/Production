@@ -117,6 +117,7 @@
         <AssociationConnector Association="DbModel.ProductionPlanPlanStorage" />
         <AssociationConnector Association="DbModel.StockRecordPlanStorage" />
         <EntityTypeShape EntityType="DbModel.SystemParams" Width="1.5" PointX="5.375" PointY="49.75" />
+        <EntityTypeShape EntityType="DbModel.Attachment" Width="1.5" PointX="9.375" PointY="49.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
